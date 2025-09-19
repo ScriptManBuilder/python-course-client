@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { currencyService, Currency } from '../services/currency';
 
 interface UsePriceReturn {
-  formatPrice: (priceInEUR: number) => string;
-  convertPrice: (priceInEUR: number) => number;
+  formatPrice: (priceInUSD: number) => string;
+  convertPrice: (priceInUSD: number) => number;
   currentCurrency: Currency;
   currencySymbol: string;
 }
@@ -23,12 +23,12 @@ export const usePrice = (): UsePriceReturn => {
     };
   }, []);
 
-  const formatPrice = (priceInEUR: number): string => {
-    return currencyService.formatPrice(priceInEUR, currentCurrency);
+  const formatPrice = (priceInUSD: number): string => {
+    return currencyService.formatPrice(priceInUSD, currentCurrency);
   };
 
-  const convertPrice = (priceInEUR: number): number => {
-    return currencyService.convertPrice(priceInEUR, currentCurrency);
+  const convertPrice = (priceInUSD: number): number => {
+    return currencyService.convertPrice(priceInUSD, currentCurrency);
   };
 
   const currencySymbol = currencyService.getCurrencySymbol(currentCurrency);

@@ -79,7 +79,7 @@ const ShippingPolicy: React.FC = () => {
         <SectionTitle>4. Delivery Areas</SectionTitle>
         <Paragraph>
           We currently ship to all locations within the United States. 
-          International shipping may be available upon request - please contact <a href="mailto:ops@sapienta.vc">support@willcol.com</a> for details.
+          International shipping may be available upon request - please contact support@willcol.com for details.
         </Paragraph>
       </Section>
 
@@ -94,7 +94,7 @@ const ShippingPolicy: React.FC = () => {
       <Section>
         <SectionTitle>6. Delivery Issues</SectionTitle>
         <Paragraph>
-          If your package is lost or damaged during shipping, please contact us immediately at <a href="mailto:support@willcol.com">support@willcol.com</a>. 
+          If your package is lost or damaged during shipping, please contact us immediately at support@willcol.com. 
           We will work with our shipping partners to resolve the issue quickly.
         </Paragraph>
       </Section>
@@ -115,8 +115,8 @@ const ShippingPolicy: React.FC = () => {
         <Paragraph>
           <strong>Williams Collection Inc.</strong><br/>
           E 2ND ST 5830, Casper, WY 82609, US<br/>
-          Email: <a href="mailto:support@willcol.com">support@willcol.com</a><br/>
-          Phone: +1 844 329 3900
+          Email: support@willcol.com<br/>
+          Phone: +14452856014
         </Paragraph>
       </Section>
     </Container>

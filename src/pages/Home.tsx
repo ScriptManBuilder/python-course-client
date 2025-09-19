@@ -16,6 +16,14 @@ import {
   SectionHeader,
   SectionTitle,
   SectionSubtitle,
+  CarouselContainer,
+  CarouselTrack,
+  CarouselSlide,
+  CarouselContent,
+  CarouselTitle,
+  CarouselSubtitle,
+  CarouselDots,
+  CarouselDot,
   FeaturesGrid,
   FeatureCard,
   FeatureIcon,
@@ -31,6 +39,7 @@ import {
   ProductPrice,
   ProductDescription,
   ProductButton,
+  PremiumButton,
   ScrollReveal,
   ParallaxElement,
   PhotoGallerySection,
@@ -47,6 +56,50 @@ const Home: React.FC = () => {
   const parallaxRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isVisible, setIsVisible] = useState(false);
   const galleryRef = useRef<HTMLDivElement>(null);
+
+  // Состояние для карусели
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const totalSlides = 3;
+
+  // Состояние для второй карусели (Featured Solutions)
+  const [currentFeaturedSlide, setCurrentFeaturedSlide] = useState(0);
+  const totalFeaturedSlides = 3;
+
+  // Состояние для автоматического выделения карточек продуктов
+  const [activeProductCard, setActiveProductCard] = useState(0);
+  const totalProductCards = featuredProducts.length;
+
+  // Данные для слайдов карусели
+  const carouselSlides = [
+    {
+      title: "Why Choose Williams Collection?",
+      subtitle: "Discover the excellence that makes our audio technology exceptional"
+    },
+    {
+      title: "Premium Sound Engineering",
+      subtitle: "Experience unmatched audio quality with our cutting-edge technology"
+    },
+    {
+      title: "Innovation Meets Style",
+      subtitle: "Where sophisticated design meets revolutionary audio performance"
+    }
+  ];
+
+  // Данные для слайдов Featured Solutions
+  const featuredSlides = [
+    {
+      title: "Featured Solutions",
+      subtitle: "Discover our most innovative digital products"
+    },
+    {
+      title: "Revolutionary Technology",
+      subtitle: "Next-generation products that redefine industry standards"
+    },
+    {
+      title: "Premium Experience",
+      subtitle: "Crafted for those who demand excellence in every detail"
+    }
+  ];
 
   // Мемоизируем массив изображений для галереи
   const galleryImages = useMemo(() => {
@@ -135,6 +188,103 @@ const Home: React.FC = () => {
     };
   }, []);
 
+  // Автоматическое переключение слайдов каждые 5 секунд
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % totalSlides);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [totalSlides]);
+
+  // Автоматическое переключение слайдов Featured Solutions каждые 5 секунд (со сдвигом)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentFeaturedSlide(prev => (prev + 1) % totalFeaturedSlides);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [totalFeaturedSlides]);
+
+  // Автоматическое выделение карточек продуктов каждые 5 секунд
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveProductCard(prev => (prev + 1) % totalProductCards);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [totalProductCards]);
+
+  // Функция для переключения на определенный слайд
+  const goToSlide = (slideIndex: number) => {
+    setCurrentSlide(slideIndex);
+  };
+
+  // Функция для переключения на определенный слайд Featured Solutions
+  const goToFeaturedSlide = (slideIndex: number) => {
+    setCurrentFeaturedSlide(slideIndex);
+  };
+
+  // Поддержка свайпов для мобильных устройств
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      // Свайп влево - следующий слайд
+      setCurrentSlide(prev => (prev + 1) % totalSlides);
+    } else if (isRightSwipe) {
+      // Свайп вправо - предыдущий слайд
+      setCurrentSlide(prev => (prev - 1 + totalSlides) % totalSlides);
+    }
+  };
+
+  // Поддержка свайпов для Featured Solutions карусели
+  const [featuredTouchStart, setFeaturedTouchStart] = useState<number | null>(null);
+  const [featuredTouchEnd, setFeaturedTouchEnd] = useState<number | null>(null);
+
+  const onFeaturedTouchStart = (e: React.TouchEvent) => {
+    setFeaturedTouchEnd(null);
+    setFeaturedTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onFeaturedTouchMove = (e: React.TouchEvent) => {
+    setFeaturedTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onFeaturedTouchEnd = () => {
+    if (!featuredTouchStart || !featuredTouchEnd) return;
+    
+    const distance = featuredTouchStart - featuredTouchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      // Свайп влево - следующий слайд
+      setCurrentFeaturedSlide(prev => (prev + 1) % totalFeaturedSlides);
+    } else if (isRightSwipe) {
+      // Свайп вправо - предыдущий слайд
+      setCurrentFeaturedSlide(prev => (prev - 1 + totalFeaturedSlides) % totalFeaturedSlides);
+    }
+  };
+
   const setScrollRevealRef = (index: number) => (el: HTMLDivElement | null) => {
     scrollRevealRefs.current[index] = el;
   };
@@ -175,12 +325,37 @@ const Home: React.FC = () => {
       </HeroSection>
 
       <FeaturesSection>
+        
         <Container>
           <ScrollReveal ref={setScrollRevealRef(0)}>
-            <SectionHeader>
-              <SectionTitle>Why Choose Williams Collection?</SectionTitle>
-              <SectionSubtitle>Discover the excellence that makes our audio technology exceptional</SectionSubtitle>
-            </SectionHeader>
+            {/* Карусель плашек */}
+            <CarouselContainer
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
+            >
+              <CarouselTrack currentSlide={currentSlide}>
+                {carouselSlides.map((slide, index) => (
+                  <CarouselSlide key={index}>
+                    <CarouselContent>
+                      <CarouselTitle>{slide.title}</CarouselTitle>
+                      <CarouselSubtitle>{slide.subtitle}</CarouselSubtitle>
+                    </CarouselContent>
+                  </CarouselSlide>
+                ))}
+              </CarouselTrack>
+            </CarouselContainer>
+            
+            {/* Навигационные точки */}
+            <CarouselDots>
+              {Array.from({ length: totalSlides }).map((_, index) => (
+                <CarouselDot
+                  key={index}
+                  active={currentSlide === index}
+                  onClick={() => goToSlide(index)}
+                />
+              ))}
+            </CarouselDots>
           </ScrollReveal>
           
           <FeaturesGrid>
@@ -250,16 +425,40 @@ const Home: React.FC = () => {
       <ProductsSection>
         <Container>
           <ScrollReveal ref={setScrollRevealRef(7)}>
-            <SectionHeader>
-              <SectionTitle>Featured Solutions</SectionTitle>
-              <SectionSubtitle>Discover our most innovative digital products</SectionSubtitle>
-            </SectionHeader>
+            {/* Карусель Featured Solutions */}
+            <CarouselContainer
+              onTouchStart={onFeaturedTouchStart}
+              onTouchMove={onFeaturedTouchMove}
+              onTouchEnd={onFeaturedTouchEnd}
+            >
+              <CarouselTrack currentSlide={currentFeaturedSlide}>
+                {featuredSlides.map((slide, index) => (
+                  <CarouselSlide key={index}>
+                    <CarouselContent>
+                      <CarouselTitle>{slide.title}</CarouselTitle>
+                      <CarouselSubtitle>{slide.subtitle}</CarouselSubtitle>
+                    </CarouselContent>
+                  </CarouselSlide>
+                ))}
+              </CarouselTrack>
+            </CarouselContainer>
+            
+            {/* Навигационные точки для Featured Solutions */}
+            <CarouselDots>
+              {Array.from({ length: totalFeaturedSlides }).map((_, index) => (
+                <CarouselDot
+                  key={index}
+                  active={currentFeaturedSlide === index}
+                  onClick={() => goToFeaturedSlide(index)}
+                />
+              ))}
+            </CarouselDots>
           </ScrollReveal>
           
           <ProductsGrid>
             {featuredProducts.map((product, index) => (
               <ScrollReveal key={product.id} ref={setScrollRevealRef(8 + index)} delay={index * 100}>
-                <ProductCard>
+                <ProductCard $isActive={activeProductCard === index}>
                   <ProductImage src={product.image} alt={product.name} />
                   <ProductInfo>
                     <ProductContent>
@@ -278,15 +477,11 @@ const Home: React.FC = () => {
           
           <ScrollReveal ref={setScrollRevealRef(14)}>
             <div style={{ textAlign: 'center', marginTop: '80px' }}>
-              <Button as={Link} to="/products" variant="primary" style={{ 
-                fontSize: '1.2rem',
-                padding: '20px 50px',
-                boxShadow: '0 8px 30px rgba(59, 130, 246, 0.4)',
-                background: 'var(--minimal-primary)',
-                color: 'white'
-              }}>
-                View All Solutions
-              </Button>
+              <PremiumButton as={Link} to="/products">
+                <span>
+                  ✨ View All Solutions
+                </span>
+              </PremiumButton>
             </div>
           </ScrollReveal>
         </Container>

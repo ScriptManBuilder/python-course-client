@@ -61,7 +61,7 @@ const RefundPolicy: React.FC = () => {
       <Section>
         <SectionTitle>2. Product Refund Process</SectionTitle>
         <Paragraph>
-          To initiate a return, contact us at <a href="mailto:ops@sapienta.vc">support@willcol.com</a> with your order number and reason for return.
+          To initiate a return, contact us at support@willcol.com with your order number and reason for return.
           We will provide you with a return authorization and shipping instructions.
         </Paragraph>
       </Section>
@@ -110,8 +110,8 @@ const RefundPolicy: React.FC = () => {
         </Paragraph>
         <Paragraph>
           <strong>Williams Collection Inc.</strong><br/>
-          Email: <a href="mailto:ops@sapienta.vc">support@willcol.com</a><br/>
-          Phone: +1 844 329 3900<br/>
+          Email: support@willcol.com<br/>
+          Phone: +14452856014<br/>
           Address: E 2ND ST 5830, Casper, WY 82609, US
         </Paragraph>
       </Section>

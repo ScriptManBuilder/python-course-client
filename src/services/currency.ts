@@ -1,23 +1,28 @@
-// Currency service for automatic EUR/USD conversion
-export type Currency = 'EUR' | 'USD';
+// Currency service for automatic USD/EUR conversion
+export type Currency = 'USD' | 'EUR';
 
 interface CurrencyRates {
-  EUR: number;
   USD: number;
+  EUR: number;
 }
 
 class CurrencyService {
   private rates: CurrencyRates = {
-    EUR: 1.0, // Base currency
-    USD: 1.08 // Updated rate: 1 EUR = 1.08 USD (approximate)
+    USD: 1.0, // Base currency
+    EUR: 0.93 // Updated rate: 1 USD = 0.93 EUR (approximate)
   };
 
-  private currentCurrency: Currency = 'EUR';
+  private currentCurrency: Currency = 'USD';
 
   // Set current currency
   setCurrency(currency: Currency): void {
     this.currentCurrency = currency;
     localStorage.setItem('selectedCurrency', currency);
+    
+    // Отправляем событие об изменении валюты
+    window.dispatchEvent(new CustomEvent('currencyChanged', {
+      detail: { currency }
+    }));
   }
 
   // Get current currency
@@ -28,31 +33,35 @@ class CurrencyService {
   // Initialize currency from localStorage
   initCurrency(): void {
     const saved = localStorage.getItem('selectedCurrency') as Currency;
-    if (saved && (saved === 'EUR' || saved === 'USD')) {
+    if (saved && (saved === 'USD' || saved === 'EUR')) {
       this.currentCurrency = saved;
+    } else {
+      // Если нет сохраненной валюты, устанавливаем USD по умолчанию
+      this.currentCurrency = 'USD';
+      localStorage.setItem('selectedCurrency', 'USD');
     }
   }
 
-  // Convert price from EUR to target currency
-  convertPrice(priceInEUR: number, targetCurrency?: Currency): number {
+  // Convert price from USD to target currency
+  convertPrice(priceInUSD: number, targetCurrency?: Currency): number {
     const currency = targetCurrency || this.currentCurrency;
     const rate = this.rates[currency];
-    const convertedPrice = parseFloat((priceInEUR * rate).toFixed(2));
+    const convertedPrice = parseFloat((priceInUSD * rate).toFixed(2));
     
     return convertedPrice;
   }
 
   // Format price with currency symbol
-  formatPrice(priceInEUR: number, targetCurrency?: Currency): string {
+  formatPrice(priceInUSD: number, targetCurrency?: Currency): string {
     const currency = targetCurrency || this.currentCurrency;
-    const convertedPrice = this.convertPrice(priceInEUR, currency);
+    const convertedPrice = this.convertPrice(priceInUSD, currency);
     
     const symbols = {
-      EUR: '€',
-      USD: '$'
+      USD: '$',
+      EUR: '€'
     };
 
-    const formatted = `${convertedPrice.toFixed(2)}${symbols[currency]}`;
+    const formatted = `${symbols[currency]}${convertedPrice.toFixed(2)}`;
     
     return formatted;
   }
@@ -60,7 +69,7 @@ class CurrencyService {
   // Get currency symbol
   getCurrencySymbol(currency?: Currency): string {
     const curr = currency || this.currentCurrency;
-    return curr === 'EUR' ? '€' : '$';
+    return curr === 'USD' ? '$' : '€';
   }
 
   // Update exchange rates (could be called from an API)
@@ -70,11 +79,11 @@ class CurrencyService {
 
   // Get all available currencies
   getAvailableCurrencies(): Currency[] {
-    return ['EUR', 'USD'];
+    return ['USD', 'EUR'];
   }
 
   // Get current exchange rate
-  getExchangeRate(fromCurrency: Currency = 'EUR', toCurrency?: Currency): number {
+  getExchangeRate(fromCurrency: Currency = 'USD', toCurrency?: Currency): number {
     const to = toCurrency || this.currentCurrency;
     return this.rates[to] / this.rates[fromCurrency];
   }

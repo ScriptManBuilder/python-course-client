@@ -695,9 +695,16 @@ const PaymentError = styled.div`
 const TermsCheckbox = styled.div`
   margin: 25px 0;
   padding: 20px;
-  background: var(--minimal-gray-50);
-  border: 1px solid var(--minimal-gray-200);
+  background: var(--minimal-white);
+  border: 2px solid var(--minimal-gray-300);
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    border-color: var(--minimal-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+  }
 `;
 
 const CheckboxContainer = styled.label`
@@ -721,10 +728,37 @@ const Checkbox = styled.input`
   cursor: pointer;
   accent-color: var(--minimal-primary);
   flex-shrink: 0;
+  background: var(--minimal-white);
+  border: 2px solid var(--minimal-gray-300);
+  border-radius: 4px;
+  appearance: none;
+  position: relative;
+  transition: all 0.2s ease;
+  
+  &:checked {
+    background: var(--minimal-primary);
+    border-color: var(--minimal-primary);
+  }
+  
+  &:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+  }
   
   &:focus {
     outline: 2px solid var(--minimal-primary);
     outline-offset: 2px;
+  }
+  
+  &:hover {
+    border-color: var(--minimal-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
   }
 `;
 
@@ -742,7 +776,13 @@ const TermsText = styled.span`
 
 const Checkout: React.FC = () => {
   const { state } = useCart();
-  const { formatPrice } = usePrice();
+  const { formatPrice, currentCurrency, currencySymbol } = usePrice();
+  
+  // Free shipping threshold in USD, converts automatically based on currency
+  const getFreeShippingText = () => {
+    const thresholdUSD = 50; // $50 threshold
+    return `Free shipping on orders over ${formatPrice(thresholdUSD)}`;
+  };
   
   // Generate random math question
   const generateCaptcha = () => {
@@ -1090,8 +1130,8 @@ const Checkout: React.FC = () => {
             <ContactInfo>
               <ContactTitle>Customer Support</ContactTitle>
               <ContactDetails>
-                <p>📧 Email: <a href="mailto:ops@sapienta.vc">support@willcol.com</a></p>
-                <p>📞 Phone: <a href="tel:+18443293900">+1 844 329 3900</a></p>
+                <p>📧 Email: support@willcol.com</p>
+                <p>📞 Phone: <a href="tel:+18443293900">+1 (445) 285-6014</a></p>
                 <p>🕒 Hours: Monday - Friday, 9 AM - 6 PM MST</p>
                 
               </ContactDetails>
@@ -1147,10 +1187,9 @@ const Checkout: React.FC = () => {
                   onChange={(e) => setAgreeToTerms(e.target.checked)}
                 />
                 <TermsText>
-                  I am 18 years or older and agree to the <a href="/privacy-notice">Privacy Notice</a>, 
-                  <a href="/terms-conditions"> Terms & Conditions</a>, <a href="/return-policy">Return Policy</a> and <a href="/terms-of-purchase"> Terms of Purchase</a>. 
+                  I am 18 years or older and agree to the<a href="/terms-conditions"> Terms & Conditions</a>, <a href="/return-policy">Return Policy</a>. 
                   I agree to pay the total amount provided on the checkout page (free shipping via USPS). To cancel your order, please 
-                  call our customer service team CST Mon-Fri (9am-5pm) at +1 844 329 3900 or email <a href="mailto:ops@sapienta.vc">support@willcol.com</a>. 
+                  call our customer service team CST Mon-Fri (9am-5pm) at +1 (445) 285-6014 or email support@willcol.com. 
                   For guidelines on returns and cancellations please visit our <a href="/terms-conditions">Terms & Conditions</a> page for instructions on returning a 
                   product or canceling an order. Your credit card will be billed with the following descriptor: WILLCOL.COM. This is how the 
                   charge will appear on the cardholder's billing statement. Products will be shipped in 3-5 business days via USPS.
@@ -1198,7 +1237,7 @@ const Checkout: React.FC = () => {
             <div style={{ fontSize: '0.8rem', color: 'var(--minimal-gray-400)', marginTop: '20px', lineHeight: '1.6' }}>
               <p style={{ display: 'flex', alignItems: 'center', margin: '8px 0' }}>
                 <span style={{ marginRight: '8px' }}>🚚</span>
-                <span>Free shipping on orders over €50</span>
+                <span>{getFreeShippingText()}</span>
               </p>
               <p style={{ display: 'flex', alignItems: 'center', margin: '8px 0' }}>
                 <span style={{ marginRight: '8px' }}>🔒</span>

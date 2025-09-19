@@ -23,7 +23,8 @@ const gradientShift = keyframes`
   50% { background-position: 100% 50%; }
 `;
 
-const snakeBorder = keyframes`
+// Анимация змейки по контуру
+const snakeAnimation = keyframes`
   0% {
     clip-path: polygon(0% 0%, 0% 0%, 0% 0%, 0% 0%);
   }
@@ -31,7 +32,7 @@ const snakeBorder = keyframes`
     clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   }
   50% {
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 100% 100%);
   }
   75% {
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -41,51 +42,22 @@ const snakeBorder = keyframes`
   }
 `;
 
+// Простая анимация линии по контуру кнопки
 const borderSnake = keyframes`
   0% {
-    background: linear-gradient(90deg, #667eea 0%, #667eea 10%, transparent 15%, transparent 100%);
-    background-position: -100% 0;
-    background-size: 200% 4px;
+    background-position: 0% 0%;
   }
   25% {
-    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    background-position: 0% 0;
-    background-size: 100% 4px;
-  }
-  26% {
-    background: linear-gradient(0deg, #764ba2 0%, #764ba2 10%, transparent 15%, transparent 100%);
-    background-position: 100% -100%;
-    background-size: 4px 200%;
+    background-position: 100% 0%;
   }
   50% {
-    background: linear-gradient(0deg, #764ba2 0%, #f093fb 50%, #667eea 100%);
-    background-position: 100% 0%;
-    background-size: 4px 100%;
-  }
-  51% {
-    background: linear-gradient(-90deg, #f093fb 0%, #f093fb 10%, transparent 15%, transparent 100%);
-    background-position: 200% 100%;
-    background-size: 200% 4px;
+    background-position: 100% 100%;
   }
   75% {
-    background: linear-gradient(-90deg, #f093fb 0%, #667eea 50%, #764ba2 100%);
     background-position: 0% 100%;
-    background-size: 100% 4px;
-  }
-  76% {
-    background: linear-gradient(180deg, #667eea 0%, #667eea 10%, transparent 15%, transparent 100%);
-    background-position: 0% 200%;
-    background-size: 4px 200%;
-  }
-  99% {
-    background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-    background-position: 0% 0%;
-    background-size: 4px 100%;
   }
   100% {
-    background: linear-gradient(90deg, #764ba2 0%, #764ba2 10%, transparent 15%, transparent 100%);
-    background-position: -100% 0;
-    background-size: 200% 4px;
+    background-position: 0% 0%;
   }
 `;
 
@@ -482,9 +454,66 @@ export const NavLink = styled(Link)`
   font-size: 1rem;
   transition: all 0.3s ease;
   text-decoration: none;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  
+  /* Псевдоэлемент для анимации змейки */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, 
+      #667eea 0%, 
+      transparent 10%, 
+      transparent 90%, 
+      #667eea 100%
+    );
+    background-size: 200% 100%;
+    border-radius: 10px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Линии по контуру */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: 
+      linear-gradient(90deg, #667eea, #764ba2, #f093fb, #667eea) border-box,
+      linear-gradient(90deg, #667eea, #764ba2, #f093fb, #667eea) border-box;
+    background-size: 300% 300%;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    opacity: 0;
+    animation: ${borderSnake} 2s linear infinite;
+    animation-play-state: paused;
+  }
 
   &:hover {
     color: #667eea;
+    transform: translateY(-2px);
+    
+    &::before {
+      opacity: 0.1;
+    }
+    
+    &::after {
+      opacity: 1;
+      animation-play-state: running;
+    }
   }
 
   @media (max-width: 768px) {
@@ -574,20 +603,21 @@ export const MenuButton = styled.button`
   &::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 8px;
-    padding: 2px;
-    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid;
+    border-color: transparent;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea) border-box;
     background-size: 300% 300%;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     opacity: 0;
-    animation: ${borderSnake} 4s ease-in-out infinite;
+    animation: ${borderSnake} 2s linear infinite;
     animation-play-state: paused;
   }
   
@@ -642,20 +672,21 @@ export const CartIcon = styled(Link)`
   &::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 12px;
-    padding: 2px;
-    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid;
+    border-color: transparent;
+    border-radius: 14px;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea) border-box;
     background-size: 300% 300%;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     opacity: 0;
-    animation: ${borderSnake} 4s ease-in-out infinite;
+    animation: ${borderSnake} 2s linear infinite;
     animation-play-state: paused;
   }
   
@@ -788,20 +819,21 @@ export const UserButton = styled.button`
   &::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 12px;
-    padding: 2px;
-    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea);
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid;
+    border-color: transparent;
+    border-radius: 14px;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #667eea) border-box;
     background-size: 300% 300%;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     opacity: 0;
-    animation: ${borderSnake} 4s ease-in-out infinite;
+    animation: ${borderSnake} 2s linear infinite;
     animation-play-state: paused;
   }
   

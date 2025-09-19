@@ -58,8 +58,8 @@ const TermsConditions: React.FC = () => {
           Our contact information:
         </Paragraph>
         <Paragraph>
-          Email: <a href="mailto:ops@sapienta.vc">support@willcol.com</a><br/>
-          Phone: +1 844-329-3900<br/>
+          Email: support@willcol.com<br/>
+          Phone: +14452856014<br/>
           Address: E 2ND ST 5830, Casper, WY 82609, United States
         </Paragraph>
       </Section>
@@ -78,7 +78,7 @@ const TermsConditions: React.FC = () => {
           We accept major credit and debit cards. Your payment information is processed securely through our payment processors.
         </Paragraph>
         <Paragraph>
-          <strong>Billing Descriptor:</strong> Charges will appear on your credit card statement as "THE WILLIAMS COLLECTION". 
+          <strong>Billing Descriptor:</strong> Charges will appear on your credit card statement as "WILLCOL.COM". 
           This is how the charge will appear on your cardholder's billing statement.
         </Paragraph>
       </Section>
@@ -130,8 +130,8 @@ const TermsConditions: React.FC = () => {
         <Paragraph>
           <strong>The Williams Collection Inc.</strong><br />
           E 2ND ST 5830, Casper, WY 82609, United States<br />
-          Phone: +1 844-329-3900<br />
-          Email: <a href="mailto:ops@sapienta.vc">support@willcol.com</a>
+          Phone: +14452856014<br />
+          Email: support@willcol.com
         </Paragraph>
       </Section>
     </Container>

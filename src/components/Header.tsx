@@ -35,18 +35,9 @@ const Header: React.FC = () => {
   const isMouseOverProducts = useRef(false);
   const isMouseOverDropdown = useRef(false);
 
-  const handleEmailClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const email = 'support@willcol.com';
-    
-    // Просто открываем почтовый клиент
-    const mailtoLink = `mailto:${email}?subject=Support Request&body=Hello Williams Collection support team,%0D%0A%0D%0A`;
-    window.location.href = mailtoLink;
-  };
-
   const handlePhoneClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const phone = '+18443293900';
+    const phone = '+14452856014';
     
     // Просто пытаемся позвонить/открыть приложение для звонков
     window.location.href = `tel:${phone}`;
@@ -178,22 +169,18 @@ const Header: React.FC = () => {
           <ContactInfo>
             <ContactItem>
               <MailIcon size={14} />
-              <a 
-                href="mailto:ops@sapienta.vc" 
-                onClick={handleEmailClick}
-                style={{ cursor: 'pointer', color: 'inherit', textDecoration: 'none' }}
-              >
+              <span style={{ color: 'inherit' }}>
                 support@willcol.com
-              </a>
+              </span>
             </ContactItem>
             <ContactItem>
               <PhoneIcon size={14} />
               <a 
-                href="tel:+18443293900" 
+                href="tel:+14452856014" 
                 onClick={handlePhoneClick}
                 style={{ cursor: 'pointer', color: 'inherit', textDecoration: 'none' }}
               >
-                +1 844 329 3900
+                +1 (445) 285-6014
               </a>
             </ContactItem>
           </ContactInfo>

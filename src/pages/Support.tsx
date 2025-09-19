@@ -16,6 +16,7 @@ import {
   ContactTitle,
   ContactInfo,
   ContactLink,
+  ContactText,
   FAQSection,
   FAQItem,
   FAQQuestion,
@@ -44,7 +45,7 @@ const Support: React.FC = () => {
   const faqData = [
     {
       question: "How long does shipping take?",
-      answer: "Standard shipping takes 3-5 business days within the UK. Express shipping is available for next-day delivery. International shipping times vary by location."
+      answer: "Standard shipping takes 3-5 business days within the USA. Express shipping is available for next-day delivery. International shipping times vary by location."
     },
     {
       question: "What is your return policy?",
@@ -85,9 +86,9 @@ const Support: React.FC = () => {
                 <ContactContent>
                   <ContactTitle>Email Support</ContactTitle>
                   <ContactInfo>Average response time: 2-4 hours</ContactInfo>
-                  <ContactLink href="mailto:ops@sapienta.vc">
+                  <ContactText>
                     support@willcol.com
-                  </ContactLink>
+                  </ContactText>
                 </ContactContent>
               </ContactCard>
               
@@ -98,8 +99,8 @@ const Support: React.FC = () => {
                 <ContactContent>
                   <ContactTitle>Phone Support</ContactTitle>
                   <ContactInfo>Monday - Friday, 9 AM - 6 PM MST</ContactInfo>
-                  <ContactLink href="tel:+18443293900">
-                    +1 844 329 3900
+                  <ContactLink href="tel:+14452856014">
+                    +14452856014
                   </ContactLink>
                 </ContactContent>
               </ContactCard>

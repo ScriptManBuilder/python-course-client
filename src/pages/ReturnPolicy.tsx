@@ -72,7 +72,7 @@ const ReturnPolicy: React.FC = () => {
           To initiate a return:
         </Paragraph>
         <Paragraph>
-          1. Contact our support team at <a href="mailto:support@thewilliamscollection.com">support@thewilliamscollection.com</a><br/>
+          1. Contact our support team at support@willcol.com<br/>
           2. Provide your order number and reason for return<br/>
           3. We will provide a return authorization number and instructions<br/>
           4. Pack the item securely and ship to our returns address
@@ -87,8 +87,7 @@ const ReturnPolicy: React.FC = () => {
         <Paragraph>
           <strong>The Williams Collection Inc.</strong><br/>
           Returns Department<br/>
-          E 2ND ST 5830<br/>
-          Casper, WY 82609, United States
+         Address: E 2ND ST 5830, Casper, WY 82609, United States
         </Paragraph>
       </Section>
 
@@ -105,7 +104,7 @@ const ReturnPolicy: React.FC = () => {
         <Paragraph>
           Once we receive your return, we will inspect the item and process your refund within 
           5-7 business days. Refunds will be issued to your original payment method and will 
-          appear as "THE WILLIAMS COLLECTION" on your statement.
+          appear as "The Williams Collection Inc." on your statement.
         </Paragraph>
       </Section>
 
@@ -132,8 +131,8 @@ const ReturnPolicy: React.FC = () => {
         </Paragraph>
         <Paragraph>
           <strong>The Williams Collection Inc.</strong><br/>
-          Email: <a href="mailto:support@thewilliamscollection.com">support@thewilliamscollection.com</a><br/>
-          Phone: +1 844-329-3900<br/>
+          Email: support@willcol.com<br/>
+          Phone: +14452856014<br/>
           Address: E 2ND ST 5830, Casper, WY 82609, United States
         </Paragraph>
       </Section>

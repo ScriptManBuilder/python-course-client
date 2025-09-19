@@ -270,6 +270,17 @@ export const ContactLink = styled.a`
   }
 `;
 
+export const ContactText = styled.span`
+  color: #667eea;
+  font-weight: 600;
+  font-size: 1.1rem;
+  word-break: break-all;
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+`;
+
 export const ContactForm = styled.form`
   background: white;
   border-radius: 20px;

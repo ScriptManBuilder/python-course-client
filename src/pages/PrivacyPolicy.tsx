@@ -74,7 +74,7 @@ const PrivacyPolicy: React.FC = () => {
         <SectionTitle>3. Payment Processing</SectionTitle>
         <Paragraph>
           Payment information is processed securely through our payment processors. Charges will appear 
-          on your statement as "THE WILLIAMS COLLECTION". We do not store complete credit card information on our servers.
+          on your statement as "WILLCOL.COM". We do not store complete credit card information on our servers.
         </Paragraph>
       </Section>
 
@@ -106,7 +106,7 @@ const PrivacyPolicy: React.FC = () => {
         <SectionTitle>7. Your Rights</SectionTitle>
         <Paragraph>
           You have the right to access, update, or delete your personal information. You may also opt out 
-          of marketing communications at any time. Contact us at <a href="mailto:support@thewilliamscollection.com">support@thewilliamscollection.com</a> for assistance.
+          of marketing communications at any time. Contact us at support@willcol.com for assistance.
         </Paragraph>
       </Section>
 
@@ -126,7 +126,7 @@ const PrivacyPolicy: React.FC = () => {
         <Paragraph>
           <strong>The Williams Collection Inc.</strong><br/>
           E 2ND ST 5830, Casper, WY 82609, United States<br/>
-          Email: <a href="mailto:support@thewilliamscollection.com">support@thewilliamscollection.com</a><br/>
+          Email: support@willcol.com<br/>
           Phone: +1 844-329-3900
         </Paragraph>
       </Section>

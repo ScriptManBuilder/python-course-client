@@ -109,9 +109,9 @@ const Cart: React.FC = () => {
               Proceed to Checkout
             </CheckoutButton>
             
-            <div style={{ textAlign: 'center', marginTop: '15px', fontSize: '0.85rem', color: '#9ca3af' }}>
+            {/* <div style={{ textAlign: 'center', marginTop: '15px', fontSize: '0.85rem', color: '#9ca3af' }}>
               Accept 4 payment methods
-            </div>
+            </div> */}
           </CartSummary>
         </CartContent>
 

@@ -1,16 +1,17 @@
-import styled from 'styled-components';
+﻿import styled from 'styled-components';
 
 export const FooterWrapper = styled.footer`
-  background: #000;
-  color: #fff;
-  padding: 60px 0 20px;
+  background: #f8fafc;
+  color: #374151;
+  padding: 60px 0 30px;
+  border-top: 1px solid #e5e7eb;
   
   @media (max-width: 768px) {
-    padding: 40px 0 15px;
+    padding: 50px 0 25px;
   }
   
   @media (max-width: 480px) {
-    padding: 30px 0 10px;
+    padding: 40px 0 20px;
   }
 `;
 
@@ -22,355 +23,169 @@ export const FooterContent = styled.div`
   @media (max-width: 768px) {
     padding: 0 15px;
   }
-  
-  @media (max-width: 480px) {
-    padding: 0 10px;
-  }
 `;
 
-export const FooterTop = styled.div`
+export const FooterMain = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  margin-bottom: 40px;
-  
-  @media (max-width: 1024px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 35px;
-  }
-  
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-bottom: 30px;
-  }
-  
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-    gap: 25px;
-    margin-bottom: 25px;
-  }
-`;
+  grid-template-columns: 200px 150px 180px 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
 
-export const FooterSection = styled.div`
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+`;export const FooterSection = styled.div`
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
     margin-bottom: 20px;
-    color: #fff;
+    color: #1f2937;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
   
   ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
     
     li {
       margin-bottom: 10px;
       
       a {
-        color: #ccc;
+        color: #6b7280;
+        font-size: 0.95rem;
+        font-weight: 500;
+        text-decoration: none;
         transition: color 0.3s ease;
         
         &:hover {
-          color: #667eea;
+          color: #1f2937;
         }
       }
     }
   }
-  
-  @media (max-width: 768px) {
-    h3 {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-    }
-    
-    ul li {
-      margin-bottom: 8px;
-      font-size: 0.95rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    text-align: center;
-    
-    h3 {
-      font-size: 1rem;
-      margin-bottom: 12px;
-    }
-    
-    ul li {
-      margin-bottom: 6px;
-      font-size: 0.9rem;
-    }
-  }
 `;
 
-export const SocialSection = styled.div`
+export const MoreAboutSection = styled.div`
+  @media (max-width: 768px) {
+    grid-column: 1 / -1;
+  }
+  
   h3 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
     margin-bottom: 20px;
-    color: #fff;
-  }
-  
-  @media (max-width: 768px) {
-    h3 {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    text-align: center;
-    
-    h3 {
-      font-size: 1rem;
-      margin-bottom: 12px;
-    }
+    color: #1f2937;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 `;
 
-export const SocialLinks = styled.div`
+export const PromoCards = styled.div`
   display: flex;
-  gap: 15px;
+  flex-direction: row;
+  gap: 0.75rem;
   
-  a {
-    color: #ccc;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-    
-    &:hover {
-      color: #667eea;
-    }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+`;
+
+export const PromoCard = styled.a`
+  display: flex;
+  flex-direction: column;
+  background: #1f2937;
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  width: 120px;
+  height: 140px;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.15);
+  }
+  
+  img {
+    width: 100%;
+    height: 70px;
+    object-fit: cover;
   }
   
   @media (max-width: 768px) {
-    gap: 12px;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
     
-    a {
-      font-size: 1.4rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    justify-content: center;
-    gap: 10px;
-    
-    a {
-      font-size: 1.3rem;
+    img {
+      width: 80px;
+      height: 60px;
+      flex-shrink: 0;
     }
   }
 `;
 
-export const NewsletterSection = styled.div`
-  h3 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #fff;
+export const PromoCardContent = styled.div`
+  padding: 0.5rem;
+  background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  h4 {
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: 1.1;
   }
   
   p {
-    color: #ccc;
-    margin-bottom: 20px;
-    line-height: 1.6;
+    color: #d1d5db;
+    font-size: 0.65rem;
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.2;
   }
   
   @media (max-width: 768px) {
-    h3 {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
+    padding: 0.75rem;
+    
+    h4 {
+      font-size: 0.85rem;
     }
     
     p {
-      font-size: 0.95rem;
-      margin-bottom: 15px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    text-align: center;
-    
-    h3 {
-      font-size: 1rem;
-      margin-bottom: 12px;
-    }
-    
-    p {
-      font-size: 0.9rem;
-      margin-bottom: 12px;
-    }
-  }
-`;
-
-export const NewsletterForm = styled.div`
-  display: flex;
-  gap: 10px;
-  
-  @media (max-width: 480px) {
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  input {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #333;
-    background: #111;
-    color: #fff;
-    border-radius: 4px;
-    
-    @media (max-width: 768px) {
-      padding: 10px;
-      font-size: 0.9rem;
-    }
-    
-    @media (max-width: 480px) {
-      padding: 12px;
-      width: 100%;
-    }
-    
-    &::placeholder {
-      color: #666;
-      
-      @media (max-width: 480px) {
-        font-size: 0.9rem;
-      }
-    }
-    
-    &:focus {
-      outline: none;
-      border-color: #667eea;
-    }
-  }
-  
-  button {
-    padding: 12px 24px;
-    background: #667eea;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    
-    @media (max-width: 768px) {
-      padding: 10px 20px;
-      font-size: 0.9rem;
-    }
-    
-    @media (max-width: 480px) {
-      padding: 12px 24px;
-      width: 100%;
-      font-size: 1rem;
-    }
-    
-    &:hover {
-      background: #5a67d8;
+      font-size: 0.75rem;
     }
   }
 `;
 
 export const FooterBottom = styled.div`
-  border-top: 1px solid #333;
+  border-top: 1px solid #e5e7eb;
   padding-top: 30px;
   text-align: center;
   
   @media (max-width: 768px) {
     padding-top: 25px;
   }
-  
-  @media (max-width: 480px) {
-    padding-top: 20px;
-  }
 `;
 
 export const Copyright = styled.p`
-  color: #888;
-  font-size: 0.95rem;
+  color: #6b7280;
+  font-size: 0.9rem;
   margin: 0;
-  opacity: 0.9;
-  font-weight: 400;
+  font-weight: 500;
   
   @media (max-width: 768px) {
-    font-size: 0.9rem;
-  }
-  
-  @media (max-width: 480px) {
     font-size: 0.85rem;
-  }
-`;
-
-export const LegalLinks = styled.div`
-  display: flex;
-  gap: 20px;
-  
-  @media (max-width: 768px) {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  @media (max-width: 480px) {
-    gap: 12px;
-  }
-  
-  a {
-    color: #666;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-    
-    @media (max-width: 768px) {
-      font-size: 0.85rem;
-    }
-    
-    @media (max-width: 480px) {
-      font-size: 0.8rem;
-    }
-    
-    &:hover {
-      color: #667eea;
-    }
-  }
-`;
-
-export const ContactInfo = styled.div`
-  h3 {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #fff;
-    
-    @media (max-width: 768px) {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    
-    @media (max-width: 480px) {
-      font-size: 1rem;
-      margin-bottom: 12px;
-    }
-  }
-  
-  p {
-    color: #ccc;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    
-    @media (max-width: 768px) {
-      text-align: center;
-      font-size: 0.85rem;
-    }
-    
-    @media (max-width: 480px) {
-      font-size: 0.8rem;
-      margin-bottom: 8px;
-    }
-  }
-  
-  a {
-    color: #667eea;
-    transition: color 0.3s ease;
-    
-    &:hover {
-      color: #5a67d8;
-    }
   }
 `;
