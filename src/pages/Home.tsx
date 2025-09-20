@@ -30,6 +30,11 @@ import {
   FeatureTitle,
   FeatureDescription,
   ProductsSection,
+  VideoSection,
+  VideoSectionVideo,
+  VideoSectionContent,
+  VideoSectionTitle,
+  VideoSectionSubtitle,
   ProductsGrid,
   ProductCard,
   ProductImage,
@@ -46,7 +51,16 @@ import {
   PhotoStrip,
   PhotoItem,
   ScrollingTextBanner,
-  ScrollingText
+  ScrollingText,
+  InfoSection,
+  InfoGrid,
+  InfoBlock,
+  InfoTitle,
+  InfoDescription,
+  InfoSubsection,
+  InfoSubtitle,
+  InfoText,
+  InfoHighlight
 } from '../styles/pages/HomeStyles';
 
 const Home: React.FC = () => {
@@ -55,7 +69,9 @@ const Home: React.FC = () => {
   const scrollRevealRefs = useRef<(HTMLDivElement | null)[]>([]);
   const parallaxRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [isVisible, setIsVisible] = useState(false);
+  const [isVideoSectionVisible, setIsVideoSectionVisible] = useState(false);
   const galleryRef = useRef<HTMLDivElement>(null);
+  const videoSectionRef = useRef<HTMLDivElement>(null);
 
   // Состояние для карусели
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -155,8 +171,23 @@ const Home: React.FC = () => {
       { threshold: 0.1, rootMargin: '200px' }
     );
 
+    // Intersection Observer для новой видео секции
+    const videoSectionObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVideoSectionVisible(true);
+          videoSectionObserver.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: '200px' }
+    );
+
     if (galleryRef.current) {
       galleryObserver.observe(galleryRef.current);
+    }
+
+    if (videoSectionRef.current) {
+      videoSectionObserver.observe(videoSectionRef.current);
     }
 
     // Parallax эффект при скролле (throttled)
@@ -184,6 +215,7 @@ const Home: React.FC = () => {
     return () => {
       observer.disconnect();
       galleryObserver.disconnect();
+      videoSectionObserver.disconnect();
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
@@ -303,7 +335,7 @@ const Home: React.FC = () => {
           playsInline
           preload="auto"
         >
-          <source src="/videos/animation2.mp4" type="video/mp4" />
+          <source src="/videos/vid5.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </HeroVideo>
         <Container>
@@ -422,6 +454,28 @@ const Home: React.FC = () => {
         </Container>
       </FeaturesSection>
 
+      {/* Новая независимая видео секция */}
+      <VideoSection ref={videoSectionRef}>
+        {isVideoSectionVisible && (
+          <VideoSectionVideo 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
+            preload="none"
+          >
+            <source src="/videos/animation2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </VideoSectionVideo>
+        )}
+        <VideoSectionContent>
+          <VideoSectionTitle>Innovation in Motion</VideoSectionTitle>
+          <VideoSectionSubtitle>
+            Experience the future of audio technology through cutting-edge design and engineering excellence
+          </VideoSectionSubtitle>
+        </VideoSectionContent>
+      </VideoSection>
+
       <ProductsSection>
         <Container>
           <ScrollReveal ref={setScrollRevealRef(7)}>
@@ -510,6 +564,80 @@ const Home: React.FC = () => {
           </ScrollingText>
         </ScrollingTextBanner>
       </PhotoGallerySection>
+
+      {/* Information Section */}
+      <InfoSection>
+        <InfoGrid>
+          <InfoBlock>
+            <InfoTitle>Premium Audio Technology</InfoTitle>
+            <InfoDescription>
+              Experience unparalleled sound quality with our cutting-edge headphone collection. 
+              Each model features advanced acoustic engineering for crystal-clear highs, 
+              rich mids, and deep bass response.
+            </InfoDescription>
+            
+            <InfoSubsection>
+              <InfoSubtitle>Professional Grade Drivers</InfoSubtitle>
+              <InfoText>
+                Our headphones utilize <InfoHighlight>precision-engineered drivers</InfoHighlight> 
+                that deliver exceptional frequency response across the entire audio spectrum. 
+                From studio monitoring to casual listening, experience audio as it was meant to be heard.
+              </InfoText>
+            </InfoSubsection>
+          </InfoBlock>
+
+          <InfoBlock>
+            <InfoTitle>Comfort & Durability</InfoTitle>
+            <InfoDescription>
+              Designed for extended listening sessions with premium materials and ergonomic engineering. 
+              Our headphones combine luxury comfort with professional-grade durability.
+            </InfoDescription>
+            
+            <InfoSubsection>
+              <InfoSubtitle>Premium Build Quality</InfoSubtitle>
+              <InfoText>
+                Featuring <InfoHighlight>premium leather padding</InfoHighlight>, reinforced hinges, 
+                and lightweight yet durable construction. Built to withstand daily use while 
+                maintaining exceptional comfort for hours of listening.
+              </InfoText>
+            </InfoSubsection>
+          </InfoBlock>
+
+          <InfoBlock>
+            <InfoTitle>Wireless Freedom</InfoTitle>
+            <InfoDescription>
+              Cut the cord with advanced Bluetooth technology and long-lasting battery life. 
+              Enjoy seamless connectivity and freedom of movement without compromising audio quality.
+            </InfoDescription>
+            
+            <InfoSubsection>
+              <InfoSubtitle>Advanced Connectivity</InfoSubtitle>
+              <InfoText>
+                Experience <InfoHighlight>latest Bluetooth 5.0 technology</InfoHighlight> with 
+                extended range, stable connections, and multi-device pairing. Quick charge technology 
+                provides hours of playback from just minutes of charging.
+              </InfoText>
+            </InfoSubsection>
+          </InfoBlock>
+
+          <InfoBlock>
+            <InfoTitle>Noise Cancellation</InfoTitle>
+            <InfoDescription>
+              Immerse yourself in pure audio with our advanced noise cancellation technology. 
+              Block out distractions and focus on what matters most - your music.
+            </InfoDescription>
+            
+            <InfoSubsection>
+              <InfoSubtitle>Active & Passive Isolation</InfoSubtitle>
+              <InfoText>
+                Combining <InfoHighlight>active noise cancellation</InfoHighlight> with superior 
+                passive isolation design. Effectively reduces ambient noise by up to 95%, 
+                creating your personal audio sanctuary anywhere.
+              </InfoText>
+            </InfoSubsection>
+          </InfoBlock>
+        </InfoGrid>
+      </InfoSection>
     </>
   );
 };

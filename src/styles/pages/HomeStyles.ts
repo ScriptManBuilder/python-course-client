@@ -45,6 +45,97 @@ export const HeroVideo = styled.video`
   z-index: 0;
 `;
 
+export const ProductsVideo = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.7;
+`;
+
+// Новая независимая видео секция
+export const VideoSection = styled.section`
+  position: relative;
+  min-height: 60vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  
+  @media (max-width: 768px) {
+    min-height: 50vh;
+  }
+  
+  @media (max-width: 480px) {
+    min-height: 40vh;
+  }
+`;
+
+export const VideoSectionVideo = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+`;
+
+export const VideoSectionContent = styled.div`
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 40px 20px;
+`;
+
+export const VideoSectionTitle = styled.h2`
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+  }
+`;
+
+export const VideoSectionSubtitle = styled.p`
+  font-size: 1.25rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+  }
+`;
+
 export const HeroContent = styled.div`
   position: relative;
   z-index: 2;
@@ -1891,4 +1982,144 @@ export const PhotoItem = styled.div`
     margin-right: 16px;
     border-radius: 12px;
   }
+`;
+
+// Информационная секция перед футером
+export const InfoSection = styled.section`
+  padding: 80px 0;
+  background: var(--minimal-white);
+  position: relative;
+  
+  @media (max-width: 768px) {
+    padding: 60px 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 40px 0;
+  }
+`;
+
+export const InfoGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    gap: 40px;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 30px;
+  }
+`;
+
+export const InfoBlock = styled.div`
+  text-align: left;
+`;
+
+export const InfoTitle = styled.h2`
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--minimal-text-primary);
+  margin-bottom: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.75rem;
+    margin-bottom: 16px;
+  }
+`;
+
+export const InfoDescription = styled.p`
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--minimal-text-secondary);
+  margin-bottom: 32px;
+  max-width: 800px;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+`;
+
+export const InfoSubsection = styled.div`
+  margin-bottom: 40px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 768px) {
+    margin-bottom: 32px;
+  }
+  
+  @media (max-width: 480px) {
+    margin-bottom: 24px;
+  }
+`;
+
+export const InfoSubtitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--minimal-text-primary);
+  margin-bottom: 16px;
+  line-height: 1.3;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+`;
+
+export const InfoText = styled.p`
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--minimal-text-secondary);
+  margin-bottom: 16px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  strong {
+    color: var(--minimal-text-primary);
+    font-weight: 600;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+`;
+
+export const InfoHighlight = styled.span`
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
 `;
