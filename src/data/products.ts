@@ -21,7 +21,7 @@ export interface Product {
 export const getProductImage = (productId: number, imageIndex: number = 1): string => {
   // Based on your actual file structure, determine the correct pattern
   const productImageMap: { [key: number]: string[] } = {
-    1: ['product1_1.jpg', 'product1_2.jpg', 'product1_3.jpg'],
+    1: ['product1_2.jpg', 'product1_3.jpg'], // Используем доступные изображения
     2: ['product2_1.jpg', 'product2_2.jpg', 'product2_3.jpg'],
     3: ['product3_1.jpg', 'product3_2.jpg', 'product3_3.jpg'],
     4: ['product4_1.jpg'],
@@ -33,7 +33,7 @@ export const getProductImage = (productId: number, imageIndex: number = 1): stri
     10: ['product10_1.jpg', 'product10_2.jpg', 'product10_3.jpg'],
     11: ['product11_1.jpg', 'product11_2.jpg'],
     13: ['product13_1.jpg', 'product13_2.jpg'],
-    14: ['product14_1.jpg', 'product14_2.jpg', 'product14_3.jpg'],
+    14: ['product14_1.jpg', 'product14_2.jpg'],
     15: ['product15_1.jpg', 'product15_2.jpg', 'product15_3.jpg'],
     16: ['product16_1.jpg', 'product16_2.jpg'],
     17: ['product17_1.jpg', 'product17_2.jpg', 'product17_3.jpg'],
@@ -65,7 +65,7 @@ export const getProductImages = (productId: number): string[] => {
   const images: string[] = [];
   
   const productImageMap: { [key: number]: string[] } = {
-    1: ['product1_1.jpg', 'product1_2.jpg', 'product1_3.jpg'],
+    1: ['product1_2.jpg', 'product1_3.jpg'], // Используем доступные изображения
     2: ['product2_1.jpg', 'product2_2.jpg', 'product2_3.jpg'],
     3: ['product3_1.jpg', 'product3_2.jpg', 'product3_3.jpg'],
     4: ['product4_1.jpg'],
@@ -77,7 +77,7 @@ export const getProductImages = (productId: number): string[] => {
     10: ['product10_1.jpg', 'product10_2.jpg', 'product10_3.jpg'],
     11: ['product11_1.jpg', 'product11_2.jpg'],
     13: ['product13_1.jpg', 'product13_2.jpg'],
-    14: ['product14_1.jpg', 'product14_2.jpg', 'product14_3.jpg'],
+    14: ['product14_1.jpg', 'product14_2.jpg'],
     15: ['product15_1.jpg', 'product15_2.jpg', 'product15_3.jpg'],
     16: ['product16_1.jpg', 'product16_2.jpg'],
     17: ['product17_1.jpg', 'product17_2.jpg', 'product17_3.jpg'],
@@ -356,7 +356,7 @@ export const products: Product[] = [
   {
     id: 14,
     name: "Williams True Wireless Pro",
-    price: 29.99,
+    price: 19.99,
     image: getProductImage(14),
     images: getProductImages(14),
     description: "Premium true wireless earbuds with advanced noise cancellation and premium sound.",
@@ -515,12 +515,12 @@ export const products: Product[] = [
   },
   {
     id: 22,
-    name: "Williams Podcast Pro",
+    name: "Williams Broadcast Pro",
     price: 79.99,
     image: getProductImage(22),
     images: getProductImages(22),
-    description: "Professional podcast headphones with broadcast-quality sound and comfort.",
-    detailedDescription: "Perfect for podcasters and content creators, featuring broadcast-quality drivers, superior comfort, and professional monitoring capabilities.",
+    description: "Professional broadcast headphones with studio-quality sound and comfort.",
+    detailedDescription: "Perfect for broadcasters and content creators, featuring studio-quality drivers, superior comfort, and professional monitoring capabilities.",
     category: "studio",
     features: ["Broadcast quality", "Extended comfort", "Professional monitoring", "Detachable boom mic", "Closed-back design"],
     specifications: {

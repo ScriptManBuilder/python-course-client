@@ -119,15 +119,42 @@ const Home: React.FC = () => {
 
   // Мемоизируем массив изображений для галереи
   const galleryImages = useMemo(() => {
-    return Array.from({ length: 16 }, (_, i) => {
-      const imageIndex = (i % 8) + 1;
-      const imageExt = 'jpg'; // Все изображения теперь jpg
-      return {
-        id: i,
-        src: `/images/AiPic${imageIndex}.${imageExt}`,
-        alt: `AI Generated ${i + 1}`
-      };
+    // Базовые 9 изображений
+    const baseImages = [
+      { src: `/images/AiPic1.jpg`, alt: `AI Generated 1` },
+      { src: `/images/AiPic2.jpg`, alt: `AI Generated 2` },
+      { src: `/images/AiPic3.jpg`, alt: `AI Generated 3` },
+      { src: `/images/AiPic4.jpg`, alt: `AI Generated 4` },
+      { src: `/images/AiPic5.jpg`, alt: `AI Generated 5` },
+      { src: `/images/AiPic6.jpg`, alt: `AI Generated 6` },
+      { src: `/images/AiPic7.jpg`, alt: `AI Generated 7` },
+      { src: `/images/AiPic8.jpg`, alt: `AI Generated 8` },
+      { src: `/images/AiPic9.jpg`, alt: `AI Generated 9` }
+    ];
+    
+    // Создаем непрерывную ленту из 18 изображений (2 цикла в разном порядке)
+    const galleryItems: Array<{ id: number; src: string; alt: string }> = [];
+    
+    // Первый цикл - в порядке 1-9
+    baseImages.forEach((img, index) => {
+      galleryItems.push({
+        id: index,
+        src: img.src,
+        alt: img.alt
+      });
     });
+    
+    // Второй цикл - перемешиваем массив для разнообразия
+    const shuffledImages = [...baseImages].sort(() => Math.random() - 0.5);
+    shuffledImages.forEach((img, index) => {
+      galleryItems.push({
+        id: 9 + index,
+        src: img.src,
+        alt: img.alt
+      });
+    });
+    
+    return galleryItems;
   }, []);
 
   // Мемоизируем текст для бегущей строки
@@ -579,8 +606,8 @@ const Home: React.FC = () => {
             <InfoSubsection>
               <InfoSubtitle>Professional Grade Drivers</InfoSubtitle>
               <InfoText>
-                Our headphones utilize <InfoHighlight>precision-engineered drivers</InfoHighlight> 
-                that deliver exceptional frequency response across the entire audio spectrum. 
+                Our headphones utilize <InfoHighlight>precision-engineered drivers </InfoHighlight> 
+                 that deliver exceptional frequency response across the entire audio spectrum. 
                 From studio monitoring to casual listening, experience audio as it was meant to be heard.
               </InfoText>
             </InfoSubsection>
