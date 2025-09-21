@@ -67,7 +67,7 @@ const TermsConditions: React.FC = () => {
       <Section>
         <SectionTitle>3. Product Pricing</SectionTitle>
         <Paragraph>
-          Our products are available at various price points: {formatPrice(2.99)}, {formatPrice(6.99)}, {formatPrice(9.99)}, {formatPrice(19.99)}, {formatPrice(29.99)}, and {formatPrice(39.99)}. 
+          Our products are available at various price points: {formatPrice(6.99)}, {formatPrice(9.99)}, {formatPrice(19.99)}, {formatPrice(29.99)}, {formatPrice(39.99)}, {formatPrice(49.99)}, {formatPrice(59.99)}, {formatPrice(69.99)}, {formatPrice(79.99)}, {formatPrice(89.99)}, and {formatPrice(99.99)}. 
           All prices include applicable taxes.
         </Paragraph>
       </Section>

@@ -74,8 +74,17 @@ const RefundPolicy: React.FC = () => {
         <Paragraph>
           <strong>Williams Collection Inc.</strong><br/>
           Returns Department<br/>
-          15 Station Road, New Barnet, Barnet<br/>
-          EN5 1NZ, United Kingdom
+          E 2ND ST 5830<br/>
+          Casper, WY 82609<br/>
+          United States
+        </Paragraph>
+      </Section>
+
+      <Section>
+        <SectionTitle>4. Return Shipping Costs</SectionTitle>
+        <Paragraph>
+          Customers are responsible for return shipping costs unless the item was defective 
+          or we made an error in your order. We recommend using a trackable shipping method.
         </Paragraph>
       </Section>
 
@@ -112,7 +121,9 @@ const RefundPolicy: React.FC = () => {
           <strong>Williams Collection Inc.</strong><br/>
           Email: support@willcol.com<br/>
           Phone: +14452856014<br/>
-          Address: E 2ND ST 5830, Casper, WY 82609, US
+          E 2ND ST 5830<br/>
+          Casper, WY 82609<br/>
+          United States
         </Paragraph>
       </Section>
     </Container>

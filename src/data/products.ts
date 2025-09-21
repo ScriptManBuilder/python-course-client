@@ -111,7 +111,7 @@ export const products: Product[] = [
   {
     id: 1,
     name: "Williams Aurora Pro",
-    price: 59.99,
+    price: 79.99,
     image: getProductImage(1),
     images: getProductImages(1),
     description: "Premium wireless headphones engineered for audiophiles who demand perfection.",
@@ -151,7 +151,7 @@ export const products: Product[] = [
   {
     id: 3,
     name: "Williams Cyber Elite",
-    price: 59.99,
+    price: 69.99,
     image: getProductImage(3),
     images: getProductImages(3),
     description: "High-performance gaming headset with immersive surround sound and customizable RGB lighting.",
@@ -168,30 +168,30 @@ export const products: Product[] = [
     },
     inStock: true
   },
-  {
-    id: 4,
-    name: "Williams Portable Plus",
-    price: 49.99,
-    image: getProductImage(4),
-    images: getProductImages(4),
-    description: "Ultra-portable wireless headphones designed for the modern traveler and commuter.",
-    detailedDescription: "The Williams Portable Plus combines premium sound quality with ultimate portability and long battery life.",
-    category: "wireless",
-    features: ["Ultra-portable design", "35-hour battery", "Premium travel case", "Bluetooth 5.2", "Quick charge technology"],
-    specifications: {
-      "Driver Size": "40mm",
-      "Frequency Response": "20Hz - 20kHz",
-      "Bluetooth": "5.2",
-      "Battery Life": "35 hours",
-      "Charging Time": "1.5 hours",
-      "Weight": "200g"
-    },
-    inStock: true
-  },
+  // {
+  //   id: 4,
+  //   name: "Williams Portable Plus",
+  //   price: 49.99,
+  //   image: getProductImage(4),
+  //   images: getProductImages(4),
+  //   description: "Ultra-portable wireless headphones designed for the modern traveler and commuter.",
+  //   detailedDescription: "The Williams Portable Plus combines premium sound quality with ultimate portability and long battery life.",
+  //   category: "wireless",
+  //   features: ["Ultra-portable design", "35-hour battery", "Premium travel case", "Bluetooth 5.2", "Quick charge technology"],
+  //   specifications: {
+  //     "Driver Size": "40mm",
+  //     "Frequency Response": "20Hz - 20kHz",
+  //     "Bluetooth": "5.2",
+  //     "Battery Life": "35 hours",
+  //     "Charging Time": "1.5 hours",
+  //     "Weight": "200g"
+  //   },
+  //   inStock: true
+  // },
   {
     id: 5,
     name: "Williams Sport Active",
-    price: 49.99,
+    price: 59.99,
     image: getProductImage(5),
     images: getProductImages(5),
     description: "Sweat-resistant wireless earbuds engineered for intense workouts and active lifestyles.",
@@ -211,7 +211,7 @@ export const products: Product[] = [
   {
     id: 6,
     name: "Williams Classic Wired",
-    price: 59.99,
+    price: 79.99,
     image: getProductImage(6),
     images: getProductImages(6),
     description: "Affordable wired headphones delivering exceptional sound quality for everyday listening.",
@@ -231,7 +231,7 @@ export const products: Product[] = [
   {
     id: 7,
     name: "Williams Bass Pro",
-    price: 59.99,
+    price: 89.99,
     image: getProductImage(7),
     images: getProductImages(7),
     description: "Bass-enhanced earbuds perfect for hip-hop, electronic music, and bass lovers.",
@@ -251,7 +251,7 @@ export const products: Product[] = [
   {
     id: 8,
     name: "Williams Entry Level",
-    price: 69.99,
+    price: 99.99,
     image: getProductImage(8),
     images: getProductImages(8),
     description: "Entry-level earbuds offering surprising quality at an unbeatable price point.",
@@ -271,7 +271,7 @@ export const products: Product[] = [
   {
     id: 9,
     name: "Williams True Wireless Elite",
-    price: 29.99,
+    price: 39.99,
     image: getProductImage(9),
     images: getProductImages(9),
     description: "Premium true wireless earbuds with sleek charging case and exceptional sound quality.",
@@ -313,7 +313,7 @@ export const products: Product[] = [
   {
     id: 11,
     name: "Williams Mini Wireless Buds",
-    price: 19.99,
+    price: 6.99,
     image: getProductImage(11),
     images: getProductImages(11),
     description: "Ultra-compact wireless earbuds in a tiny charging case - perfect for minimalists.",
@@ -335,7 +335,7 @@ export const products: Product[] = [
   {
     id: 13,
     name: "Williams Compact Black Pro",
-    price: 29.99,
+    price: 19.99,
     image: getProductImage(13),
     images: getProductImages(13),
     description: "Ultra-compact black wireless earbuds designed for portability and premium sound.",
@@ -376,7 +376,7 @@ export const products: Product[] = [
   {
     id: 15,
     name: "Williams DJ Master",
-    price: 49.99,
+    price: 59.99,
     image: getProductImage(15),
     images: getProductImages(15),
     description: "Professional DJ headphones with swivel cups and extended frequency response.",
@@ -416,7 +416,7 @@ export const products: Product[] = [
   {
     id: 17,
     name: "Williams Compact Wireless",
-    price: 49.99,
+    price: 39.99,
     image: getProductImage(17),
     images: getProductImages(17),
     description: "Compact wireless earbuds perfect for everyday use with great battery life.",
@@ -436,7 +436,7 @@ export const products: Product[] = [
   {
     id: 18,
     name: "Williams Sport Pro",
-    price: 49.99,
+    price: 59.99,
     image: getProductImage(18),
     images: getProductImages(18),
     description: "Professional sport earbuds with advanced waterproofing and secure fit.",
@@ -516,7 +516,7 @@ export const products: Product[] = [
   {
     id: 22,
     name: "Williams Podcast Pro",
-    price: 69.99,
+    price: 79.99,
     image: getProductImage(22),
     images: getProductImages(22),
     description: "Professional podcast headphones with broadcast-quality sound and comfort.",

@@ -85,9 +85,11 @@ const ReturnPolicy: React.FC = () => {
           Please send all returns to:
         </Paragraph>
         <Paragraph>
-          <strong>The Williams Collection Inc.</strong><br/>
+          <strong>Williams Collection Inc.</strong><br/>
           Returns Department<br/>
-         Address: E 2ND ST 5830, Casper, WY 82609, United States
+          E 2ND ST 5830<br/>
+          Casper, WY 82609<br/>
+          United States
         </Paragraph>
       </Section>
 
