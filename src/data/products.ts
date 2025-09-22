@@ -189,7 +189,7 @@ export const products: Product[] = [
   //   inStock: true
   // },
   {
-    id: 5,
+    id: 4,
     name: "Williams Sport Active",
     price: 59.99,
     image: getProductImage(5),
@@ -209,7 +209,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 6,
+    id: 5,
     name: "Williams Classic Wired",
     price: 79.99,
     image: getProductImage(6),
@@ -229,7 +229,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 7,
+    id: 6,
     name: "Williams Bass Pro",
     price: 89.99,
     image: getProductImage(7),
@@ -249,7 +249,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 8,
+    id: 7,
     name: "Williams Entry Level",
     price: 99.99,
     image: getProductImage(8),
@@ -269,7 +269,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 9,
+    id: 8,
     name: "Williams True Wireless Elite",
     price: 39.99,
     image: getProductImage(9),
@@ -289,29 +289,29 @@ export const products: Product[] = [
     },
     inStock: true
   },
+  // {
+  //   id: 10,
+  //   name: "Williams Blue Wireless Pro",
+  //   price: 29.99,
+  //   image: getProductImage(10),
+  //   images: getProductImages(10),
+  //   description: "Premium wireless earbuds in stylish blue design with professional-grade sound quality.",
+  //   detailedDescription: "Stand out with the Williams Blue Wireless Pro earbuds. Featuring distinctive blue design, premium wireless technology, and exceptional audio performance for music lovers who want both style and substance.",
+  //   category: "wireless",
+  //   features: ["Distinctive blue design", "Premium wireless technology", "Professional sound quality", "Comfortable fit", "Long battery life"],
+  //   specifications: {
+  //     "Driver Size": "10mm dynamic",
+  //     "Frequency Response": "20Hz - 20kHz",
+  //     "Bluetooth": "5.2",
+  //     "Battery Life": "Extended with case",
+  //     "Charging Case": "Fast charging",
+  //     "Water Resistance": "Water resistant",
+  //     "Weight": "5.5g per earbud"
+  //   },
+  //   inStock: true
+  // },
   {
-    id: 10,
-    name: "Williams Blue Wireless Pro",
-    price: 29.99,
-    image: getProductImage(10),
-    images: getProductImages(10),
-    description: "Premium wireless earbuds in stylish blue design with professional-grade sound quality.",
-    detailedDescription: "Stand out with the Williams Blue Wireless Pro earbuds. Featuring distinctive blue design, premium wireless technology, and exceptional audio performance for music lovers who want both style and substance.",
-    category: "wireless",
-    features: ["Distinctive blue design", "Premium wireless technology", "Professional sound quality", "Comfortable fit", "Long battery life"],
-    specifications: {
-      "Driver Size": "10mm dynamic",
-      "Frequency Response": "20Hz - 20kHz",
-      "Bluetooth": "5.2",
-      "Battery Life": "Extended with case",
-      "Charging Case": "Fast charging",
-      "Water Resistance": "Water resistant",
-      "Weight": "5.5g per earbud"
-    },
-    inStock: true
-  },
-  {
-    id: 11,
+    id: 9,
     name: "Williams Mini Wireless Buds",
     price: 6.99,
     image: getProductImage(11),
@@ -333,7 +333,7 @@ export const products: Product[] = [
   },
   
   {
-    id: 13,
+    id: 10,
     name: "Williams Compact Black Pro",
     price: 19.99,
     image: getProductImage(13),
@@ -354,7 +354,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 14,
+    id: 11,
     name: "Williams True Wireless Pro",
     price: 19.99,
     image: getProductImage(14),
@@ -374,7 +374,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 15,
+    id: 12,
     name: "Williams DJ Master",
     price: 59.99,
     image: getProductImage(15),
@@ -394,7 +394,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 16,
+    id: 13,
     name: "Williams Gaming Elite RGB",
     price: 69.99,
     image: getProductImage(16),
@@ -414,7 +414,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 17,
+    id: 14,
     name: "Williams Compact Wireless",
     price: 39.99,
     image: getProductImage(17),
@@ -434,7 +434,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 18,
+    id: 15,
     name: "Williams Sport Pro",
     price: 59.99,
     image: getProductImage(18),
@@ -454,7 +454,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 19,
+    id: 16,
     name: "Williams Premium Wired",
     price: 69.99,
     image: getProductImage(19),
@@ -474,7 +474,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 20,
+    id: 17,
     name: "Williams Studio Professional",
     price: 59.99,
     image: getProductImage(20),
@@ -494,7 +494,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 21,
+    id: 18,
     name: "Williams Podcast Pro",
     price: 29.99,
     image: getProductImage(21),
@@ -514,7 +514,7 @@ export const products: Product[] = [
     inStock: true
   },
   {
-    id: 22,
+    id: 19,
     name: "Williams Broadcast Pro",
     price: 79.99,
     image: getProductImage(22),
