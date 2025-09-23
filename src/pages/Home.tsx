@@ -538,10 +538,10 @@ const Home: React.FC = () => {
                       <ProductTitle>{product.name}</ProductTitle>
                       <ProductPrice>{formatPrice(product.price)}</ProductPrice>
                       <ProductDescription>{product.description}</ProductDescription>
+                      <ProductButton as={Link} to={`/product/${product.id}`}>
+                        Start Learning
+                      </ProductButton>
                     </ProductContent>
-                    <ProductButton as={Link} to={`/product/${product.id}`}>
-                      Start Learning
-                    </ProductButton>
                   </ProductInfo>
                 </ProductCard>
               </ScrollReveal>
