@@ -42,12 +42,18 @@ const Products: React.FC = () => {
 
   // Мемоизируем категории
   const categories = useMemo(() => [
-    { id: 'all', name: 'All Products' },
-    { id: 'wireless', name: 'Wireless' },
-    { id: 'studio', name: 'Studio' },
-    { id: 'gaming', name: 'Gaming' },
-    { id: 'sport', name: 'Sport' },
-    { id: 'wired', name: 'Wired' }
+    { id: 'all', name: 'All Courses' },
+    { id: 'AI Basics', name: 'AI Basics' },
+    { id: 'Content Creation', name: 'Content' },
+    { id: 'Business Automation', name: 'Business' },
+    { id: 'Advanced AI', name: 'Advanced' },
+    { id: 'AI Marketing', name: 'Marketing' },
+    { id: 'Data & Analytics', name: 'Analytics' },
+    { id: 'Productivity Mastery', name: 'Productivity' },
+    { id: 'Creative AI', name: 'Creative' },
+    { id: 'AI Consulting', name: 'Consulting' },
+    { id: 'Enterprise AI', name: 'Enterprise' },
+    { id: 'AI Mastery', name: 'Mastery' }
   ], []);
 
   // Мемоизируем фильтрацию продуктов
@@ -113,8 +119,8 @@ const Products: React.FC = () => {
     <ProductsWrapper>
       <Container>
         <PageHeader>
-          <PageTitle>Premium Headphones Collection</PageTitle>
-          <PageSubtitle>Discover our curated selection of professional audio equipment</PageSubtitle>
+          <PageTitle>Williams AI Course Collection</PageTitle>
+          <PageSubtitle>Master AI & ChatGPT with our comprehensive video course library</PageSubtitle>
         </PageHeader>
         
         <FilterSection>

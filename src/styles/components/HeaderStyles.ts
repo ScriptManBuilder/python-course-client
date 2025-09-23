@@ -291,6 +291,7 @@ export const Logo = styled(Link)`
   position: relative;
   transition: all 0.3s ease;
   letter-spacing: -0.02em;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
   &::after {
     content: '';
@@ -320,7 +321,7 @@ export const Logo = styled(Link)`
     font-weight: 800;
     /* Сокращаем логотип на мобильных */
     &::before {
-      content: "EL";
+      content: "WC";
       display: block;
     }
     
@@ -457,6 +458,8 @@ export const NavLink = styled(Link)`
   position: relative;
   border-radius: 8px;
   overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.005em;
   
   /* Псевдоэлемент для анимации змейки */
   &::before {

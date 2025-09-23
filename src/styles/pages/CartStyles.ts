@@ -91,14 +91,19 @@ export const ItemInfo = styled.div`
   h3 {
     font-size: 1.1rem;
     font-weight: 600;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
     color: #1f2937;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
   }
   
   p {
     color: #6b7280;
     font-size: 0.9rem;
-    line-height: 1.4;
+    line-height: 1.5;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400;
   }
 `;
 
@@ -142,12 +147,15 @@ export const Quantity = styled.span`
   min-width: 30px;
   text-align: center;
   color: #1f2937;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 `;
 
 export const ItemPrice = styled.div`
   font-size: 1.2rem;
   font-weight: 700;
   color: #667eea;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.01em;
 `;
 
 export const RemoveButton = styled.button`
@@ -313,23 +321,28 @@ export const ContinueShoppingButton = styled.div`
 export const SummaryTitle = styled.h3`
   font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   color: #1f2937;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.01em;
 `;
 
 export const SummaryRow = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
   color: #374151;
   font-size: 1rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
   
   &.total {
     border-top: 2px solid #e5e7eb;
-    padding-top: 15px;
+    padding-top: 16px;
     font-size: 1.2rem;
     font-weight: 700;
     color: #1f2937;
+    letter-spacing: -0.01em;
   }
 `;
 
@@ -349,11 +362,16 @@ export const EmptyCart = styled.div`
   h2 {
     font-size: 1.5rem;
     color: #374151;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
   
   p {
     color: #6b7280;
     margin-bottom: 30px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
   }
 `;

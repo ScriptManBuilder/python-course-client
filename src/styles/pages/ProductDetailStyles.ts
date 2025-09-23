@@ -117,6 +117,59 @@ export const ThumbnailImage = styled.img<{ isSelected: boolean }>`
   }
 `;
 
+export const VideoThumbnailContainer = styled.div<{ isSelected: boolean }>`
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid ${props => props.isSelected ? 'var(--minimal-primary)' : 'var(--minimal-gray-200)'};
+  opacity: ${props => props.isSelected ? 1 : 0.7};
+  overflow: hidden;
+  
+  &:hover {
+    opacity: 1;
+    border-color: var(--minimal-primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 480px) {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+  }
+`;
+
+export const VideoThumbnailImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export const VideoPlayIcon = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  pointer-events: none;
+  
+  @media (max-width: 480px) {
+    width: 24px;
+    height: 24px;
+    font-size: 10px;
+  }
+`;
+
 export const InfoSection = styled.div`
   position: relative;
   z-index: 1;

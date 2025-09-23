@@ -778,12 +778,6 @@ const Checkout: React.FC = () => {
   const { state } = useCart();
   const { formatPrice, currentCurrency, currencySymbol } = usePrice();
   
-  // Free shipping threshold in USD, converts automatically based on currency
-  const getFreeShippingText = () => {
-    const thresholdUSD = 50; // $50 threshold
-    return `Free shipping on orders over ${formatPrice(thresholdUSD)}`;
-  };
-  
   // Generate random math question
   const generateCaptcha = () => {
     const num1 = Math.floor(Math.random() * 10) + 1;
@@ -833,8 +827,7 @@ const Checkout: React.FC = () => {
   const [agreeToTerms, setAgreeToTerms] = useState(false);
 
   const subtotal = state.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const shipping = subtotal > 50 ? 0 : 9.99;
-  const total = subtotal + shipping;
+  const total = subtotal; // No shipping for digital courses
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
@@ -860,7 +853,7 @@ const Checkout: React.FC = () => {
   };
 
   const validateForm = () => {
-    const required = ['email', 'firstName', 'lastName', 'address', 'city', 'zipCode', 'cardNumber', 'expiryDate', 'cvv', 'nameOnCard'];
+    const required = ['email', 'firstName', 'lastName', 'country', 'cardNumber', 'expiryDate', 'cvv', 'nameOnCard'];
     
     for (const field of required) {
       if (!formData[field as keyof typeof formData]) {
@@ -943,7 +936,7 @@ const Checkout: React.FC = () => {
       <Container>
         <CheckoutHeader>
           <CheckoutTitle>Secure Checkout</CheckoutTitle>
-          <CheckoutSubtitle>Complete your order for premium audio equipment</CheckoutSubtitle>
+          <CheckoutSubtitle>Complete your enrollment for premium AI courses</CheckoutSubtitle>
         </CheckoutHeader>
 
         <CheckoutContent>
@@ -965,7 +958,7 @@ const Checkout: React.FC = () => {
             </FormSection>
 
             <FormSection>
-              <SectionTitle>Shipping Address</SectionTitle>
+              <SectionTitle>Billing Information</SectionTitle>
               <FormRow>
                 <FormGroup>
                   <Label htmlFor="firstName">First Name *</Label>
@@ -985,42 +978,6 @@ const Checkout: React.FC = () => {
                     id="lastName"
                     name="lastName"
                     value={formData.lastName}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </FormGroup>
-              </FormRow>
-              <FormGroup>
-                <Label htmlFor="address">Address *</Label>
-                <Input
-                  type="text"
-                  id="address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleInputChange}
-                  placeholder="Street address"
-                  required
-                />
-              </FormGroup>
-              <FormRow>
-                <FormGroup>
-                  <Label htmlFor="city">City *</Label>
-                  <Input
-                    type="text"
-                    id="city"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </FormGroup>
-                <FormGroup>
-                  <Label htmlFor="zipCode">Postal Code *</Label>
-                  <Input
-                    type="text"
-                    id="zipCode"
-                    name="zipCode"
-                    value={formData.zipCode}
                     onChange={handleInputChange}
                     required
                   />
@@ -1100,12 +1057,12 @@ const Checkout: React.FC = () => {
 
             <CheckoutNotices>
               <NoticeSection>
-                {/* <NoticeTitle>
-                  🎫 Coupons
+                <NoticeTitle>
+                  � Course Access
                 </NoticeTitle>
                 <NoticeText>
-                  No coupons available for this order.
-                </NoticeText> */}
+                  Instant access to all course materials upon successful payment. Download links will be sent to your email.
+                </NoticeText>
               </NoticeSection>
               
               <NoticeSection>
@@ -1187,12 +1144,12 @@ const Checkout: React.FC = () => {
                   onChange={(e) => setAgreeToTerms(e.target.checked)}
                 />
                 <TermsText>
-                  I am 18 years or older and agree to the<a href="/terms-conditions"> Terms & Conditions</a>, <a href="/return-policy">Return Policy</a>. 
-                  I agree to pay the total amount provided on the checkout page (free shipping via USPS). To cancel your order, please 
-                  call our customer service team CST Mon-Fri (9am-5pm) at +1 (445) 285-6014 or email support@willcol.com. 
-                  For guidelines on returns and cancellations please visit our <a href="/terms-conditions">Terms & Conditions</a> page for instructions on returning a 
-                  product or canceling an order. Your credit card will be billed with the following descriptor: WILLCOL.COM. This is how the 
-                  charge will appear on the cardholder's billing statement. Products will be shipped in 3-5 business days via USPS.
+                  I am 18 years or older and agree to the<a href="/terms-conditions"> Terms & Conditions</a>, <a href="/refund-policy">Refund Policy</a>. 
+                  I agree to pay the total amount provided on the checkout page. Upon successful payment, I will receive instant access to all course materials. 
+                  To request a refund, please contact our customer service team CST Mon-Fri (9am-5pm) at +1 (445) 285-6014 or email support@willcol.com within 30 days of purchase. 
+                  For guidelines on refunds please visit our <a href="/refund-policy">Refund Policy</a> page. 
+                  Your credit card will be billed with the following descriptor: WILLCOL.COM. This is how the 
+                  charge will appear on the cardholder's billing statement. Course access will be provided immediately after successful payment.
                 </TermsText>
               </CheckboxContainer>
             </TermsCheckbox>
@@ -1202,7 +1159,7 @@ const Checkout: React.FC = () => {
               variant="primary"
               disabled={!captchaAnswer || !agreeToTerms || isSubmitting}
             >
-              {isSubmitting ? '⏳ Processing Payment...' : `🚀 Complete Order - ${formatPrice(total)}`}
+              {isSubmitting ? '⏳ Processing Payment...' : `🎓 Enroll Now - ${formatPrice(total)}`}
             </PlaceOrderButton>
           </CheckoutForm>
 
@@ -1223,11 +1180,6 @@ const Checkout: React.FC = () => {
               <span>Subtotal</span>
               <span>{formatPrice(subtotal)}</span>
             </SummaryRow>
-            
-            <SummaryRow>
-              <span>Shipping</span>
-              <span>{shipping === 0 ? 'FREE' : formatPrice(shipping)}</span>
-            </SummaryRow>
 
             <TotalRow>
               <span>Total</span>
@@ -1236,8 +1188,8 @@ const Checkout: React.FC = () => {
 
             <div style={{ fontSize: '0.8rem', color: 'var(--minimal-gray-400)', marginTop: '20px', lineHeight: '1.6' }}>
               <p style={{ display: 'flex', alignItems: 'center', margin: '8px 0' }}>
-                <span style={{ marginRight: '8px' }}>🚚</span>
-                <span>{getFreeShippingText()}</span>
+                <span style={{ marginRight: '8px' }}>🎓</span>
+                <span>Instant course access upon payment</span>
               </p>
               <p style={{ display: 'flex', alignItems: 'center', margin: '8px 0' }}>
                 <span style={{ marginRight: '8px' }}>🔒</span>
@@ -1248,12 +1200,12 @@ const Checkout: React.FC = () => {
                 <span>24/7 customer support</span>
               </p>
               <p style={{ display: 'flex', alignItems: 'center', margin: '8px 0' }}>
-                <span style={{ marginRight: '8px' }}>↩️</span>
-                <span>30-day return policy</span>
+                <span style={{ marginRight: '8px' }}>♾️</span>
+                <span>Lifetime access to course materials</span>
               </p>
               <p style={{ display: 'flex', alignItems: 'center', margin: '8px 0' }}>
-                <span style={{ marginRight: '8px' }}>🛡️</span>
-                <span>2-year warranty included</span>
+                <span style={{ marginRight: '8px' }}>�</span>
+                <span>Access on all devices (mobile, tablet, desktop)</span>
               </p>
               <p style={{ 
                 display: 'flex', 

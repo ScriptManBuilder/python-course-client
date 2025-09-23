@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo, useState, useRef } from 'react';
 import styled from 'styled-components';
 import { Product } from '../types/Product';
 import { useLazyImage } from '../hooks/useVirtualScroll';
@@ -56,6 +56,71 @@ const ProductImage = styled.img`
   }
 `;
 
+const ProductVideo = styled.video`
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
+
+const VideoPlayButton = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+
+  &::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 20px solid white;
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    margin-left: 4px;
+  }
+`;
+
+const MediaToggle = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 2;
+
+  &:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+  }
+`;
+
 const LoadingPlaceholder = styled.div`
   width: 100%;
   height: 100%;
@@ -96,31 +161,37 @@ const ProductName = styled.h3`
   color: ${props => props.theme.colors.text};
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.01em;
 `;
 
 const ProductPrice = styled.p`
   color: ${props => props.theme.colors.primary};
   font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 12px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.01em;
 `;
 
 const ProductDescription = styled.p`
   color: ${props => props.theme.colors.textSecondary};
   font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 16px;
+  line-height: 1.6;
+  margin-bottom: 18px;
   flex: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
 `;
 
 const ButtonGroup = styled.div`
@@ -136,9 +207,11 @@ const AddToCartButton = styled.button`
   border: none;
   padding: 12px 16px;
   border-radius: 8px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.005em;
 
   &:hover {
     background: ${props => props.theme.colors.primaryDark};
@@ -156,10 +229,12 @@ const ViewDetailsButton = styled.button`
   border: 2px solid ${props => props.theme.colors.primary};
   padding: 12px 16px;
   border-radius: 8px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
   min-width: 80px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.005em;
 
   &:hover {
     background: ${props => props.theme.colors.primary};
@@ -177,6 +252,10 @@ const OptimizedProductCard: React.FC<OptimizedProductCardProps> = memo(({
     product.image,
     '/placeholder-image.jpg'
   );
+  
+  const [showVideo, setShowVideo] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleAddToCart = React.useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
@@ -192,20 +271,72 @@ const OptimizedProductCard: React.FC<OptimizedProductCardProps> = memo(({
     onViewDetails(product.id);
   }, [onViewDetails, product.id]);
 
+  const toggleMedia = React.useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (product.video) {
+      setShowVideo(!showVideo);
+      if (!showVideo && videoRef.current) {
+        // Load video when switching to video view
+        videoRef.current.load();
+      }
+    }
+  }, [showVideo, product.video]);
+
+  const handleVideoPlay = React.useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, []);
+
+  const handleVideoLoaded = React.useCallback(() => {
+    setIsVideoLoaded(true);
+  }, []);
+
   return (
     <CardContainer onClick={handleCardClick}>
       <ImageContainer>
-        <div ref={imgRef}>
-          {!isLoaded && !isError && <LoadingPlaceholder />}
-          {isError && <ErrorPlaceholder>Image unavailable</ErrorPlaceholder>}
-          {isLoaded && imageSrc && (
-            <ProductImage 
-              src={imageSrc} 
-              alt={product.name}
-              loading="lazy"
-            />
-          )}
-        </div>
+        {product.video && (
+          <MediaToggle onClick={toggleMedia}>
+            {showVideo ? '📷 Image' : '🎬 Preview'}
+          </MediaToggle>
+        )}
+        
+        {showVideo && product.video ? (
+          <div ref={imgRef} style={{ position: 'relative', width: '100%', height: '100%' }}>
+            <ProductVideo
+              ref={videoRef}
+              onLoadedData={handleVideoLoaded}
+              muted
+              playsInline
+              preload="metadata"
+              style={{ display: isVideoLoaded ? 'block' : 'none' }}
+            >
+              <source src={product.video} type="video/mp4" />
+              Your browser does not support the video tag.
+            </ProductVideo>
+            {!isVideoLoaded && <LoadingPlaceholder />}
+            {isVideoLoaded && (
+              <VideoPlayButton onClick={handleVideoPlay} />
+            )}
+          </div>
+        ) : (
+          <div ref={imgRef}>
+            {!isLoaded && !isError && <LoadingPlaceholder />}
+            {isError && <ErrorPlaceholder>Image unavailable</ErrorPlaceholder>}
+            {isLoaded && imageSrc && (
+              <ProductImage 
+                src={imageSrc} 
+                alt={product.name}
+                loading="lazy"
+              />
+            )}
+          </div>
+        )}
       </ImageContainer>
       
       <ProductInfo>

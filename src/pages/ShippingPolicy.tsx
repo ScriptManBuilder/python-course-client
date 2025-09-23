@@ -37,7 +37,7 @@ const ShippingPolicy: React.FC = () => {
 
   return (
     <Container>
-      <Title>Shipping Policy</Title>
+      <Title>Digital Course Delivery Policy</Title>
       
       <Section>
         <Paragraph><strong>Last updated:</strong> {new Date().toLocaleDateString()}</Paragraph>
@@ -45,78 +45,157 @@ const ShippingPolicy: React.FC = () => {
 
       <Section>
         <Paragraph>
-          Williams Collection Inc. is committed to delivering your orders quickly and safely. 
-          This shipping policy outlines our delivery options, processing times, and shipping costs.
+          The Williams Collection Inc. delivers AI courses digitally through our secure online learning platform. 
+          This policy explains how your courses are delivered and accessed after purchase.
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>1. Processing Time</SectionTitle>
+        <SectionTitle>Important Notice: No Physical Shipping</SectionTitle>
         <Paragraph>
-          Orders are typically processed and dispatched within 1-2 business days. 
-          Orders placed on weekends or holidays will be processed on the next business day.
+          <strong>Our AI courses are 100% digital products.</strong> There are no physical items to ship. All course materials, 
+          including videos, PDFs, templates, and resources, are delivered instantly through your online account.
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>2. Shipping Options</SectionTitle>
+        <SectionTitle>1. Instant Digital Delivery</SectionTitle>
         <Paragraph>
-          <strong>Standard Shipping:</strong> 3-5 business days (Free on orders over {formatPrice(50)})<br/>
-          <strong>Express Shipping:</strong> 1-2 business days ({formatPrice(9.99)})
+          Upon successful payment, you will receive immediate access to your purchased AI courses. No waiting, no shipping delays - 
+          start learning within minutes of your purchase.
+        </Paragraph>
+        <Paragraph>
+          <strong>Delivery Method:</strong> Secure online learning platform access<br/>
+          <strong>Delivery Time:</strong> Instant upon payment confirmation<br/>
+          <strong>Access Duration:</strong> Lifetime access to all course materials
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>3. Shipping Costs</SectionTitle>
+        <SectionTitle>2. How to Access Your Courses</SectionTitle>
         <Paragraph>
-          Standard shipping: {formatPrice(4.99)} for orders under {formatPrice(50)}<br/>
-          Express shipping: {formatPrice(9.99)}<br/>
-          Orders over {formatPrice(50)}: Free standard shipping
+          After purchase, you will receive an email confirmation within 15 minutes containing:
+        </Paragraph>
+        <Paragraph>
+          • Order confirmation and receipt<br/>
+          • Login credentials for your learning account<br/>
+          • Direct links to your purchased courses<br/>
+          • Getting started guide and platform tutorial<br/>
+          • Customer support contact information
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>4. Delivery Areas</SectionTitle>
+        <SectionTitle>3. Email Delivery Requirements</SectionTitle>
         <Paragraph>
-          We currently ship to all locations within the United States. 
-          International shipping may be available upon request - please contact support@willcol.com for details.
+          To ensure successful course delivery:
+        </Paragraph>
+        <Paragraph>
+          • Provide a valid, active email address during checkout<br/>
+          • Check your spam/junk folders if you don't receive confirmation within 15 minutes<br/>
+          • Add support@willcol.com to your email whitelist<br/>
+          • Ensure your email provider accepts emails from our domain
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>5. Order Tracking</SectionTitle>
+        <SectionTitle>4. Global Availability</SectionTitle>
         <Paragraph>
-          Once your order ships, you will receive a tracking number via email. 
-          You can track your package through our shipping partner's website.
+          Our digital AI courses are available worldwide with internet access. There are no geographical restrictions 
+          or additional delivery fees based on location.
+        </Paragraph>
+        <Paragraph>
+          <strong>Supported Regions:</strong> Worldwide<br/>
+          <strong>Language:</strong> English<br/>
+          <strong>Requirements:</strong> Internet connection and modern web browser<br/>
+          <strong>Additional Fees:</strong> None (no shipping costs apply)
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>6. Delivery Issues</SectionTitle>
+        <SectionTitle>5. Course Platform Access</SectionTitle>
         <Paragraph>
-          If your package is lost or damaged during shipping, please contact us immediately at support@willcol.com. 
-          We will work with our shipping partners to resolve the issue quickly.
+          Your courses are hosted on our secure learning management system, accessible 24/7 from any device:
+        </Paragraph>
+        <Paragraph>
+          • Desktop computers (Windows, Mac, Linux)<br/>
+          • Tablets (iPad, Android tablets)<br/>
+          • Smartphones (iOS, Android)<br/>
+          • Smart TVs with internet browsers<br/>
+          • Any device with a modern web browser
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>7. Address Requirements</SectionTitle>
+        <SectionTitle>6. Download Options</SectionTitle>
         <Paragraph>
-          Please ensure your shipping address is complete and accurate. 
-          We cannot be responsible for delays or non-delivery due to incomplete or incorrect addresses.
+          Many course materials are available for download, allowing offline access:
+        </Paragraph>
+        <Paragraph>
+          • PDF guides and worksheets<br/>
+          • Audio versions of course content<br/>
+          • Template files and resources<br/>
+          • Course completion certificates<br/>
+          • Note: Video content streaming requires internet connection
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>8. Contact Information</SectionTitle>
+        <SectionTitle>7. Delivery Issues and Support</SectionTitle>
         <Paragraph>
-          For shipping questions or concerns, please contact us:
+          If you experience any issues accessing your courses:
         </Paragraph>
         <Paragraph>
-          <strong>Williams Collection Inc.</strong><br/>
-          E 2ND ST 5830, Casper, WY 82609, US<br/>
+          • Check your email (including spam folders) for login credentials<br/>
+          • Try logging in with the provided username and password<br/>
+          • Clear your browser cache and cookies<br/>
+          • Try accessing from a different device or browser<br/>
+          • Contact our support team for immediate assistance
+        </Paragraph>
+      </Section>
+
+      <Section>
+        <SectionTitle>8. Technical Requirements</SectionTitle>
+        <Paragraph>
+          Minimum requirements for optimal course experience:
+        </Paragraph>
+        <Paragraph>
+          • High-speed internet connection (broadband recommended)<br/>
+          • Modern web browser (Chrome, Firefox, Safari, Edge)<br/>
+          • JavaScript enabled<br/>
+          • Audio/video playback capability<br/>
+          • PDF reader for downloadable materials
+        </Paragraph>
+      </Section>
+
+      <Section>
+        <SectionTitle>9. Account Security</SectionTitle>
+        <Paragraph>
+          Your course access is protected by secure login credentials. Keep your account information safe:
+        </Paragraph>
+        <Paragraph>
+          • Use a strong, unique password<br/>
+          • Don't share login credentials with others<br/>
+          • Log out when using public computers<br/>
+          • Contact us immediately if you suspect unauthorized access
+        </Paragraph>
+      </Section>
+
+      <Section>
+        <SectionTitle>10. Contact Information</SectionTitle>
+        <Paragraph>
+          For course delivery issues or technical support:
+        </Paragraph>
+        <Paragraph>
+          <strong>The Williams Collection Inc.</strong><br/>
+          Director: Shannon Williams<br/>
           Email: support@willcol.com<br/>
-          Phone: +14452856014
+          Phone: +1 (445) 285-6014<br/>
+          Address: 5830 E 2ND ST, Casper, WY 82609, United States<br/>
+          Support Hours: Monday-Friday, 9 AM - 5 PM MST
+        </Paragraph>
+        <Paragraph>
+          <strong>Emergency Access Issues:</strong> Include "URGENT ACCESS" in your email subject line for priority technical support.
         </Paragraph>
       </Section>
     </Container>

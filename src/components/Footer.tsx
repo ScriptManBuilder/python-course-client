@@ -22,11 +22,12 @@ const Footer: React.FC = () => {
             <h3>Pages</h3>
             <ul>
               <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/products">Products</Link></li>
+              <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/products">AI Courses</Link></li>
               <li><Link to="/support">Support</Link></li>
               <li><Link to="/privacy-policy">Privacy Policy</Link></li>
               <li><Link to="/terms-conditions">Terms & Conditions</Link></li>
-              <li><Link to="/shipping-policy">Shipping Policy</Link></li>
+              <li><Link to="/shipping-policy">Course Delivery</Link></li>
             </ul>
           </FooterSection>
 
@@ -36,7 +37,7 @@ const Footer: React.FC = () => {
               <li><Link to="/support">FAQ</Link></li>
               <li><Link to="/return-policy">Returns Policy</Link></li>
               <li><Link to="/refund-policy">Refund Policy</Link></li>
-              <li><Link to="/cart">Orders</Link></li>
+              <li><Link to="/cart">My Courses</Link></li>
             </ul>
           </FooterSection>
 
@@ -49,29 +50,29 @@ const Footer: React.FC = () => {
           </FooterSection>
 
           <MoreAboutSection>
-            <h3>More About WILLCOL.COM</h3>
+            <h3>More About Williams AI Academy</h3>
             <PromoCards>
               <PromoCard href="/products">
-                <img src="/images/fot1.jpg" alt="Premium Products" />
+                <img src="/images/footer_1.jpg" alt="AI Courses" />
                 <PromoCardContent>
-                  <h4>Premium Products</h4>
-                  <p>Explore Our Collection</p>
+                  <h4>AI Courses</h4>
+                  <p>Master AI & ChatGPT</p>
                 </PromoCardContent>
               </PromoCard>
 
               <PromoCard href="/about">
-                <img src="/images/fot2.jpg" alt="About Us" />
+                <img src="/images/footer_2.jpg" alt="About Us" />
                 <PromoCardContent>
                   <h4>About Us</h4>
-                  <p>Our Story & Mission</p>
+                  <p>AI Education Excellence</p>
                 </PromoCardContent>
               </PromoCard>
 
               <PromoCard href="/support">
-                <img src="/images/fot3.jpg" alt="Support" />
+                <img src="/images/footer_3.jpg" alt="Support" />
                 <PromoCardContent>
-                  <h4>Support</h4>
-                  <p>24/7 Customer Service</p>
+                  <h4>Student Support</h4>
+                  <p>24/7 Learning Assistance</p>
                 </PromoCardContent>
               </PromoCard>
             </PromoCards>
@@ -80,7 +81,7 @@ const Footer: React.FC = () => {
 
         <FooterBottom>
           <Copyright>
-            Copyright  2025 The Williams Collection Inc. All rights reserved. | Premium Headphones & Audio Equipment
+            Copyright  2025 The Williams Collection Inc. All rights reserved. | Premium AI Education & Training Courses
           </Copyright>
         </FooterBottom>
       </FooterContent>

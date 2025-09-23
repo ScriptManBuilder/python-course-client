@@ -44,20 +44,20 @@ const Support: React.FC = () => {
 
   const faqData = [
     {
-      question: "How long does shipping take?",
-      answer: "Standard shipping takes 3-5 business days within the USA. Express shipping is available for next-day delivery. International shipping times vary by location."
+      question: "How do I access my purchased courses?",
+      answer: "After purchase, you'll receive instant access to your courses through your account dashboard. Simply log in and navigate to 'My Courses' to start learning."
     },
     {
-      question: "What is your return policy?",
-      answer: "We offer a 30-day return policy for all products. Items must be in original condition with packaging. Please contact our support team to initiate a return."
+      question: "What is your refund policy?",
+      answer: "We offer a 7-day refund policy for all courses. If you're not satisfied with your purchase, contact our support team within 7 days for a full refund."
     },
     {
-      question: "How do I track my order?",
-      answer: "Once your order ships, you'll receive a tracking number via email. You can also check your order status by logging into your account on our website."
+      question: "How long do I have access to the courses?",
+      answer: "All course purchases include lifetime access. You can learn at your own pace and revisit the material anytime without time restrictions."
     },
     {
-      question: "Do you offer warranty on your products?",
-      answer: "Yes, all our products come with manufacturer warranty. Premium products include extended warranty options."
+      question: "Do you provide certificates upon completion?",
+      answer: "Yes, you'll receive a certificate of completion for each course you finish. Certificates can be downloaded from your account and shared on professional networks."
     }
   ];
 
@@ -66,9 +66,9 @@ const Support: React.FC = () => {
       <HeroSection>
         <Container>
           <HeroContent>
-            <HeroTitle>Customer Support</HeroTitle>
+            <HeroTitle>Student Support</HeroTitle>
             <HeroSubtitle>
-              We're here to help you 24/7. Get expert assistance from our dedicated support team.
+              We're here to help you succeed. Get expert assistance with your AI learning journey from our dedicated support team.
             </HeroSubtitle>
           </HeroContent>
         </Container>

@@ -88,83 +88,75 @@ const Home: React.FC = () => {
   // Данные для слайдов карусели
   const carouselSlides = [
     {
-      title: "Why Choose Williams Collection?",
-      subtitle: "Discover the excellence that makes our audio technology exceptional"
+      title: "Why Choose Williams AI Academy?",
+      subtitle: "Discover the excellence that makes our AI education exceptional"
     },
     {
-      title: "Premium Sound Engineering",
-      subtitle: "Experience unmatched audio quality with our cutting-edge technology"
+      title: "Expert-Led AI Training",
+      subtitle: "Learn from industry professionals with real-world AI experience"
     },
     {
-      title: "Innovation Meets Style",
-      subtitle: "Where sophisticated design meets revolutionary audio performance"
+      title: "Innovation Meets Education",
+      subtitle: "Where cutting-edge AI knowledge meets practical application"
     }
   ];
 
   // Данные для слайдов Featured Solutions
   const featuredSlides = [
     {
-      title: "Featured Solutions",
-      subtitle: "Discover our most innovative digital products"
+      title: "Featured AI Courses",
+      subtitle: "Discover our most popular and effective AI training programs"
     },
     {
-      title: "Revolutionary Technology",
-      subtitle: "Next-generation products that redefine industry standards"
+      title: "Revolutionary Learning",
+      subtitle: "Next-generation AI education that transforms careers"
     },
     {
-      title: "Premium Experience",
-      subtitle: "Crafted for those who demand excellence in every detail"
+      title: "Premium AI Education",
+      subtitle: "Crafted for those who demand excellence in AI mastery"
     }
   ];
 
   // Мемоизируем массив изображений для галереи
   const galleryImages = useMemo(() => {
-    // Базовые 9 изображений
-    const baseImages = [
-      { src: `/images/AiPic1.jpg`, alt: `AI Generated 1` },
-      { src: `/images/AiPic2.jpg`, alt: `AI Generated 2` },
-      { src: `/images/AiPic3.jpg`, alt: `AI Generated 3` },
-      { src: `/images/AiPic4.jpg`, alt: `AI Generated 4` },
-      { src: `/images/AiPic5.jpg`, alt: `AI Generated 5` },
-      { src: `/images/AiPic6.jpg`, alt: `AI Generated 6` },
-      { src: `/images/AiPic7.jpg`, alt: `AI Generated 7` },
-      { src: `/images/AiPic8.jpg`, alt: `AI Generated 8` },
-      { src: `/images/AiPic9.jpg`, alt: `AI Generated 9` }
+    // Точно 15 изображений из папки public/images
+    const allImages = [
+      { src: `/images/pictureAI_1.jpg`, alt: `AI Picture 1`, type: 'ai-picture' },
+      { src: `/images/pictureAI_2.jpg`, alt: `AI Picture 2`, type: 'ai-picture' },
+      { src: `/images/pictureAI_3.jpg`, alt: `AI Picture 3`, type: 'ai-picture' },
+      { src: `/images/pictureAI_4.jpg`, alt: `AI Picture 4`, type: 'ai-picture' },
+      { src: `/images/pictureAI_5.jpg`, alt: `AI Picture 5`, type: 'ai-picture' },
+      { src: `/images/pictureAI_6.jpg`, alt: `AI Picture 6`, type: 'ai-picture' },
+      { src: `/images/pictureAI_7.jpg`, alt: `AI Picture 7`, type: 'ai-picture' },
+      { src: `/images/pictureAI_8.jpg`, alt: `AI Picture 8`, type: 'ai-picture' },
+      { src: `/images/pictureAI_9.png`, alt: `AI Picture 9`, type: 'ai-picture' },
+      { src: `/images/pictureAI_10.png`, alt: `AI Picture 10`, type: 'ai-picture' },
+      { src: `/images/williams_1.jpg`, alt: `Williams Collection 1`, type: 'brand' },
+      { src: `/images/williams_2.jpg`, alt: `Williams Collection 2`, type: 'brand' },
+      { src: `/images/williams_3.jpg`, alt: `Williams Collection 3`, type: 'brand' },
+      { src: `/images/williams_4.jpg`, alt: `Williams Collection 4`, type: 'brand' },
+      { src: `/images/williams_5.jpg`, alt: `Williams Collection 5`, type: 'brand' }
     ];
     
-    // Создаем непрерывную ленту из 18 изображений (2 цикла в разном порядке)
-    const galleryItems: Array<{ id: number; src: string; alt: string }> = [];
-    
-    // Первый цикл - в порядке 1-9
-    baseImages.forEach((img, index) => {
-      galleryItems.push({
+    // Перемешиваем для разнообразия и добавляем id
+    return allImages
+      .sort(() => Math.random() - 0.5)
+      .map((img, index) => ({
         id: index,
         src: img.src,
-        alt: img.alt
-      });
-    });
-    
-    // Второй цикл - перемешиваем массив для разнообразия
-    const shuffledImages = [...baseImages].sort(() => Math.random() - 0.5);
-    shuffledImages.forEach((img, index) => {
-      galleryItems.push({
-        id: 9 + index,
-        src: img.src,
-        alt: img.alt
-      });
-    });
-    
-    return galleryItems;
+        alt: img.alt,
+        type: img.type
+      }));
   }, []);
 
   // Мемоизируем текст для бегущей строки
   const scrollingTexts = useMemo(() => [
-    'JOIN US ON THE DIGITAL REVOLUTION',
-    'FOLLOW US @WILLIAMS_COLLECTION',
-    'PREMIUM TECHNOLOGY SOLUTIONS',
-    'INNOVATIVE AI-POWERED PRODUCTS',
-    'TRANSFORM YOUR DIGITAL EXPERIENCE',
-    'CONNECT WITH THE FUTURE'
+    'MASTER AI & CHATGPT TODAY',
+    'FOLLOW US @WILLIAMS_AI_ACADEMY',
+    'PREMIUM AI EDUCATION COURSES',
+    'TRANSFORM YOUR CAREER WITH AI',
+    'BOOST PRODUCTIVITY WITH CHATGPT',
+    'JOIN THE AI REVOLUTION NOW'
   ], []);
 
   useEffect(() => {
@@ -362,21 +354,21 @@ const Home: React.FC = () => {
           playsInline
           preload="auto"
         >
-          <source src="/videos/vid5.mp4" type="video/mp4" />
+          <source src="/videos/videoAI_1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </HeroVideo>
         <Container>
           <HeroContent>
-            <HeroTitle>WILLIAMS COLLECTION</HeroTitle>
+            <HeroTitle>WILLIAMS AI ACADEMY</HeroTitle>
             <HeroSubtitle>
-              Transforming Digital Experiences with Premium Technology Solutions
+              Master AI & ChatGPT with Expert-Led Video Courses - Transform Your Productivity Today
             </HeroSubtitle>
             <HeroButtons>
               <Button as={Link} to="/products" variant="primary">
-                Explore Solutions
+                Browse Courses
               </Button>
               <Button as={Link} to="/about" variant="outline">
-                Our Story
+                Our Mission
               </Button>
             </HeroButtons>
           </HeroContent>
@@ -421,9 +413,9 @@ const Home: React.FC = () => {
             <ScrollReveal ref={setScrollRevealRef(1)} delay={100}>
               <FeatureCard>
                 <RocketIcon />
-                <FeatureTitle>Premium Audio Engineering</FeatureTitle>
+                <FeatureTitle>Expert AI Instruction</FeatureTitle>
                 <FeatureDescription>
-                  Cutting-edge acoustic technology delivering exceptional sound quality and clarity.
+                  Learn from industry professionals with hands-on AI experience and proven track records.
                 </FeatureDescription>
               </FeatureCard>
             </ScrollReveal>
@@ -431,9 +423,9 @@ const Home: React.FC = () => {
             <ScrollReveal ref={setScrollRevealRef(2)} delay={200}>
               <FeatureCard>
                 <LightningIcon />
-                <FeatureTitle>Advanced Connectivity</FeatureTitle>
+                <FeatureTitle>Instant Access Learning</FeatureTitle>
                 <FeatureDescription>
-                  Seamless wireless technology with ultra-low latency for professional performance.
+                  Start learning immediately with lifetime access to all course materials and updates.
                 </FeatureDescription>
               </FeatureCard>
             </ScrollReveal>
@@ -441,9 +433,9 @@ const Home: React.FC = () => {
             <ScrollReveal ref={setScrollRevealRef(3)} delay={300}>
               <FeatureCard>
                 <ShieldIcon />
-                <FeatureTitle>Durable Construction</FeatureTitle>
+                <FeatureTitle>Certified Quality</FeatureTitle>
                 <FeatureDescription>
-                  Military-grade materials and rigorous testing ensure lasting reliability.
+                  Industry-recognized certificates and rigorous curriculum ensure professional standards.
                 </FeatureDescription>
               </FeatureCard>
             </ScrollReveal>
@@ -451,9 +443,9 @@ const Home: React.FC = () => {
             <ScrollReveal ref={setScrollRevealRef(4)} delay={400}>
               <FeatureCard>
                 <GlobeIcon />
-                <FeatureTitle>Global Support</FeatureTitle>
+                <FeatureTitle>Global Community</FeatureTitle>
                 <FeatureDescription>
-                  Worldwide warranty coverage with dedicated customer service excellence.
+                  Join thousands of AI enthusiasts worldwide with 24/7 support and community access.
                 </FeatureDescription>
               </FeatureCard>
             </ScrollReveal>
@@ -461,9 +453,9 @@ const Home: React.FC = () => {
             <ScrollReveal ref={setScrollRevealRef(5)} delay={500}>
               <FeatureCard>
                 <TargetIcon />
-                <FeatureTitle>Professional Grade</FeatureTitle>
+                <FeatureTitle>Practical Application</FeatureTitle>
                 <FeatureDescription>
-                  Studio-quality precision trusted by audio professionals worldwide.
+                  Real-world projects and case studies that you can apply immediately in your work.
                 </FeatureDescription>
               </FeatureCard>
             </ScrollReveal>
@@ -471,9 +463,9 @@ const Home: React.FC = () => {
             <ScrollReveal ref={setScrollRevealRef(6)} delay={600}>
               <FeatureCard>
                 <DiamondIcon />
-                <FeatureTitle>Innovative Design</FeatureTitle>
+                <FeatureTitle>Premium Content</FeatureTitle>
                 <FeatureDescription>
-                  Award-winning ergonomic design combining comfort with premium aesthetics.
+                  Cutting-edge curriculum updated regularly with the latest AI developments and trends.
                 </FeatureDescription>
               </FeatureCard>
             </ScrollReveal>
@@ -491,14 +483,14 @@ const Home: React.FC = () => {
             playsInline
             preload="none"
           >
-            <source src="/videos/animation2.mp4" type="video/mp4" />
+            <source src="/videos/videoAI_2.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </VideoSectionVideo>
         )}
         <VideoSectionContent>
-          <VideoSectionTitle>Innovation in Motion</VideoSectionTitle>
+          <VideoSectionTitle>AI Learning in Motion</VideoSectionTitle>
           <VideoSectionSubtitle>
-            Experience the future of audio technology through cutting-edge design and engineering excellence
+            Experience the future of AI education through interactive learning and real-world applications
           </VideoSectionSubtitle>
         </VideoSectionContent>
       </VideoSection>
@@ -548,7 +540,7 @@ const Home: React.FC = () => {
                       <ProductDescription>{product.description}</ProductDescription>
                     </ProductContent>
                     <ProductButton as={Link} to={`/product/${product.id}`}>
-                      Explore Details
+                      Start Learning
                     </ProductButton>
                   </ProductInfo>
                 </ProductCard>
@@ -560,7 +552,7 @@ const Home: React.FC = () => {
             <div style={{ textAlign: 'center', marginTop: '80px' }}>
               <PremiumButton as={Link} to="/products">
                 <span>
-                  ✨ View All Solutions
+                  🎓 View All Courses
                 </span>
               </PremiumButton>
             </div>
@@ -573,7 +565,7 @@ const Home: React.FC = () => {
         {isVisible && (
           <PhotoStrip>
             {galleryImages.map((image) => (
-              <PhotoItem key={image.id}>
+              <PhotoItem key={image.id} className={`photo-${image.type}`}>
                 <LazyImage
                   src={image.src}
                   alt={image.alt}
@@ -596,70 +588,70 @@ const Home: React.FC = () => {
       <InfoSection>
         <InfoGrid>
           <InfoBlock>
-            <InfoTitle>Premium Audio Technology</InfoTitle>
+            <InfoTitle>Master ChatGPT & AI Tools</InfoTitle>
             <InfoDescription>
-              Experience unparalleled sound quality with our cutting-edge headphone collection. 
-              Each model features advanced acoustic engineering for crystal-clear highs, 
-              rich mids, and deep bass response.
+              Transform your productivity with comprehensive AI training. 
+              Learn prompt engineering, automation techniques, and advanced AI applications 
+              that professionals use to save hours every day.
             </InfoDescription>
             
             <InfoSubsection>
-              <InfoSubtitle>Professional Grade Drivers</InfoSubtitle>
+              <InfoSubtitle>Professional Prompt Engineering</InfoSubtitle>
               <InfoText>
-                Our headphones utilize <InfoHighlight>precision-engineered drivers </InfoHighlight> 
-                 that deliver exceptional frequency response across the entire audio spectrum. 
-                From studio monitoring to casual listening, experience audio as it was meant to be heard.
+                Master <InfoHighlight>advanced prompt techniques</InfoHighlight> 
+                 that deliver consistent, high-quality results. From basic commands to 
+                complex workflows, learn to communicate effectively with AI systems.
               </InfoText>
             </InfoSubsection>
           </InfoBlock>
 
           <InfoBlock>
-            <InfoTitle>Comfort & Durability</InfoTitle>
+            <InfoTitle>Real-World Applications</InfoTitle>
             <InfoDescription>
-              Designed for extended listening sessions with premium materials and ergonomic engineering. 
-              Our headphones combine luxury comfort with professional-grade durability.
+              Apply AI knowledge immediately with practical projects and case studies. 
+              Our courses focus on real business scenarios and measurable productivity gains.
             </InfoDescription>
             
             <InfoSubsection>
-              <InfoSubtitle>Premium Build Quality</InfoSubtitle>
+              <InfoSubtitle>Industry-Proven Methods</InfoSubtitle>
               <InfoText>
-                Featuring <InfoHighlight>premium leather padding</InfoHighlight>, reinforced hinges, 
-                and lightweight yet durable construction. Built to withstand daily use while 
-                maintaining exceptional comfort for hours of listening.
+                Learn <InfoHighlight>battle-tested AI strategies</InfoHighlight> used by 
+                Fortune 500 companies. From content creation to data analysis, 
+                master techniques that deliver immediate ROI.
               </InfoText>
             </InfoSubsection>
           </InfoBlock>
 
           <InfoBlock>
-            <InfoTitle>Wireless Freedom</InfoTitle>
+            <InfoTitle>Lifetime Learning Access</InfoTitle>
             <InfoDescription>
-              Cut the cord with advanced Bluetooth technology and long-lasting battery life. 
-              Enjoy seamless connectivity and freedom of movement without compromising audio quality.
+              Enjoy unlimited access to all course materials, updates, and new content. 
+              Stay ahead of the rapidly evolving AI landscape with continuous learning.
             </InfoDescription>
             
             <InfoSubsection>
-              <InfoSubtitle>Advanced Connectivity</InfoSubtitle>
+              <InfoSubtitle>Always Up-to-Date Content</InfoSubtitle>
               <InfoText>
-                Experience <InfoHighlight>latest Bluetooth 5.0 technology</InfoHighlight> with 
-                extended range, stable connections, and multi-device pairing. Quick charge technology 
-                provides hours of playback from just minutes of charging.
+                Access <InfoHighlight>regularly updated curriculum</InfoHighlight> that 
+                evolves with AI technology. New features, tools, and techniques are 
+                added monthly to keep your skills current.
               </InfoText>
             </InfoSubsection>
           </InfoBlock>
 
           <InfoBlock>
-            <InfoTitle>Noise Cancellation</InfoTitle>
+            <InfoTitle>Expert Community Support</InfoTitle>
             <InfoDescription>
-              Immerse yourself in pure audio with our advanced noise cancellation technology. 
-              Block out distractions and focus on what matters most - your music.
+              Join a thriving community of AI practitioners and receive personalized guidance. 
+              Get answers to your questions and accelerate your learning journey.
             </InfoDescription>
             
             <InfoSubsection>
-              <InfoSubtitle>Active & Passive Isolation</InfoSubtitle>
+              <InfoSubtitle>24/7 Community Access</InfoSubtitle>
               <InfoText>
-                Combining <InfoHighlight>active noise cancellation</InfoHighlight> with superior 
-                passive isolation design. Effectively reduces ambient noise by up to 95%, 
-                creating your personal audio sanctuary anywhere.
+                Connect with <InfoHighlight>thousands of AI learners worldwide</InfoHighlight> 
+                through our exclusive community platform. Share projects, get feedback, 
+                and collaborate on AI solutions.
               </InfoText>
             </InfoSubsection>
           </InfoBlock>

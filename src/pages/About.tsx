@@ -869,6 +869,1058 @@ const ProductsCardButton = styled.span`
   }
 `;
 
+/* Statistics Section Styles */
+const StatsSection = styled.section`
+  padding: 120px 0;
+  background: linear-gradient(
+    135deg,
+    #667eea 0%,
+    #764ba2 25%,
+    #f093fb 50%,
+    #f5576c 75%,
+    #4facfe 100%
+  );
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    animation: gridMove 30s linear infinite;
+    z-index: 1;
+  }
+  
+  @keyframes gridMove {
+    0% { transform: translateX(0) translateY(0); }
+    100% { transform: translateX(10px) translateY(10px); }
+  }
+`;
+
+const StatsContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+`;
+
+const StatsTitle = styled.h2`
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 80px 0;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  
+  .word {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(50px) scale(0.8);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-right: 0.3em;
+  }
+  
+  &.revealed .word {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
+  .word:nth-child(1) { transition-delay: 0.1s; }
+  .word:nth-child(2) { transition-delay: 0.2s; }
+  .word:nth-child(3) { transition-delay: 0.3s; }
+  .word:nth-child(4) { transition-delay: 0.4s; }
+  .word:nth-child(5) { transition-delay: 0.5s; }
+  .word:nth-child(6) { transition-delay: 0.6s; }
+  
+  @media (max-width: 768px) {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2rem;
+    margin-bottom: 50px;
+  }
+`;
+
+const StatsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+`;
+
+const StatCard = styled.div`
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px) scale(0.9);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      transparent 100%
+    );
+    transition: left 0.6s ease;
+  }
+  
+  &:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    
+    &::before {
+      left: 100%;
+    }
+  }
+  
+  &:nth-child(1).revealed { transition-delay: 0.1s; }
+  &:nth-child(2).revealed { transition-delay: 0.2s; }
+  &:nth-child(3).revealed { transition-delay: 0.3s; }
+  &:nth-child(4).revealed { transition-delay: 0.4s; }
+  &:nth-child(5).revealed { transition-delay: 0.5s; }
+  &:nth-child(6).revealed { transition-delay: 0.6s; }
+  
+  @media (max-width: 768px) {
+    padding: 35px 25px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 30px 20px;
+  }
+`;
+
+const StatNumber = styled.div`
+  font-size: 4rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+`;
+
+const StatLabel = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+`;
+
+const StatDescription = styled.p`
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-weight: 400;
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
+`;
+
+/* Timeline Section Styles */
+const TimelineSection = styled.section`
+  padding: 120px 0;
+  background: linear-gradient(
+    180deg,
+    #f8fafc 0%,
+    #e2e8f0 50%,
+    #f8fafc 100%
+  );
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 30% 70%,
+      rgba(102, 126, 234, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 30%,
+      rgba(255, 107, 107, 0.05) 0%,
+      transparent 50%
+    );
+    animation: timelineFloat 30s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes timelineFloat {
+    0%, 100% { opacity: 0.3; transform: scale(1) rotate(0deg); }
+    50% { opacity: 0.6; transform: scale(1.1) rotate(180deg); }
+  }
+`;
+
+const TimelineContainer = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+`;
+
+const Timeline = styled.div`
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(
+      180deg,
+      #667eea 0%,
+      #ff6b6b 25%,
+      #4ecdc4 50%,
+      #45b7d1 75%,
+      #96ceb4 100%
+    );
+    transform: translateX(-50%);
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    &::before {
+      left: 30px;
+    }
+  }
+`;
+
+const TimelineYear = styled.div`
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 120px;
+  position: relative;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    min-width: 80px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    min-width: 60px;
+  }
+`;
+
+const TimelineContent = styled.div`
+  flex: 1;
+  max-width: 400px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: rgba(102, 126, 234, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    padding: 25px;
+    max-width: none;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 20px;
+  }
+`;
+
+const TimelineItem = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 80px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  &:nth-child(odd) {
+    flex-direction: row;
+    
+    ${TimelineYear} {
+      order: 1;
+      margin-right: 60px;
+      margin-left: 0;
+    }
+    
+    ${TimelineContent} {
+      order: 2;
+      text-align: left;
+    }
+  }
+  
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+    
+    ${TimelineYear} {
+      order: 1;
+      margin-left: 60px;
+      margin-right: 0;
+    }
+    
+    ${TimelineContent} {
+      order: 2;
+      text-align: right;
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+    border: 4px solid #ffffff;
+  }
+  
+  &:nth-child(1).revealed { transition-delay: 0.1s; }
+  &:nth-child(2).revealed { transition-delay: 0.2s; }
+  &:nth-child(3).revealed { transition-delay: 0.3s; }
+  &:nth-child(4).revealed { transition-delay: 0.4s; }
+  &:nth-child(5).revealed { transition-delay: 0.5s; }
+  &:nth-child(6).revealed { transition-delay: 0.6s; }
+  &:nth-child(7).revealed { transition-delay: 0.7s; }
+  
+  @media (max-width: 768px) {
+    flex-direction: row !important;
+    margin-bottom: 60px;
+    
+    &::before {
+      left: 30px;
+    }
+    
+    ${TimelineYear} {
+      order: 1 !important;
+      margin-right: 40px !important;
+      margin-left: 0 !important;
+      min-width: 80px;
+    }
+    
+    ${TimelineContent} {
+      order: 2 !important;
+      text-align: left !important;
+      flex: 1;
+    }
+  }
+`;
+
+const TimelineTitle = styled.h3`
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 15px 0;
+  letter-spacing: -0.5px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+`;
+
+const TimelineDescription = styled.p`
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+  font-weight: 400;
+  
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+`;
+
+/* Leadership Section Styles */
+const LeadershipSection = styled.section`
+  padding: 120px 0;
+  background: linear-gradient(
+    135deg,
+    #1a202c 0%,
+    #2d3748 25%,
+    #4a5568 50%,
+    #2d3748 75%,
+    #1a202c 100%
+  );
+  position: relative;
+  overflow: hidden;
+  
+  /* Animated background patterns */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 20% 80%,
+      rgba(102, 126, 234, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 107, 107, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(78, 205, 196, 0.08) 0%,
+      transparent 50%
+    );
+    animation: backgroundPulse 20s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(
+      45deg,
+      rgba(102, 126, 234, 0.05) 0%,
+      rgba(255, 107, 107, 0.03) 100%
+    );
+    border-radius: 50%;
+    animation: floatSlow 25s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes backgroundPulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.1); }
+  }
+  
+  @keyframes floatSlow {
+    0%, 100% { 
+      transform: translateY(0px) translateX(0px) rotate(0deg);
+      opacity: 0.3;
+    }
+    33% { 
+      transform: translateY(-40px) translateX(30px) rotate(120deg);
+      opacity: 0.5;
+    }
+    66% { 
+      transform: translateY(20px) translateX(-20px) rotate(240deg);
+      opacity: 0.4;
+    }
+  }
+`;
+
+const LeadershipContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 4rem;
+  font-weight: 900;
+  text-align: center;
+  color: #ffffff;
+  margin: 0 0 80px 0;
+  letter-spacing: -1px;
+  position: relative;
+  overflow: hidden;
+  
+  .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100px) rotateX(90deg);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: forwards;
+  }
+  
+  &.revealed .letter {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+  
+  .letter:nth-child(1) { transition-delay: 0.1s; }
+  .letter:nth-child(2) { transition-delay: 0.15s; }
+  .letter:nth-child(3) { transition-delay: 0.2s; }
+  .letter:nth-child(4) { transition-delay: 0.25s; }
+  .letter:nth-child(5) { transition-delay: 0.3s; }
+  .letter:nth-child(6) { transition-delay: 0.35s; }
+  .letter:nth-child(7) { transition-delay: 0.4s; }
+  .letter:nth-child(8) { transition-delay: 0.45s; }
+  .letter:nth-child(9) { transition-delay: 0.5s; }
+  .letter:nth-child(10) { transition-delay: 0.55s; }
+  .letter:nth-child(11) { transition-delay: 0.6s; }
+  .letter:nth-child(12) { transition-delay: 0.65s; }
+  .letter:nth-child(13) { transition-delay: 0.7s; }
+  .letter:nth-child(14) { transition-delay: 0.75s; }
+  .letter:nth-child(15) { transition-delay: 0.8s; }
+  .letter:nth-child(16) { transition-delay: 0.85s; }
+  .letter:nth-child(17) { transition-delay: 0.9s; }
+  .letter:nth-child(18) { transition-delay: 0.95s; }
+  .letter:nth-child(19) { transition-delay: 1s; }
+  
+  &.revealed::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(102, 126, 234, 0.3) 50%,
+      transparent 100%
+    );
+    animation: shine 2s ease-in-out 1.5s forwards;
+  }
+  
+  @keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 3rem;
+    margin-bottom: 60px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+  }
+`;
+
+const LeadershipGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+`;
+
+const LeaderCard = styled.div`
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  &:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(102, 126, 234, 0.3);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.2),
+      0 0 30px rgba(102, 126, 234, 0.1);
+  }
+  
+  &:nth-child(1).revealed { transition-delay: 0.1s; }
+  &:nth-child(2).revealed { transition-delay: 0.2s; }
+  &:nth-child(3).revealed { transition-delay: 0.3s; }
+  &:nth-child(4).revealed { transition-delay: 0.4s; }
+  &:nth-child(5).revealed { transition-delay: 0.5s; }
+  &:nth-child(6).revealed { transition-delay: 0.6s; }
+`;
+
+const LeaderImage = styled.div`
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  
+  ${LeaderCard}:hover & img {
+    transform: scale(1.1);
+  }
+`;
+
+const LeaderOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.8) 0%,
+    rgba(255, 107, 107, 0.6) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  
+  ${LeaderCard}:hover & {
+    opacity: 1;
+  }
+`;
+
+const LeaderRole = styled.div`
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 0 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+`;
+
+const LeaderInfo = styled.div`
+  padding: 30px 25px;
+`;
+
+const LeaderName = styled.h3`
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+`;
+
+const LeaderTitle = styled.h4`
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #667eea;
+  margin: 0 0 15px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+`;
+
+const LeaderDescription = styled.p`
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #cbd5e0;
+  margin: 0;
+  font-weight: 300;
+`;
+
+/* Values Section Styles */
+const ValuesSection = styled.section`
+  padding: 120px 0;
+  background: linear-gradient(
+    180deg,
+    #f8fafc 0%,
+    #ffffff 50%,
+    #f8fafc 100%
+  );
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      circle at 80% 20%,
+      rgba(102, 126, 234, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 107, 107, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 60% 60%,
+      rgba(78, 205, 196, 0.05) 0%,
+      transparent 50%
+    );
+    animation: valuesFloat 25s ease-in-out infinite;
+    pointer-events: none;
+  }
+  
+  @keyframes valuesFloat {
+    0%, 100% { 
+      opacity: 0.4; 
+      transform: scale(1) rotate(0deg); 
+    }
+    33% { 
+      opacity: 0.7; 
+      transform: scale(1.1) rotate(120deg); 
+    }
+    66% { 
+      opacity: 0.5; 
+      transform: scale(0.9) rotate(240deg); 
+    }
+  }
+`;
+
+const ValuesContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+`;
+
+const ValuesGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+  
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-bottom: 50px;
+  }
+`;
+
+const ValueCard = styled.div`
+  background: rgba(255, 255, 255, 0.8);
+  padding: 40px 30px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px) rotateY(30deg);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0) rotateY(0deg);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 30%,
+      rgba(102, 126, 234, 0.1) 50%,
+      transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+  }
+  
+  &:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: rgba(102, 126, 234, 0.3);
+    
+    &::before {
+      opacity: 1;
+      animation: shimmer 1.5s ease-in-out;
+    }
+  }
+  
+  @keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  }
+  
+  &:nth-child(1).revealed { transition-delay: 0.1s; }
+  &:nth-child(2).revealed { transition-delay: 0.2s; }
+  &:nth-child(3).revealed { transition-delay: 0.3s; }
+  &:nth-child(4).revealed { transition-delay: 0.4s; }
+  &:nth-child(5).revealed { transition-delay: 0.5s; }
+  &:nth-child(6).revealed { transition-delay: 0.6s; }
+  
+  @media (max-width: 768px) {
+    padding: 35px 25px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 30px 20px;
+  }
+`;
+
+const ValueIcon = styled.div`
+  font-size: 4rem;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
+  
+  ${ValueCard}:hover & {
+    transform: scale(1.2) rotate(10deg);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 3rem;
+    margin-bottom: 18px;
+  }
+`;
+
+const ValueTitle = styled.h3`
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.5px;
+  
+  @media (max-width: 768px) {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+  }
+`;
+
+const ValueDescription = styled.p`
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+  font-weight: 400;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+`;
+
+const MissionStatement = styled.div`
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.1) 0%,
+    rgba(255, 107, 107, 0.08) 100%
+  );
+  padding: 60px 50px;
+  border-radius: 25px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  
+  &.revealed {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(
+      135deg,
+      #667eea 0%,
+      #ff6b6b 25%,
+      #4ecdc4 50%,
+      #45b7d1 75%,
+      #96ceb4 100%
+    );
+    background-size: 300% 300%;
+    border-radius: 27px;
+    z-index: -1;
+    animation: gradientShift 6s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  @media (max-width: 768px) {
+    padding: 50px 40px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 40px 30px;
+  }
+`;
+
+const MissionTitle = styled.h3`
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin: 0 0 30px 0;
+  letter-spacing: -1px;
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+`;
+
+const MissionStatementText = styled.p`
+  font-size: 1.3rem;
+  line-height: 1.7;
+  color: #4a5568;
+  margin: 0;
+  font-weight: 400;
+  max-width: 800px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+`;
+
 const About: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
@@ -934,6 +1986,15 @@ const About: React.FC = () => {
                 }, index * 30);
               });
             }
+
+            // Анимация счетчиков для статистики
+            if (entry.target.querySelector('.stat-number')) {
+              const statNumbers = entry.target.querySelectorAll('.stat-number');
+              statNumbers.forEach((statNumber) => {
+                const finalValue = (statNumber as HTMLElement).dataset.value || '0';
+                animateCounter(statNumber as HTMLElement, finalValue);
+              });
+            }
           }
         });
       },
@@ -951,6 +2012,42 @@ const About: React.FC = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  // Функция анимации счетчика
+  const animateCounter = (element: HTMLElement, finalValue: string) => {
+    const isPercentage = finalValue.includes('%');
+    const isPlus = finalValue.includes('+');
+    const isRating = finalValue.includes('/');
+    
+    let numericValue = parseInt(finalValue.replace(/[^0-9.]/g, ''));
+    if (isRating) {
+      numericValue = parseFloat(finalValue.replace(/[^0-9.]/g, '')) * 10; // для 4.9 -> 49
+    }
+    
+    let currentValue = 0;
+    const increment = numericValue / 100;
+    const duration = 2000; // 2 секунды
+    const stepTime = duration / 100;
+
+    const timer = setInterval(() => {
+      currentValue += increment;
+      if (currentValue >= numericValue) {
+        currentValue = numericValue;
+        clearInterval(timer);
+      }
+      
+      let displayValue = Math.floor(currentValue).toString();
+      if (isRating) {
+        displayValue = (currentValue / 10).toFixed(1);
+      }
+      
+      if (isPercentage) displayValue += '%';
+      if (isPlus && !isRating) displayValue += '+';
+      if (isRating) displayValue += '/5';
+      
+      element.textContent = displayValue;
+    }, stepTime);
+  };
 
   // Функция для разделения текста на буквы
   const splitTextToLetters = (text: string) => {
@@ -1010,7 +2107,7 @@ const About: React.FC = () => {
         </ParticlesContainer>
         
         <LogoContainer>
-          <MainLogo>WILLIAMS COLLECTION</MainLogo>
+          <MainLogo>WILLIAMS AI ACADEMY</MainLogo>
         </LogoContainer>
         
         <ScrollIndicator onClick={handleScrollToContent}>
@@ -1036,35 +2133,367 @@ const About: React.FC = () => {
         <Container>
           <ContentContainer>
             <CompanyName ref={setElementRef(0)}>
-              {splitTextToLetters('WILLIAMS COLLECTION')}
+              {splitTextToLetters('WILLIAMS AI ACADEMY')}
             </CompanyName>
             
             <MissionText ref={setElementRef(1)}>
-              {splitTextToWords('To deeply satisfy audio enthusiasts\' needs by offering the most immersive, premium,')}
+              {splitTextToWords('To empower learners worldwide with cutting-edge AI education,')}
             </MissionText>
             
             <MissionText ref={setElementRef(2)}>
-              {splitTextToWords('and innovative headphone products across all categories,')}
+              {splitTextToWords('providing comprehensive courses that transform complex concepts into practical skills.')}
             </MissionText>
             
             <DescriptionText ref={setElementRef(3)} className="description-text">
-              {splitTextToChars('designed with cutting-edge technology, superior sound quality, and exceptional comfort to deliver an unparalleled audio experience that transforms how you connect with music, calls, and digital content in your daily life.')}
+              {splitTextToChars('Our expertly crafted AI courses cover machine learning, deep learning, natural language processing, computer vision, and more. Each course is designed with hands-on projects, real-world applications, and industry best practices to help you master artificial intelligence and advance your career in this rapidly evolving field.')}
             </DescriptionText>
             
             <ProductsCallToAction ref={setElementRef(4)}>
               <ProductsCard to="/products">
-                <ProductsCardTitle>Explore Our Collection</ProductsCardTitle>
+                <ProductsCardTitle>Explore Our AI Courses</ProductsCardTitle>
                 <ProductsCardDescription>
-                  Discover premium headphones designed for audiophiles and tech enthusiasts
+                  Discover comprehensive AI learning programs designed for all skill levels
                 </ProductsCardDescription>
                 <ProductsCardButton>
-                  View Products
+                  View Courses
                 </ProductsCardButton>
               </ProductsCard>
             </ProductsCallToAction>
           </ContentContainer>
         </Container>
       </ContentSection>
+
+      {/* Statistics Section */}
+      <StatsSection>
+        <Container>
+          <StatsContainer>
+            <StatsTitle ref={setElementRef(20)}>
+              {splitTextToWords('Transforming Lives Through AI Education')}
+            </StatsTitle>
+            
+            <StatsGrid>
+              <StatCard ref={setElementRef(21)}>
+                <StatNumber className="stat-number" data-value="75000+">75,000+</StatNumber>
+                <StatLabel>Students Educated</StatLabel>
+                <StatDescription>From beginners to AI experts across 150+ countries</StatDescription>
+              </StatCard>
+
+              <StatCard ref={setElementRef(22)}>
+                <StatNumber className="stat-number" data-value="92%">92%</StatNumber>
+                <StatLabel>Career Advancement</StatLabel>
+                <StatDescription>Students report salary increases or promotions within 6 months</StatDescription>
+              </StatCard>
+
+              <StatCard ref={setElementRef(23)}>
+                <StatNumber className="stat-number" data-value="250+">250+</StatNumber>
+                <StatLabel>Industry Partners</StatLabel>
+                <StatDescription>Leading tech companies hiring our graduates</StatDescription>
+              </StatCard>
+
+              <StatCard ref={setElementRef(24)}>
+                <StatNumber className="stat-number" data-value="98%">98%</StatNumber>
+                <StatLabel>Course Completion</StatLabel>
+                <StatDescription>Industry-leading completion rates with hands-on projects</StatDescription>
+              </StatCard>
+
+              <StatCard ref={setElementRef(25)}>
+                <StatNumber className="stat-number" data-value="15+">15+</StatNumber>
+                <StatLabel>AI Specializations</StatLabel>
+                <StatDescription>From machine learning to generative AI and robotics</StatDescription>
+              </StatCard>
+
+              <StatCard ref={setElementRef(26)}>
+                <StatNumber className="stat-number" data-value="4.9/5">4.9/5</StatNumber>
+                <StatLabel>Student Rating</StatLabel>
+                <StatDescription>Consistently rated as the top AI learning platform</StatDescription>
+              </StatCard>
+            </StatsGrid>
+          </StatsContainer>
+        </Container>
+      </StatsSection>
+
+      {/* AI Innovation Timeline Section */}
+      <TimelineSection>
+        <Container>
+          <TimelineContainer>
+            <SectionTitle ref={setElementRef(12)} style={{ color: '#2d3748' }}>
+              {splitTextToLetters('OUR AI JOURNEY')}
+            </SectionTitle>
+            
+            <Timeline>
+              <TimelineItem ref={setElementRef(13)}>
+                <TimelineYear>2019</TimelineYear>
+                <TimelineContent>
+                  <TimelineTitle>🚀 Foundation</TimelineTitle>
+                  <TimelineDescription>
+                    Williams AI Academy was founded with a vision to democratize AI education 
+                    and make cutting-edge technology accessible to everyone.
+                  </TimelineDescription>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem ref={setElementRef(14)}>
+                <TimelineYear>2020</TimelineYear>
+                <TimelineContent>
+                  <TimelineTitle>🧠 First AI Courses</TimelineTitle>
+                  <TimelineDescription>
+                    Launched our first machine learning courses, featuring hands-on projects 
+                    and real-world applications. Over 1,000 students enrolled in the first month.
+                  </TimelineDescription>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem ref={setElementRef(15)}>
+                <TimelineYear>2021</TimelineYear>
+                <TimelineContent>
+                  <TimelineTitle>🔬 Research Partnership</TimelineTitle>
+                  <TimelineDescription>
+                    Established partnerships with leading AI research institutions and tech companies 
+                    to bring the latest innovations directly to our curriculum.
+                  </TimelineDescription>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem ref={setElementRef(16)}>
+                <TimelineYear>2022</TimelineYear>
+                <TimelineContent>
+                  <TimelineTitle>💡 Deep Learning Expansion</TimelineTitle>
+                  <TimelineDescription>
+                    Expanded our course offerings to include advanced deep learning, 
+                    computer vision, and natural language processing specializations.
+                  </TimelineDescription>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem ref={setElementRef(17)}>
+                <TimelineYear>2023</TimelineYear>
+                <TimelineContent>
+                  <TimelineTitle>🌟 Global Recognition</TimelineTitle>
+                  <TimelineDescription>
+                    Reached 50,000+ students worldwide and received recognition as a leading 
+                    AI education platform by major tech industry publications.
+                  </TimelineDescription>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem ref={setElementRef(18)}>
+                <TimelineYear>2024</TimelineYear>
+                <TimelineContent>
+                  <TimelineTitle>🤖 LLM & GenAI Era</TimelineTitle>
+                  <TimelineDescription>
+                    Pioneered comprehensive courses on Large Language Models and Generative AI, 
+                    helping professionals adapt to the AI revolution.
+                  </TimelineDescription>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem ref={setElementRef(19)}>
+                <TimelineYear>2025</TimelineYear>
+                <TimelineContent>
+                  <TimelineTitle>🎯 Future Focus</TimelineTitle>
+                  <TimelineDescription>
+                    Continuing to lead AI education with emerging technologies, ethical AI practices, 
+                    and innovative learning methodologies for the next generation.
+                  </TimelineDescription>
+                </TimelineContent>
+              </TimelineItem>
+            </Timeline>
+          </TimelineContainer>
+        </Container>
+      </TimelineSection>
+
+      {/* AI Leadership Team Section */}
+      <LeadershipSection>
+        <Container>
+          <LeadershipContainer>
+            <SectionTitle ref={setElementRef(5)}>
+              {splitTextToLetters('AI ACADEMY IS LED BY')}
+            </SectionTitle>
+            
+            <LeadershipGrid>
+              <LeaderCard ref={setElementRef(6)}>
+                <LeaderImage>
+                  <img src="/images/pictureAI_1.jpg" alt="Dr. Alex Williams" />
+                  <LeaderOverlay>
+                    <LeaderRole>Founder & Chief AI Officer</LeaderRole>
+                  </LeaderOverlay>
+                </LeaderImage>
+                <LeaderInfo>
+                  <LeaderName>Dr. Alex Williams</LeaderName>
+                  <LeaderTitle>AI Research Pioneer</LeaderTitle>
+                  <LeaderDescription>
+                    Former Google AI researcher with 15+ years in machine learning. 
+                    Published 50+ papers in top AI conferences. PhD in Computer Science from MIT.
+                  </LeaderDescription>
+                </LeaderInfo>
+              </LeaderCard>
+
+              <LeaderCard ref={setElementRef(7)}>
+                <LeaderImage>
+                  <img src="/images/pictureAI_2.jpg" alt="Dr. Sarah Chen" />
+                  <LeaderOverlay>
+                    <LeaderRole>Head of Deep Learning</LeaderRole>
+                  </LeaderOverlay>
+                </LeaderImage>
+                <LeaderInfo>
+                  <LeaderName>Dr. Sarah Chen</LeaderName>
+                  <LeaderTitle>Deep Learning Expert</LeaderTitle>
+                  <LeaderDescription>
+                    Former Tesla Autopilot lead engineer. Expert in computer vision and 
+                    neural networks. Stanford PhD in Artificial Intelligence.
+                  </LeaderDescription>
+                </LeaderInfo>
+              </LeaderCard>
+
+              <LeaderCard ref={setElementRef(8)}>
+                <LeaderImage>
+                  <img src="/images/pictureAI_3.jpg" alt="Dr. Marcus Johnson" />
+                  <LeaderOverlay>
+                    <LeaderRole>Director of NLP</LeaderRole>
+                  </LeaderOverlay>
+                </LeaderImage>
+                <LeaderInfo>
+                  <LeaderName>Dr. Marcus Johnson</LeaderName>
+                  <LeaderTitle>NLP Specialist</LeaderTitle>
+                  <LeaderDescription>
+                    Ex-OpenAI researcher specializing in large language models. 
+                    Berkeley PhD in Computational Linguistics. 10+ years in NLP.
+                  </LeaderDescription>
+                </LeaderInfo>
+              </LeaderCard>
+
+              <LeaderCard ref={setElementRef(9)}>
+                <LeaderImage>
+                  <img src="/images/pictureAI_4.jpg" alt="Dr. Emily Rodriguez" />
+                  <LeaderOverlay>
+                    <LeaderRole>Head of Education</LeaderRole>
+                  </LeaderOverlay>
+                </LeaderImage>
+                <LeaderInfo>
+                  <LeaderName>Dr. Emily Rodriguez</LeaderName>
+                  <LeaderTitle>AI Education Director</LeaderTitle>
+                  <LeaderDescription>
+                    Former Coursera AI curriculum lead. Expert in online education 
+                    and pedagogical methods. Harvard PhD in Educational Technology.
+                  </LeaderDescription>
+                </LeaderInfo>
+              </LeaderCard>
+
+              <LeaderCard ref={setElementRef(10)}>
+                <LeaderImage>
+                  <img src="/images/pictureAI_5.jpg" alt="Dr. David Kim" />
+                  <LeaderOverlay>
+                    <LeaderRole>Chief Technology Officer</LeaderRole>
+                  </LeaderOverlay>
+                </LeaderImage>
+                <LeaderInfo>
+                  <LeaderName>Dr. David Kim</LeaderName>
+                  <LeaderTitle>AI Infrastructure Expert</LeaderTitle>
+                  <LeaderDescription>
+                    Former Microsoft Azure AI architect. Specialist in scalable 
+                    AI systems and cloud computing. Carnegie Mellon PhD in Distributed Systems.
+                  </LeaderDescription>
+                </LeaderInfo>
+              </LeaderCard>
+
+              <LeaderCard ref={setElementRef(11)}>
+                <LeaderImage>
+                  <img src="/images/pictureAI_6.jpg" alt="Dr. Lisa Thompson" />
+                  <LeaderOverlay>
+                    <LeaderRole>Ethics & AI Safety Lead</LeaderRole>
+                  </LeaderOverlay>
+                </LeaderImage>
+                <LeaderInfo>
+                  <LeaderName>Dr. Lisa Thompson</LeaderName>
+                  <LeaderTitle>AI Ethics Pioneer</LeaderTitle>
+                  <LeaderDescription>
+                    Leading researcher in AI safety and ethics. Former DeepMind researcher. 
+                    Oxford PhD in Philosophy of AI and Machine Ethics.
+                  </LeaderDescription>
+                </LeaderInfo>
+              </LeaderCard>
+            </LeadershipGrid>
+          </LeadershipContainer>
+        </Container>
+      </LeadershipSection>
+
+      {/* Values & Mission Section */}
+      <ValuesSection>
+        <Container>
+          <ValuesContainer>
+            <SectionTitle ref={setElementRef(27)} style={{ color: '#2d3748' }}>
+              {splitTextToLetters('OUR CORE VALUES')}
+            </SectionTitle>
+            
+            <ValuesGrid>
+              <ValueCard ref={setElementRef(28)}>
+                <ValueIcon>🎯</ValueIcon>
+                <ValueTitle>Excellence in Education</ValueTitle>
+                <ValueDescription>
+                  We maintain the highest standards in AI education, constantly updating 
+                  our curriculum with the latest research and industry practices.
+                </ValueDescription>
+              </ValueCard>
+
+              <ValueCard ref={setElementRef(29)}>
+                <ValueIcon>🤝</ValueIcon>
+                <ValueTitle>Inclusive Learning</ValueTitle>
+                <ValueDescription>
+                  AI should be accessible to everyone. We create an inclusive environment 
+                  where learners from all backgrounds can thrive and succeed.
+                </ValueDescription>
+              </ValueCard>
+
+              <ValueCard ref={setElementRef(30)}>
+                <ValueIcon>⚡</ValueIcon>
+                <ValueTitle>Innovation First</ValueTitle>
+                <ValueDescription>
+                  We stay at the forefront of AI innovation, bringing cutting-edge 
+                  technologies and methodologies directly to our students.
+                </ValueDescription>
+              </ValueCard>
+
+              <ValueCard ref={setElementRef(31)}>
+                <ValueIcon>🛡️</ValueIcon>
+                <ValueTitle>Ethical AI</ValueTitle>
+                <ValueDescription>
+                  We prioritize responsible AI development, teaching not just how to build 
+                  AI systems, but how to build them ethically and safely.
+                </ValueDescription>
+              </ValueCard>
+
+              <ValueCard ref={setElementRef(32)}>
+                <ValueIcon>🌱</ValueIcon>
+                <ValueTitle>Continuous Growth</ValueTitle>
+                <ValueDescription>
+                  Learning never stops in AI. We foster a culture of continuous improvement 
+                  and lifelong learning for both students and instructors.
+                </ValueDescription>
+              </ValueCard>
+
+              <ValueCard ref={setElementRef(33)}>
+                <ValueIcon>🌍</ValueIcon>
+                <ValueTitle>Global Impact</ValueTitle>
+                <ValueDescription>
+                  We aim to democratize AI education worldwide, creating positive impact 
+                  in communities and industries across the globe.
+                </ValueDescription>
+              </ValueCard>
+            </ValuesGrid>
+
+            <MissionStatement ref={setElementRef(34)}>
+              <MissionTitle>Our Mission</MissionTitle>
+              <MissionStatementText>
+                To empower the next generation of AI innovators with world-class education, 
+                ethical foundations, and practical skills that drive positive change in society. 
+                We believe that by making AI education accessible and excellent, we can help 
+                solve humanity's greatest challenges while creating opportunities for everyone 
+                to participate in the AI-driven future.
+              </MissionStatementText>
+            </MissionStatement>
+          </ValuesContainer>
+        </Container>
+      </ValuesSection>
     </AboutWrapper>
   );
 };

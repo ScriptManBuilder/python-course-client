@@ -27,16 +27,19 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Inter', 'Helvetica Neue', 'Arial', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
     color: #2C3E50;
     background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
     width: 100%;
     overflow-x: hidden;
+    font-weight: 400;
+    letter-spacing: -0.01em;
     
     /* Improve font rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     
     /* Prevent bounce scrolling on iOS */
     -webkit-overflow-scrolling: touch;
@@ -127,6 +130,52 @@ export const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     width: 100%;
   }
+
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    color: #2C3E50;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 650;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.7;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+    
+    h2 {
+      font-size: 1.6rem;
+    }
+    
+    h3 {
+      font-size: 1.3rem;
+    }
+  }
 `;
 
 export const Container = styled.div`
@@ -160,7 +209,8 @@ export const Button = styled.button<{ variant?: 'primary' | 'secondary' | 'outli
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   border: none;
-  letter-spacing: 0.5px;
+  letter-spacing: -0.01em;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
   ${props => {
     switch (props.variant) {

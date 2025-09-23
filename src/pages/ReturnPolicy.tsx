@@ -37,7 +37,7 @@ const ReturnPolicy: React.FC = () => {
 
   return (
     <Container>
-      <Title>Return Policy</Title>
+      <Title>Digital Course Return Policy</Title>
       
       <Section>
         <Paragraph><strong>Last updated:</strong> {new Date().toLocaleDateString()}</Paragraph>
@@ -45,97 +45,136 @@ const ReturnPolicy: React.FC = () => {
 
       <Section>
         <Paragraph>
-          The Williams Collection Inc. offers a comprehensive return policy to ensure customer satisfaction. 
-          Please review the following terms and conditions for returning products.
+          The Williams Collection Inc. understands that digital products require different return considerations than physical items. 
+          This policy explains our approach to AI course returns and refunds for digital educational content.
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>1. Return Window</SectionTitle>
+        <SectionTitle>Important Notice: Digital Products Policy</SectionTitle>
         <Paragraph>
-          You may return most items within 30 days of delivery for a full refund. 
-          The return window begins on the day you receive your items.
+          <strong>Our AI courses are digital products delivered instantly upon purchase.</strong> Due to the nature of digital 
+          educational content, traditional "returns" do not apply. Instead, we offer a satisfaction guarantee and refund policy 
+          as outlined below.
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>2. Condition Requirements</SectionTitle>
+        <SectionTitle>1. No Physical Returns Required</SectionTitle>
         <Paragraph>
-          Items must be returned in their original condition, unused, and in original packaging 
-          with all accessories, manuals, and documentation included.
+          Since our AI courses are delivered digitally through your online account, there are no physical items to return. 
+          All course materials, including videos, PDFs, and resources, are accessed through our secure learning platform.
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>3. How to Return Items</SectionTitle>
+        <SectionTitle>2. 7-Day Satisfaction Guarantee</SectionTitle>
         <Paragraph>
-          To initiate a return:
+          Instead of returns, we offer a 7-day satisfaction guarantee on all AI course purchases. You may request a full refund 
+          within 7 days of purchase if you have completed less than 25% of the course content.
         </Paragraph>
         <Paragraph>
-          1. Contact our support team at support@willcol.com<br/>
-          2. Provide your order number and reason for return<br/>
-          3. We will provide a return authorization number and instructions<br/>
-          4. Pack the item securely and ship to our returns address
-        </Paragraph>
-      </Section>
-
-      <Section>
-        <SectionTitle>4. Return Shipping Address</SectionTitle>
-        <Paragraph>
-          Please send all returns to:
-        </Paragraph>
-        <Paragraph>
-          <strong>Williams Collection Inc.</strong><br/>
-          Returns Department<br/>
-          E 2ND ST 5830<br/>
-          Casper, WY 82609<br/>
-          United States
+          This policy ensures you have adequate time to evaluate the course quality while protecting our intellectual property 
+          and the value we provide to all students.
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>5. Return Shipping Costs</SectionTitle>
+        <SectionTitle>3. Refund Request Process</SectionTitle>
         <Paragraph>
-          Customers are responsible for return shipping costs unless the item was defective 
-          or we made an error in your order. We recommend using a trackable shipping method.
+          To request a refund for your AI course:
+        </Paragraph>
+        <Paragraph>
+          1. Email us at support@willcol.com within 7 days of purchase<br/>
+          2. Include your order number and registered email address<br/>
+          3. Provide a brief reason for your refund request<br/>
+          4. Confirm that you have accessed less than 25% of the course content<br/>
+          5. Our team will review and respond within 24-48 hours
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>6. Processing Returns</SectionTitle>
+        <SectionTitle>4. What Happens After Refund Approval</SectionTitle>
         <Paragraph>
-          Once we receive your return, we will inspect the item and process your refund within 
-          5-7 business days. Refunds will be issued to your original payment method and will 
-          appear as "The Williams Collection Inc." on your statement.
+          Upon refund approval:
+        </Paragraph>
+        <Paragraph>
+          • Your course access will be immediately revoked<br/>
+          • Any downloaded materials must be deleted from your devices<br/>
+          • Your account will show the course as "Refunded"<br/>
+          • Refund will be processed to your original payment method within 5-10 business days<br/>
+          • You will receive a confirmation email with refund details
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>7. Non-Returnable Items</SectionTitle>
+        <SectionTitle>5. Non-Refundable Situations</SectionTitle>
         <Paragraph>
-          Certain items cannot be returned, including: personalized items, items damaged 
-          by misuse, items returned without original packaging, and items returned after 30 days.
+          Refunds cannot be processed in these circumstances:
+        </Paragraph>
+        <Paragraph>
+          • More than 7 days have passed since purchase<br/>
+          • More than 25% of course content has been accessed<br/>
+          • Course completion certificate has been downloaded<br/>
+          • Downloadable course materials have been accessed<br/>
+          • Technical issues on your end (device compatibility, internet connection)<br/>
+          • Change of mind after substantial course progress
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>8. Exchanges</SectionTitle>
+        <SectionTitle>6. Alternative Solutions</SectionTitle>
         <Paragraph>
-          We do not offer direct exchanges. To exchange an item, please return the original 
-          item for a refund and place a new order for the desired item.
+          Before requesting a refund, consider these options:
+        </Paragraph>
+        <Paragraph>
+          • Contact support for technical assistance with course access<br/>
+          • Request a course credit to switch to a different AI course<br/>
+          • Access our student community for additional learning support<br/>
+          • Review our course preview materials to set proper expectations<br/>
+          • Schedule a consultation with our education team
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>9. Contact Information</SectionTitle>
+        <SectionTitle>7. Course Credit Option</SectionTitle>
         <Paragraph>
-          For questions about returns, please contact us:
+          If you're not satisfied with your current course but would like to try a different AI course from our collection, 
+          we may offer a course credit instead of a refund. This credit can be applied to any course of equal or lesser value.
+        </Paragraph>
+      </Section>
+
+      <Section>
+        <SectionTitle>8. Lifetime Access Guarantee</SectionTitle>
+        <Paragraph>
+          For courses you choose to keep, we guarantee lifetime access to your purchased content, including all future updates 
+          and improvements. This ensures ongoing value for your investment in AI education.
+        </Paragraph>
+      </Section>
+
+      <Section>
+        <SectionTitle>9. Dispute Resolution</SectionTitle>
+        <Paragraph>
+          If you disagree with our refund decision, you may appeal by contacting our director at support@willcol.com 
+          with "REFUND APPEAL" in the subject line. All appeals are reviewed personally and responded to within 5 business days.
+        </Paragraph>
+      </Section>
+
+      <Section>
+        <SectionTitle>10. Contact Information</SectionTitle>
+        <Paragraph>
+          For refund requests or questions about this policy:
         </Paragraph>
         <Paragraph>
           <strong>The Williams Collection Inc.</strong><br/>
+          Director: Shannon Williams<br/>
           Email: support@willcol.com<br/>
-          Phone: +14452856014<br/>
-          Address: E 2ND ST 5830, Casper, WY 82609, United States
+          Phone: +1 (445) 285-6014<br/>
+          Address: 5830 E 2ND ST, Casper, WY 82609, United States<br/>
+          Support Hours: Monday-Friday, 9 AM - 5 PM MST
+        </Paragraph>
+        <Paragraph>
+          <strong>Emergency Contact:</strong> For urgent refund issues, include "URGENT" in your email subject line for priority handling.
         </Paragraph>
       </Section>
     </Container>

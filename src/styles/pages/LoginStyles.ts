@@ -79,14 +79,16 @@ export const LoginHeader = styled.div`
 
 export const LoginTitle = styled.h1`
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #2d3748;
   margin: 20px 0 12px 0;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.2;
 
   @media (max-width: 768px) {
     font-size: 2.2rem;
@@ -107,8 +109,10 @@ export const LoginSubtitle = styled.p`
   color: #718096;
   font-size: 1.1rem;
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.7;
   font-weight: 400;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.005em;
 
   @media (max-width: 768px) {
     font-size: 1rem;
@@ -116,7 +120,7 @@ export const LoginSubtitle = styled.p`
 
   @media (max-width: 480px) {
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 `;
 

@@ -86,7 +86,7 @@ const Header: React.FC = () => {
       clearTimeout(timeoutRef.current);
     }
     timeoutRef.current = setTimeout(() => {
-      // Закрываем только если курсор не над кнопкой PRODUCTS
+      // Закрываем только если курсор не над кнопкой CATALOG
       if (!isMouseOverProducts.current && !isMouseOverDropdown.current) {
         setIsProductsDropdownVisible(false);
       }
@@ -164,7 +164,7 @@ const Header: React.FC = () => {
       <TopBar>
         <TopBarContent>
           <WarningText>
-            FREE SHIPPING on orders over {formatPrice(50)} | Premium Digital Experience
+            Williams AI Academy - Professional AI Education Platform
           </WarningText>
           <ContactInfo>
             <ContactItem>
@@ -188,7 +188,7 @@ const Header: React.FC = () => {
       </TopBar>
       
       <Nav>
-        <Logo to="/">WILLIAMS COLLECTION</Logo>
+        <Logo to="/">Williams AI Academy </Logo>
         
         <NavLinks isOpen={isMenuOpen}>
           <NavLink to="/" onClick={() => setIsMenuOpen(false)}>HOME</NavLink>
@@ -199,7 +199,7 @@ const Header: React.FC = () => {
               onMouseEnter={handleProductsMouseEnter}
               onMouseLeave={handleProductsMouseLeave}
             >
-              PRODUCTS
+              CATALOG
             </NavLink>
             <ProductsDropdown 
               isVisible={isProductsDropdownVisible} 
@@ -209,6 +209,7 @@ const Header: React.FC = () => {
             />
           </ProductsNavItem>
           <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>ABOUT</NavLink>
+          <NavLink to="/blog" onClick={() => setIsMenuOpen(false)}>BLOG</NavLink>
           <NavLink to="/support" onClick={() => setIsMenuOpen(false)}>SUPPORT</NavLink>
           <button className="close-button" onClick={() => setIsMenuOpen(false)}>X</button>
         </NavLinks>

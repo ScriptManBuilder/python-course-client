@@ -4,6 +4,7 @@ import { MinusIcon, PlusIcon, TrashIcon, ShoppingBagIcon } from '../components/I
 import { Button, Container, Title } from '../styles/GlobalStyles';
 import { useCart } from '../contexts/CartContext';
 import { usePrice } from '../hooks/usePrice';
+import { getProductImage } from '../data/products';
 import {
   CartWrapper,
   CartContent,
@@ -59,7 +60,7 @@ const Cart: React.FC = () => {
             {state.items.map((item) => (
               <CartItem key={item.id}>
                 <ItemImage>
-                  <img src={item.image} alt={item.name} />
+                  <img src={getProductImage(item.id)} alt={item.name} />
                 </ItemImage>
                 <ItemInfo>
                   <h3>{item.name}</h3>
@@ -95,10 +96,10 @@ const Cart: React.FC = () => {
               <span>{formatPrice(subtotal)}</span>
             </SummaryRow>
 
-            <SummaryRow>
+            {/* <SummaryRow>
               <span>Shipping:</span>
               <span>{shipping === 0 ? 'Free' : formatPrice(shipping)}</span>
-            </SummaryRow>
+            </SummaryRow> */}
 
             <SummaryRow className="total">
               <span>Total:</span>

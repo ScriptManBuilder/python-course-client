@@ -107,11 +107,14 @@ export const VideoSectionContent = styled.div`
 export const VideoSectionTitle = styled.h2`
   font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
   
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -123,16 +126,19 @@ export const VideoSectionTitle = styled.h2`
 `;
 
 export const VideoSectionSubtitle = styled.p`
-  font-size: 1.25rem;
-  opacity: 0.9;
-  line-height: 1.6;
+  font-size: 1.3rem;
+  opacity: 0.92;
+  line-height: 1.7;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
   }
   
   @media (max-width: 480px) {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 `;
 
@@ -155,40 +161,43 @@ export const HeroContent = styled.div`
 export const HeroTitle = styled.h1`
   font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   color: var(--minimal-white);
-  letter-spacing: -1px;
+  letter-spacing: -0.03em;
   line-height: 1.2;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
   @media (max-width: 768px) {
     font-size: 2.8rem;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
   }
   
   @media (max-width: 480px) {
     font-size: 2.2rem;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
   }
 `;
 
 export const HeroSubtitle = styled.p`
-  font-size: 1.25rem;
-  margin-bottom: 30px;
+  font-size: 1.3rem;
+  margin-bottom: 32px;
   color: var(--minimal-white);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.01em;
   
   @media (max-width: 768px) {
-    font-size: 1.1rem;
-    margin-bottom: 24px;
+    font-size: 1.15rem;
+    margin-bottom: 28px;
   }
   
   @media (max-width: 480px) {
-    font-size: 1rem;
-    margin-bottom: 20px;
+    font-size: 1.05rem;
+    margin-bottom: 24px;
   }
 `;
 
@@ -331,42 +340,44 @@ export const SectionHeader = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 700;
   color: var(--minimal-gray-900);
-  margin-bottom: 7px;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.02em;
   line-height: 1.2;
   
   @media (max-width: 768px) {
     font-size: 2.2rem;
-    margin-bottom: 6px;
+    margin-bottom: 7px;
   }
   
   @media (max-width: 480px) {
     font-size: 2rem;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
   }
 `;
 
 export const SectionSubtitle = styled.p`
-  font-size: 1.125rem;
+  font-size: 1.15rem;
   color: var(--minimal-gray-600);
   max-width: 600px;
   margin: 0 auto;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.005em;
   
   @media (max-width: 768px) {
-    font-size: 1rem;
+    font-size: 1.05rem;
     max-width: 90%;
   }
   
   @media (max-width: 480px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
     max-width: 95%;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 `;
 
@@ -1110,40 +1121,43 @@ export const FeatureIcon = styled.div`
 
 export const FeatureTitle = styled.h3`
   font-size: 1.5rem;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   color: var(--minimal-text-primary);
   font-weight: 600;
   line-height: 1.3;
   text-align: center;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
   @media (max-width: 768px) {
     font-size: 1.3rem;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
   
   @media (max-width: 480px) {
     font-size: 1.2rem;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 `;
 
 export const FeatureDescription = styled.p`
   color: var(--minimal-text-secondary);
-  line-height: 1.6;
-  font-size: 1rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
   font-weight: 400;
   text-align: center;
   margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: -0.005em;
   
   @media (max-width: 768px) {
-    font-size: 0.95rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.6;
   }
   
   @media (max-width: 480px) {
-    font-size: 0.9rem;
-    line-height: 1.4;
+    font-size: 0.95rem;
+    line-height: 1.5;
   }
 `;
 
@@ -1734,11 +1748,20 @@ export const ParallaxElement = styled.div<{ speed?: number }>`
 export const PhotoGallerySection = styled.section`
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--minimal-primary) 0%, #1e293b 50%, #0f172a 100%);
+  background: linear-gradient(
+    135deg, 
+    #667eea 0%, 
+    #764ba2 25%, 
+    #f093fb 50%, 
+    #f5576c 75%, 
+    #4facfe 100%
+  );
+  background-size: 400% 400%;
+  animation: chameleonGradient 8s ease infinite;
   padding: 40px 0 60px 0;
   position: relative;
   
-  /* Современный минималистичный overlay */
+  /* Переливающийся хамелеон эффект */
   &::before {
     content: '';
     position: absolute;
@@ -1746,10 +1769,55 @@ export const PhotoGallerySection = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    background: linear-gradient(
+      45deg,
+      rgba(102, 126, 234, 0.3) 0%,
+      rgba(118, 75, 162, 0.2) 25%,
+      rgba(240, 147, 251, 0.3) 50%,
+      rgba(245, 87, 108, 0.2) 75%,
+      rgba(79, 172, 254, 0.3) 100%
+    );
+    background-size: 600% 600%;
+    animation: chameleonOverlay 12s ease infinite reverse;
     pointer-events: none;
+  }
+  
+  /* Дополнительный сияющий слой */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at var(--x, 50%) var(--y, 50%),
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.1) 30%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  &:hover::after {
+    opacity: 1;
+  }
+  
+  @keyframes chameleonGradient {
+    0% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes chameleonOverlay {
+    0% { background-position: 0% 0%; }
+    33% { background-position: 100% 100%; }
+    66% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
   }
   
   @media (max-width: 768px) {
@@ -1906,7 +1974,17 @@ export const PhotoStrip = styled.div`
   animation: scrollPhotos 35s linear infinite;
   transform: translateZ(0); /* GPU acceleration */
   will-change: transform; /* Оптимизация для анимации */
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  
+  /* Переливающаяся тень с эффектом хамелеона */
+  filter: 
+    drop-shadow(0 10px 30px rgba(102, 126, 234, 0.4))
+    drop-shadow(0 5px 15px rgba(245, 87, 108, 0.3))
+    drop-shadow(0 0 40px rgba(240, 147, 251, 0.2));
+  
+  /* Анимация тени */
+  animation: 
+    scrollPhotos 35s linear infinite,
+    chameleonShadow 6s ease infinite;
   
   @keyframes scrollPhotos {
     0% {
@@ -1917,26 +1995,58 @@ export const PhotoStrip = styled.div`
     }
   }
   
-  /* Пауза анимации при hover */
+  @keyframes chameleonShadow {
+    0% {
+      filter: 
+        drop-shadow(0 10px 30px rgba(102, 126, 234, 0.5))
+        drop-shadow(0 5px 15px rgba(245, 87, 108, 0.2));
+    }
+    25% {
+      filter: 
+        drop-shadow(0 10px 30px rgba(118, 75, 162, 0.5))
+        drop-shadow(0 5px 15px rgba(79, 172, 254, 0.3));
+    }
+    50% {
+      filter: 
+        drop-shadow(0 10px 30px rgba(240, 147, 251, 0.5))
+        drop-shadow(0 5px 15px rgba(102, 126, 234, 0.3));
+    }
+    75% {
+      filter: 
+        drop-shadow(0 10px 30px rgba(245, 87, 108, 0.5))
+        drop-shadow(0 5px 15px rgba(118, 75, 162, 0.3));
+    }
+    100% {
+      filter: 
+        drop-shadow(0 10px 30px rgba(79, 172, 254, 0.5))
+        drop-shadow(0 5px 15px rgba(240, 147, 251, 0.2));
+    }
+  }
+  
+  /* При ховере усиливаем эффект */
   &:hover {
     animation-play-state: paused;
-    
-    /* При ховере слегка замедляем и увеличиваем */
     transform: translateZ(0) scale(1.02);
     transition: transform 0.3s ease;
+    
+    filter: 
+      drop-shadow(0 15px 40px rgba(102, 126, 234, 0.6))
+      drop-shadow(0 8px 20px rgba(245, 87, 108, 0.4))
+      drop-shadow(0 0 60px rgba(240, 147, 251, 0.3));
   }
   
   @media (max-width: 768px) {
-    animation: scrollPhotos 30s linear infinite;
+    animation: scrollPhotos 30s linear infinite, chameleonShadow 6s ease infinite;
   }
   
   @media (max-width: 480px) {
-    animation: scrollPhotos 25s linear infinite;
+    animation: scrollPhotos 25s linear infinite, chameleonShadow 6s ease infinite;
   }
   
   /* Reduce motion для пользователей с настройками accessibility */
   @media (prefers-reduced-motion: reduce) {
     animation: scrollPhotos 80s linear infinite;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
   }
 `;
 
@@ -1950,20 +2060,87 @@ export const PhotoItem = styled.div`
   cursor: pointer;
   transition: all 0.3s ease;
   
-  /* Современные тени */
+  /* Переливающиеся тени с эффектом хамелеона */
   box-shadow: 
-    0 4px 20px rgba(0,0,0,0.15),
+    0 4px 20px rgba(102, 126, 234, 0.2),
+    0 2px 10px rgba(240, 147, 251, 0.15),
     0 1px 3px rgba(0,0,0,0.1);
   
-  /* Современная граница */
-  border: 1px solid rgba(255,255,255,0.1);
+  /* Переливающаяся граница */
+  border: 2px solid;
+  border-image: linear-gradient(
+    45deg,
+    rgba(102, 126, 234, 0.6),
+    rgba(240, 147, 251, 0.6),
+    rgba(245, 87, 108, 0.6),
+    rgba(79, 172, 254, 0.6)
+  ) 1;
+  
+  /* Анимация границы */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 18px;
+    background: linear-gradient(
+      45deg,
+      #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe
+    );
+    background-size: 400% 400%;
+    animation: chameleonBorder 4s ease infinite;
+    z-index: -1;
+  }
+  
+  @keyframes chameleonBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
   
   &:hover {
-    transform: translateY(-8px) scale(1.02);
+    transform: translateY(-12px) scale(1.05);
     box-shadow: 
-      0 12px 40px rgba(0,0,0,0.25),
-      0 4px 12px rgba(59, 130, 246, 0.15);
-    border-color: rgba(59, 130, 246, 0.3);
+      0 20px 50px rgba(102, 126, 234, 0.3),
+      0 10px 25px rgba(240, 147, 251, 0.25),
+      0 5px 15px rgba(245, 87, 108, 0.2);
+  }
+  
+  /* Overlay эффекты для категорий */
+  .photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0,0,0,0.7) 0%,
+      rgba(102, 126, 234, 0.3) 50%,
+      transparent 100%
+    );
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+  
+  &:hover .photo-overlay {
+    opacity: 1;
+  }
+  
+  .photo-category {
+    background: rgba(255,255,255,0.9);
+    color: #1a1a1a;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   }
   
   /* Оптимизация производительности */
@@ -1974,6 +2151,10 @@ export const PhotoItem = styled.div`
     height: 180px;
     margin-right: 20px;
     border-radius: 14px;
+    
+    &::before {
+      border-radius: 16px;
+    }
   }
   
   @media (max-width: 480px) {
@@ -1981,6 +2162,19 @@ export const PhotoItem = styled.div`
     height: 150px;
     margin-right: 16px;
     border-radius: 12px;
+    
+    &::before {
+      border-radius: 14px;
+    }
+    
+    .photo-overlay {
+      padding: 15px;
+    }
+    
+    .photo-category {
+      padding: 6px 12px;
+      font-size: 0.8rem;
+    }
   }
 `;
 

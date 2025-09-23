@@ -109,15 +109,19 @@ export const CategoryList = styled.div`
 `;
 
 export const CategoryItem = styled.div`
-  padding: 8px 12px;
+  padding: 12px 15px;
   color: #4a5568;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: all 0.3s ease;
   font-weight: 500;
   font-size: 0.9rem;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
   
   &::before {
     content: '';
@@ -134,6 +138,7 @@ export const CategoryItem = styled.div`
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
     color: #667eea;
     transform: translateX(3px);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
     
     &::before {
       left: 100%;
