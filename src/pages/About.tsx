@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Container } from '../styles/GlobalStyles';
@@ -1921,10 +1921,129 @@ const MissionStatementText = styled.p`
   }
 `;
 
+// Modal Styles
+const ModalOverlay = styled.div<{ isOpen: boolean }>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: ${props => props.isOpen ? 1 : 0};
+  visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+`;
+
+const ModalContent = styled.div<{ isOpen: boolean }>`
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 24px;
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  transform: ${props => props.isOpen ? 'scale(1) rotateX(0deg)' : 'scale(0.8) rotateX(15deg)'};
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+  }
+`;
+
+const ModalHeader = styled.div`
+  text-align: center;
+  margin-bottom: 30px;
+`;
+
+const ModalImage = styled.div`
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+const ModalTitle = styled.h2`
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+`;
+
+const ModalSubtitle = styled.p`
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+`;
+
+const ModalDescription = styled.p`
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+`;
+
+const ClickableLeaderCard = styled(LeaderCard)`
+  cursor: pointer;
+  transition: all 0.4s ease;
+  
+  &:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(102, 126, 234, 0.3);
+  }
+`;
+
 const About: React.FC = () => {
   const contentRef = useRef<HTMLDivElement>(null);
   const elementsRef = useRef<(HTMLElement | null)[]>([]);
   const heroRef = useRef<HTMLElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Функции для управления модальным окном
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   // Генерируем частицы для hero секции
   const particles = Array.from({ length: 12 }, (_, i) => ({
@@ -2019,9 +2138,13 @@ const About: React.FC = () => {
     const isPlus = finalValue.includes('+');
     const isRating = finalValue.includes('/');
     
-    let numericValue = parseInt(finalValue.replace(/[^0-9.]/g, ''));
+    let numericValue: number;
     if (isRating) {
-      numericValue = parseFloat(finalValue.replace(/[^0-9.]/g, '')) * 10; // для 4.9 -> 49
+      // Для рейтинга извлекаем число перед /5 (например, из "4.9/5" берем 4.9)
+      const ratingMatch = finalValue.match(/^([\d.]+)\/\d+$/);
+      numericValue = ratingMatch ? parseFloat(ratingMatch[1]) : 0;
+    } else {
+      numericValue = parseInt(finalValue.replace(/[^0-9]/g, ''));
     }
     
     let currentValue = 0;
@@ -2036,14 +2159,14 @@ const About: React.FC = () => {
         clearInterval(timer);
       }
       
-      let displayValue = Math.floor(currentValue).toString();
+      let displayValue: string;
       if (isRating) {
-        displayValue = (currentValue / 10).toFixed(1);
+        displayValue = currentValue.toFixed(1) + '/5';
+      } else {
+        displayValue = Math.floor(currentValue).toString();
+        if (isPercentage) displayValue += '%';
+        if (isPlus) displayValue += '+';
       }
-      
-      if (isPercentage) displayValue += '%';
-      if (isPlus && !isRating) displayValue += '+';
-      if (isRating) displayValue += '/5';
       
       element.textContent = displayValue;
     }, stepTime);
@@ -2164,7 +2287,7 @@ const About: React.FC = () => {
       </ContentSection>
 
       {/* Statistics Section */}
-      <StatsSection>
+      {/* <StatsSection>
         <Container>
           <StatsContainer>
             <StatsTitle ref={setElementRef(20)}>
@@ -2173,7 +2296,7 @@ const About: React.FC = () => {
             
             <StatsGrid>
               <StatCard ref={setElementRef(21)}>
-                <StatNumber className="stat-number" data-value="75000+">75,000+</StatNumber>
+                <StatNumber className="stat-number" data-value="7000+">7,000+</StatNumber>
                 <StatLabel>Students Educated</StatLabel>
                 <StatDescription>From beginners to AI experts across 150+ countries</StatDescription>
               </StatCard>
@@ -2210,10 +2333,10 @@ const About: React.FC = () => {
             </StatsGrid>
           </StatsContainer>
         </Container>
-      </StatsSection>
+      </StatsSection> */}
 
       {/* AI Innovation Timeline Section */}
-      <TimelineSection>
+      {/* <TimelineSection>
         <Container>
           <TimelineContainer>
             <SectionTitle ref={setElementRef(12)} style={{ color: '#2d3748' }}>
@@ -2222,7 +2345,7 @@ const About: React.FC = () => {
             
             <Timeline>
               <TimelineItem ref={setElementRef(13)}>
-                <TimelineYear>2019</TimelineYear>
+                <TimelineYear>March 2023</TimelineYear>
                 <TimelineContent>
                   <TimelineTitle>🚀 Foundation</TimelineTitle>
                   <TimelineDescription>
@@ -2233,18 +2356,18 @@ const About: React.FC = () => {
               </TimelineItem>
 
               <TimelineItem ref={setElementRef(14)}>
-                <TimelineYear>2020</TimelineYear>
+                <TimelineYear>June 2023</TimelineYear>
                 <TimelineContent>
                   <TimelineTitle>🧠 First AI Courses</TimelineTitle>
                   <TimelineDescription>
                     Launched our first machine learning courses, featuring hands-on projects 
-                    and real-world applications. Over 1,000 students enrolled in the first month.
+                    and real-world applications. Over 500 students enrolled in the first month.
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineItem>
 
               <TimelineItem ref={setElementRef(15)}>
-                <TimelineYear>2021</TimelineYear>
+                <TimelineYear>September 2023</TimelineYear>
                 <TimelineContent>
                   <TimelineTitle>🔬 Research Partnership</TimelineTitle>
                   <TimelineDescription>
@@ -2255,7 +2378,7 @@ const About: React.FC = () => {
               </TimelineItem>
 
               <TimelineItem ref={setElementRef(16)}>
-                <TimelineYear>2022</TimelineYear>
+                <TimelineYear>January 2024</TimelineYear>
                 <TimelineContent>
                   <TimelineTitle>💡 Deep Learning Expansion</TimelineTitle>
                   <TimelineDescription>
@@ -2266,23 +2389,23 @@ const About: React.FC = () => {
               </TimelineItem>
 
               <TimelineItem ref={setElementRef(17)}>
-                <TimelineYear>2023</TimelineYear>
-                <TimelineContent>
-                  <TimelineTitle>🌟 Global Recognition</TimelineTitle>
-                  <TimelineDescription>
-                    Reached 50,000+ students worldwide and received recognition as a leading 
-                    AI education platform by major tech industry publications.
-                  </TimelineDescription>
-                </TimelineContent>
-              </TimelineItem>
-
-              <TimelineItem ref={setElementRef(18)}>
-                <TimelineYear>2024</TimelineYear>
+                <TimelineYear>June 2024</TimelineYear>
                 <TimelineContent>
                   <TimelineTitle>🤖 LLM & GenAI Era</TimelineTitle>
                   <TimelineDescription>
                     Pioneered comprehensive courses on Large Language Models and Generative AI, 
                     helping professionals adapt to the AI revolution.
+                  </TimelineDescription>
+                </TimelineContent>
+              </TimelineItem>
+
+              <TimelineItem ref={setElementRef(18)}>
+                <TimelineYear>December 2024</TimelineYear>
+                <TimelineContent>
+                  <TimelineTitle>🌟 Global Recognition</TimelineTitle>
+                  <TimelineDescription>
+                    Reached 7,000+ students worldwide and received recognition as a leading 
+                    AI education platform by major tech industry publications.
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineItem>
@@ -2300,118 +2423,33 @@ const About: React.FC = () => {
             </Timeline>
           </TimelineContainer>
         </Container>
-      </TimelineSection>
+      </TimelineSection> */}
 
       {/* AI Leadership Team Section */}
       <LeadershipSection>
         <Container>
           <LeadershipContainer>
             <SectionTitle ref={setElementRef(5)}>
-              {splitTextToLetters('AI ACADEMY IS LED BY')}
+              {splitTextToLetters('CREATED BY')}
             </SectionTitle>
             
             <LeadershipGrid>
-              <LeaderCard ref={setElementRef(6)}>
+              <ClickableLeaderCard ref={setElementRef(6)} onClick={openModal}>
                 <LeaderImage>
-                  <img src="/images/pictureAI_1.jpg" alt="Dr. Alex Williams" />
+                  <img src="/images/pictureAI_1.jpg" alt="James K." />
                   <LeaderOverlay>
-                    <LeaderRole>Founder & Chief AI Officer</LeaderRole>
+                    <LeaderRole>Founder & Course Creator</LeaderRole>
                   </LeaderOverlay>
                 </LeaderImage>
                 <LeaderInfo>
-                  <LeaderName>Dr. Alex Williams</LeaderName>
-                  <LeaderTitle>AI Research Pioneer</LeaderTitle>
+                  <LeaderName>James K.</LeaderName>
+                  <LeaderTitle>AI Enthusiast & Educator</LeaderTitle>
                   <LeaderDescription>
-                    Former Google AI researcher with 15+ years in machine learning. 
-                    Published 50+ papers in top AI conferences. PhD in Computer Science from MIT.
+                    Passionate about artificial intelligence and dedicated to making AI education accessible to everyone. 
+                    Creates comprehensive video courses to help others learn and understand the fascinating world of AI.
                   </LeaderDescription>
                 </LeaderInfo>
-              </LeaderCard>
-
-              <LeaderCard ref={setElementRef(7)}>
-                <LeaderImage>
-                  <img src="/images/pictureAI_2.jpg" alt="Dr. Sarah Chen" />
-                  <LeaderOverlay>
-                    <LeaderRole>Head of Deep Learning</LeaderRole>
-                  </LeaderOverlay>
-                </LeaderImage>
-                <LeaderInfo>
-                  <LeaderName>Dr. Sarah Chen</LeaderName>
-                  <LeaderTitle>Deep Learning Expert</LeaderTitle>
-                  <LeaderDescription>
-                    Former Tesla Autopilot lead engineer. Expert in computer vision and 
-                    neural networks. Stanford PhD in Artificial Intelligence.
-                  </LeaderDescription>
-                </LeaderInfo>
-              </LeaderCard>
-
-              <LeaderCard ref={setElementRef(8)}>
-                <LeaderImage>
-                  <img src="/images/pictureAI_3.jpg" alt="Dr. Marcus Johnson" />
-                  <LeaderOverlay>
-                    <LeaderRole>Director of NLP</LeaderRole>
-                  </LeaderOverlay>
-                </LeaderImage>
-                <LeaderInfo>
-                  <LeaderName>Dr. Marcus Johnson</LeaderName>
-                  <LeaderTitle>NLP Specialist</LeaderTitle>
-                  <LeaderDescription>
-                    Ex-OpenAI researcher specializing in large language models. 
-                    Berkeley PhD in Computational Linguistics. 10+ years in NLP.
-                  </LeaderDescription>
-                </LeaderInfo>
-              </LeaderCard>
-
-              <LeaderCard ref={setElementRef(9)}>
-                <LeaderImage>
-                  <img src="/images/pictureAI_4.jpg" alt="Dr. Emily Rodriguez" />
-                  <LeaderOverlay>
-                    <LeaderRole>Head of Education</LeaderRole>
-                  </LeaderOverlay>
-                </LeaderImage>
-                <LeaderInfo>
-                  <LeaderName>Dr. Emily Rodriguez</LeaderName>
-                  <LeaderTitle>AI Education Director</LeaderTitle>
-                  <LeaderDescription>
-                    Former Coursera AI curriculum lead. Expert in online education 
-                    and pedagogical methods. Harvard PhD in Educational Technology.
-                  </LeaderDescription>
-                </LeaderInfo>
-              </LeaderCard>
-
-              <LeaderCard ref={setElementRef(10)}>
-                <LeaderImage>
-                  <img src="/images/pictureAI_5.jpg" alt="Dr. David Kim" />
-                  <LeaderOverlay>
-                    <LeaderRole>Chief Technology Officer</LeaderRole>
-                  </LeaderOverlay>
-                </LeaderImage>
-                <LeaderInfo>
-                  <LeaderName>Dr. David Kim</LeaderName>
-                  <LeaderTitle>AI Infrastructure Expert</LeaderTitle>
-                  <LeaderDescription>
-                    Former Microsoft Azure AI architect. Specialist in scalable 
-                    AI systems and cloud computing. Carnegie Mellon PhD in Distributed Systems.
-                  </LeaderDescription>
-                </LeaderInfo>
-              </LeaderCard>
-
-              <LeaderCard ref={setElementRef(11)}>
-                <LeaderImage>
-                  <img src="/images/pictureAI_6.jpg" alt="Dr. Lisa Thompson" />
-                  <LeaderOverlay>
-                    <LeaderRole>Ethics & AI Safety Lead</LeaderRole>
-                  </LeaderOverlay>
-                </LeaderImage>
-                <LeaderInfo>
-                  <LeaderName>Dr. Lisa Thompson</LeaderName>
-                  <LeaderTitle>AI Ethics Pioneer</LeaderTitle>
-                  <LeaderDescription>
-                    Leading researcher in AI safety and ethics. Former DeepMind researcher. 
-                    Oxford PhD in Philosophy of AI and Machine Ethics.
-                  </LeaderDescription>
-                </LeaderInfo>
-              </LeaderCard>
+              </ClickableLeaderCard>
             </LeadershipGrid>
           </LeadershipContainer>
         </Container>
@@ -2494,6 +2532,36 @@ const About: React.FC = () => {
           </ValuesContainer>
         </Container>
       </ValuesSection>
+
+      {/* Modal Window */}
+      <ModalOverlay isOpen={isModalOpen} onClick={closeModal}>
+        <ModalContent isOpen={isModalOpen} onClick={(e) => e.stopPropagation()}>
+          <CloseButton onClick={closeModal}>×</CloseButton>
+          
+          <ModalHeader>
+            <ModalImage>
+              <img src="/images/pictureAI_1.jpg" alt="James K." />
+            </ModalImage>
+            <ModalTitle>James K.</ModalTitle>
+            <ModalSubtitle>AI Enthusiast & Educator</ModalSubtitle>
+          </ModalHeader>
+
+          <ModalDescription>
+            Hi! I'm James, the founder and creator of Williams AI Academy. My journey with artificial intelligence started 
+            as a personal curiosity that quickly grew into a passion for understanding and teaching this transformative technology.
+            <br /><br />
+            I believe AI should be accessible to everyone, not just those with advanced technical backgrounds. That's why I 
+            created comprehensive video courses that break down complex AI concepts into understandable, practical lessons.
+            <br /><br />
+            My mission is simple: to help others discover the fascinating world of artificial intelligence and empower them 
+            with the knowledge and skills needed to thrive in our AI-driven future. Every course I create is designed with 
+            real-world applications in mind, ensuring you can apply what you learn immediately.
+            <br /><br />
+            Whether you're just starting your AI journey or looking to deepen your expertise, I'm here to guide you every step 
+            of the way. Let's explore the incredible possibilities of artificial intelligence together!
+          </ModalDescription>
+        </ModalContent>
+      </ModalOverlay>
     </AboutWrapper>
   );
 };

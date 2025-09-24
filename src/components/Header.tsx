@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCartIcon, UserIcon, MenuIcon, CloseIcon, PhoneIcon, MailIcon } from './Icons';
 import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -31,9 +31,19 @@ const Header: React.FC = () => {
   const { state } = useCart();
   const { isAuthenticated } = useAuth();
   const { formatPrice } = usePrice();
+  const location = useLocation();
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isMouseOverProducts = useRef(false);
   const isMouseOverDropdown = useRef(false);
+
+  // Определяем активную категорию из URL
+  const getSelectedCategory = () => {
+    if (location.pathname === '/products') {
+      const searchParams = new URLSearchParams(location.search);
+      return searchParams.get('category') || 'all';
+    }
+    return 'all';
+  };
 
   const handlePhoneClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -206,6 +216,7 @@ const Header: React.FC = () => {
               onClose={() => setIsProductsDropdownVisible(false)}
               onMouseEnter={handleDropdownMouseEnter}
               onMouseLeave={handleDropdownMouseLeave}
+              selectedCategory={getSelectedCategory()}
             />
           </ProductsNavItem>
           <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>ABOUT</NavLink>

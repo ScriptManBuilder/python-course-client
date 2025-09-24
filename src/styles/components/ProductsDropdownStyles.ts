@@ -108,13 +108,13 @@ export const CategoryList = styled.div`
   gap: 8px;
 `;
 
-export const CategoryItem = styled.div`
+export const CategoryItem = styled.div<{ $isActive?: boolean }>`
   padding: 12px 15px;
-  color: #4a5568;
+  color: ${props => props.$isActive ? '#667eea' : '#4a5568'};
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.3s ease;
-  font-weight: 500;
+  font-weight: ${props => props.$isActive ? '600' : '500'};
   font-size: 0.9rem;
   position: relative;
   overflow: hidden;
@@ -122,6 +122,10 @@ export const CategoryItem = styled.div`
   min-height: 50px;
   display: flex;
   align-items: center;
+  background: ${props => props.$isActive 
+    ? 'linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%)' 
+    : 'transparent'};
+  border-left: ${props => props.$isActive ? '3px solid #667eea' : '3px solid transparent'};
   
   &::before {
     content: '';

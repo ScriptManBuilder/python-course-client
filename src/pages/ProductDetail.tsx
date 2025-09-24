@@ -14,6 +14,7 @@ import {
   VideoThumbnailContainer,
   VideoThumbnailImage,
   VideoPlayIcon,
+  VideoPlayer,
   InfoSection,
   ProductTitle,
   ProductPrice,
@@ -128,21 +129,14 @@ const ProductDetail: React.FC = () => {
         <ProductContainer>
           <ImageSection>
             {isVideoMode && product.video ? (
-              <video
+              <VideoPlayer
                 controls
                 autoPlay
                 muted={false}
-                style={{
-                  width: '100%',
-                  height: '400px',
-                  objectFit: 'cover',
-                  borderRadius: '12px',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)'
-                }}
               >
                 <source src={product.video} type="video/mp4" />
                 Your browser does not support the video tag.
-              </video>
+              </VideoPlayer>
             ) : (
               <MainImage src={selectedImage} alt={product.name} />
             )}

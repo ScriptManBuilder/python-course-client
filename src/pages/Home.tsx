@@ -598,7 +598,7 @@ const Home: React.FC = () => {
             <InfoSubsection>
               <InfoSubtitle>Professional Prompt Engineering</InfoSubtitle>
               <InfoText>
-                Master <InfoHighlight>advanced prompt techniques</InfoHighlight> 
+                Master <InfoHighlight>advanced prompt techniques </InfoHighlight> 
                  that deliver consistent, high-quality results. From basic commands to 
                 complex workflows, learn to communicate effectively with AI systems.
               </InfoText>
@@ -649,7 +649,7 @@ const Home: React.FC = () => {
             <InfoSubsection>
               <InfoSubtitle>24/7 Community Access</InfoSubtitle>
               <InfoText>
-                Connect with <InfoHighlight>thousands of AI learners worldwide</InfoHighlight> 
+                Connect with <InfoHighlight>thousands of AI learners worldwide </InfoHighlight> 
                 through our exclusive community platform. Share projects, get feedback, 
                 and collaborate on AI solutions.
               </InfoText>

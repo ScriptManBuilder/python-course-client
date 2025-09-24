@@ -25,25 +25,31 @@ interface ProductsDropdownProps {
   onClose: () => void;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
+  selectedCategory?: string;
 }
 
 const ProductsDropdown: React.FC<ProductsDropdownProps> = ({ 
   isVisible, 
   onClose, 
   onMouseEnter, 
-  onMouseLeave 
+  onMouseLeave,
+  selectedCategory = 'all'
 }) => {
   const { formatPrice } = usePrice();
   
-  // AI курсы категории для навигации
+  // AI курсы категории для навигации (синхронизировано с Products.tsx)
   const categories = [
-    { id: 'beginner', name: 'Beginner Courses', icon: '🎯', description: 'Start your AI journey' },
-    { id: 'intermediate', name: 'Intermediate', icon: '⚡', description: 'Build practical skills' },
-    { id: 'advanced', name: 'Advanced', icon: '🚀', description: 'Master complex topics' },
-    { id: 'machine-learning', name: 'Machine Learning', icon: '🤖', description: 'Core ML algorithms' },
-    { id: 'deep-learning', name: 'Deep Learning', icon: '🧠', description: 'Neural networks' },
-    { id: 'nlp', name: 'Natural Language', icon: '💬', description: 'Text processing' },
-    { id: 'computer-vision', name: 'Computer Vision', icon: '👁️', description: 'Image analysis' }
+    { id: 'AI Basics', name: 'Beginner Courses', icon: '🎯', description: 'Start your AI journey' },
+    { id: 'Content Creation', name: 'Content Creation', icon: '✨', description: 'Creative AI tools' },
+    { id: 'Business Automation', name: 'Business Automation', icon: '⚡', description: 'Streamline workflows' },
+    { id: 'Advanced AI', name: 'Advanced', icon: '🚀', description: 'Master complex topics' },
+    { id: 'AI Marketing', name: 'AI Marketing', icon: '📈', description: 'Marketing intelligence' },
+    { id: 'Data & Analytics', name: 'Data & Analytics', icon: '📊', description: 'Data insights' },
+    { id: 'Productivity Mastery', name: 'Productivity', icon: '⏰', description: 'Efficiency tools' },
+    { id: 'Creative AI', name: 'Creative AI', icon: '🎨', description: 'Creative innovation' },
+    { id: 'AI Consulting', name: 'Consulting', icon: '�', description: 'Professional services' },
+    { id: 'Enterprise AI', name: 'Enterprise', icon: '🏢', description: 'Large-scale solutions' },
+    { id: 'AI Mastery', name: 'AI Mastery', icon: '🎓', description: 'Complete mastery' }
   ];
   
   // Показываем только 3 товара для компактности
@@ -68,6 +74,7 @@ const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
             {categories.map((category) => (
               <CategoryItem 
                 key={category.id}
+                $isActive={selectedCategory === category.id}
                 as={Link} 
                 to={`/products?category=${category.id}`}
                 onClick={handleLinkClick}
@@ -93,6 +100,7 @@ const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
               </CategoryItem>
             ))}
             <CategoryItem 
+              $isActive={selectedCategory === 'all'}
               as={Link} 
               to="/products"
               onClick={handleLinkClick}

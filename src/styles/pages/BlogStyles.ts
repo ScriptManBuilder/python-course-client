@@ -459,3 +459,225 @@ export const NewsletterButton = styled.button`
     transform: translateY(0);
   }
 `;
+
+// Modal Styles
+export const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+  backdrop-filter: blur(8px);
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+`;
+
+export const ModalContent = styled.div`
+  background: white;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+  @keyframes slideIn {
+    from { 
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin: 20px;
+    border-radius: 15px;
+    max-height: calc(100vh - 40px);
+  }
+`;
+
+export const ModalCloseButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  color: #666;
+  z-index: 10;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: white;
+    color: #333;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const ModalHeader = styled.div`
+  position: relative;
+  margin-bottom: 30px;
+`;
+
+export const ModalImage = styled.img`
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+
+  @media (max-width: 768px) {
+    height: 200px;
+  }
+`;
+
+export const ModalBody = styled.div`
+  padding: 30px;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+`;
+
+export const ModalTitle = styled.h2`
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 20px;
+  line-height: 1.3;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
+`;
+
+export const ModalMeta = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+`;
+
+export const ModalAuthor = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+
+export const ModalAuthorAvatar = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+`;
+
+export const ModalAuthorInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ModalAuthorName = styled.span`
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.9rem;
+`;
+
+export const ModalPostDate = styled.span`
+  color: #666;
+  font-size: 0.8rem;
+`;
+
+export const ModalCategoryTag = styled.span`
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+`;
+
+export const ModalContent_Text = styled.div`
+  color: #4a5568;
+  line-height: 1.8;
+  font-size: 1.1rem;
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    color: #2d3748;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 30px 0 15px;
+  }
+
+  ul, ol {
+    margin: 20px 0;
+    padding-left: 30px;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  blockquote {
+    border-left: 4px solid #667eea;
+    padding-left: 20px;
+    margin: 25px 0;
+    font-style: italic;
+    color: #5a67d8;
+    background: rgba(102, 126, 234, 0.05);
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+  }
+`;
+
+export const ClickablePost = styled.div`
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+`;
+
+export const ClickableFeaturedPost = styled.div`
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+`;

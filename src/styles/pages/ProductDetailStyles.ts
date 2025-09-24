@@ -50,12 +50,14 @@ export const ImageSection = styled.div`
 export const MainImage = styled.img`
   width: 100%;
   height: 400px;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   border-radius: 12px;
   margin-bottom: 20px;
   transition: transform 0.3s ease;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #000;
   
   &:hover {
     transform: scale(1.02);
@@ -167,6 +169,26 @@ export const VideoPlayIcon = styled.div`
     width: 24px;
     height: 24px;
     font-size: 10px;
+  }
+`;
+
+export const VideoPlayer = styled.video`
+  width: 100%;
+  height: 400px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background-color: #000;
+  
+  @media (max-width: 768px) {
+    height: 350px;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 300px;
+    border-radius: 8px;
   }
 `;
 

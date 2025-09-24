@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container } from '../styles/GlobalStyles';
 import {
   BlogWrapper,
@@ -38,7 +38,24 @@ import {
   NewsletterSignup,
   NewsletterTitle,
   NewsletterInput,
-  NewsletterButton
+  NewsletterButton,
+  ModalOverlay,
+  ModalContent,
+  ModalCloseButton,
+  ModalHeader,
+  ModalImage,
+  ModalBody,
+  ModalTitle,
+  ModalMeta,
+  ModalAuthor,
+  ModalAuthorAvatar,
+  ModalAuthorInfo,
+  ModalAuthorName,
+  ModalPostDate,
+  ModalCategoryTag,
+  ModalContent_Text,
+  ClickablePost,
+  ClickableFeaturedPost
 } from '../styles/pages/BlogStyles';
 
 interface BlogPostData {
@@ -62,6 +79,8 @@ const Blog: React.FC = () => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
   const [isSubscribing, setIsSubscribing] = useState(false);
+  const [selectedPost, setSelectedPost] = useState<BlogPostData | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const categories = ['All', 'AI Education', 'Machine Learning', 'Course Updates', 'Tech Trends', 'Student Success'];
 
@@ -232,6 +251,45 @@ const Blog: React.FC = () => {
     }
   };
 
+  // Modal functions
+  const openModal = (post: BlogPostData) => {
+    if (post.comingSoon) return; // Don't open modal for coming soon posts
+    setSelectedPost(post);
+    setIsModalOpen(true);
+    document.body.style.overflow = 'hidden'; // Prevent background scroll
+  };
+
+  const closeModal = () => {
+    setSelectedPost(null);
+    setIsModalOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  // Handle ESC key press
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isModalOpen) {
+        closeModal();
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener('keydown', handleEscKey);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscKey);
+      document.body.style.overflow = 'unset'; // Cleanup on unmount
+    };
+  }, [isModalOpen]);
+
+  // Handle click outside modal
+  const handleOverlayClick = (e: React.MouseEvent) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
@@ -279,36 +337,38 @@ const Blog: React.FC = () => {
         <BlogContent>
           <div style={{ flex: 1 }}>
             {featuredPost && selectedCategory === 'All' && !searchTerm && (
-              <FeaturedPost>
-                <FeaturedImage src={featuredPost.image} alt={featuredPost.title} />
-                <FeaturedContent>
-                  <CategoryTag>{featuredPost.category}</CategoryTag>
-                  <FeaturedTitle>{featuredPost.title}</FeaturedTitle>
-                  <FeaturedExcerpt>{featuredPost.excerpt}</FeaturedExcerpt>
-                  <FeaturedMeta>
-                    <AuthorInfo>
-                      <AuthorAvatar src="/images/footer_1.jpg" alt={featuredPost.author} />
-                      <AuthorDetails>
-                        <AuthorName>{featuredPost.author}</AuthorName>
-                        <PostDate>{featuredPost.date} • {featuredPost.readTime}</PostDate>
-                      </AuthorDetails>
-                    </AuthorInfo>
-                  </FeaturedMeta>
-                </FeaturedContent>
-              </FeaturedPost>
+              <ClickableFeaturedPost onClick={() => openModal(featuredPost)}>
+                <FeaturedPost>
+                  <FeaturedImage src={featuredPost.image} alt={featuredPost.title} />
+                  <FeaturedContent>
+                    <CategoryTag>{featuredPost.category}</CategoryTag>
+                    <FeaturedTitle>{featuredPost.title}</FeaturedTitle>
+                    <FeaturedExcerpt>{featuredPost.excerpt}</FeaturedExcerpt>
+                    <FeaturedMeta>
+                      <AuthorInfo>
+                        <AuthorAvatar src="/images/footer_1.jpg" alt={featuredPost.author} />
+                        <AuthorDetails>
+                          <AuthorName>{featuredPost.author}</AuthorName>
+                          <PostDate>{featuredPost.date} • {featuredPost.readTime}</PostDate>
+                        </AuthorDetails>
+                      </AuthorInfo>
+                    </FeaturedMeta>
+                  </FeaturedContent>
+                </FeaturedPost>
+              </ClickableFeaturedPost>
             )}
 
             <PostsGrid>
               {regularPosts.map(post => (
-                <BlogPost 
-                  key={post.id}
-                  style={{
-                    opacity: post.comingSoon ? 0.85 : 1,
-                    border: post.comingSoon ? '2px dashed #667eea' : 'none',
-                    background: post.comingSoon ? 'linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%)' : 'white',
-                    animation: post.comingSoon ? 'glow 3s infinite' : 'none'
-                  }}
-                >
+                <ClickablePost key={post.id} onClick={() => openModal(post)}>
+                  <BlogPost 
+                    style={{
+                      opacity: post.comingSoon ? 0.85 : 1,
+                      border: post.comingSoon ? '2px dashed #667eea' : 'none',
+                      background: post.comingSoon ? 'linear-gradient(135deg, #f8f9ff 0%, #e8f0ff 100%)' : 'white',
+                      animation: post.comingSoon ? 'glow 3s infinite' : 'none'
+                    }}
+                  >
                   <div style={{ position: 'relative' }}>
                     <PostImage 
                       src={post.image} 
@@ -403,6 +463,7 @@ const Blog: React.FC = () => {
                     )}
                   </PostContent>
                 </BlogPost>
+                </ClickablePost>
               ))}
             </PostsGrid>
 
@@ -517,6 +578,57 @@ const Blog: React.FC = () => {
           </SidebarSection>
         </BlogContent>
       </Container>
+      
+      {/* Modal */}
+      {isModalOpen && selectedPost && (
+        <ModalOverlay onClick={handleOverlayClick}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <ModalCloseButton onClick={closeModal}>
+              ✕
+            </ModalCloseButton>
+            
+            <ModalHeader>
+              <ModalImage src={selectedPost.image} alt={selectedPost.title} />
+            </ModalHeader>
+            
+            <ModalBody>
+              <ModalTitle>{selectedPost.title}</ModalTitle>
+              
+              <ModalMeta>
+                <ModalCategoryTag>{selectedPost.category}</ModalCategoryTag>
+                <ModalAuthor>
+                  <ModalAuthorAvatar src="/images/footer_2.jpg" alt={selectedPost.author} />
+                  <ModalAuthorInfo>
+                    <ModalAuthorName>{selectedPost.author}</ModalAuthorName>
+                    <ModalPostDate>{selectedPost.date} • {selectedPost.readTime}</ModalPostDate>
+                  </ModalAuthorInfo>
+                </ModalAuthor>
+              </ModalMeta>
+              
+              <ModalContent_Text>
+                {selectedPost.content}
+                
+                <h3>Key Takeaways</h3>
+                <ul>
+                  <li>Artificial Intelligence is transforming education through personalized learning experiences</li>
+                  <li>AI-powered tutoring systems provide 24/7 support and adaptive learning paths</li>
+                  <li>Machine learning algorithms can identify student learning patterns and optimize content delivery</li>
+                  <li>The future of education combines human expertise with AI capabilities</li>
+                </ul>
+                
+                <blockquote>
+                  "The intersection of AI and education represents one of the most promising frontiers for improving learning outcomes and accessibility worldwide."
+                </blockquote>
+                
+                <h3>What's Next?</h3>
+                <p>As we continue to explore the potential of AI in education, we're seeing unprecedented opportunities for personalized, accessible, and effective learning experiences. The key is finding the right balance between technological innovation and human connection in the learning process.</p>
+                
+                <p>Ready to dive deeper into AI education? Explore our comprehensive courses and join thousands of learners who are already transforming their careers with AI knowledge.</p>
+              </ModalContent_Text>
+            </ModalBody>
+          </ModalContent>
+        </ModalOverlay>
+      )}
     </BlogWrapper>
   );
 };
