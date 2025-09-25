@@ -167,9 +167,8 @@ const Register: React.FC = () => {
       if (success) {
         setSuccess('Account created successfully! Redirecting to your account...');
         setTimeout(() => {
-          // Redirect to account page using environment variable
-          const frontendUrl = process.env.REACT_APP_FRONTEND_URL || 'http://localhost:3000';
-          window.location.href = `${frontendUrl}/account`;
+          // Redirect to account page
+          window.location.href = '/account';
         }, 2000);
       }
       // Ошибка будет показана из AuthContext

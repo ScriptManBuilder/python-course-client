@@ -33,9 +33,8 @@ const Login: React.FC = () => {
     try {
       const success = await login(email, password);
       if (success) {
-        // Redirect to account page using environment variable
-        const frontendUrl = process.env.REACT_APP_FRONTEND_URL || 'http://localhost:3000';
-        window.location.href = `${frontendUrl}/account`;
+        // Redirect to account page
+        window.location.href = '/account';
       }
       // Ошибка будет показана из AuthContext
     } catch (err) {
