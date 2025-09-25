@@ -85,7 +85,7 @@ const ReturnPolicy: React.FC = () => {
           To request a refund for your AI course:
         </Paragraph>
         <Paragraph>
-          1. Email us at support@willcol.com within 7 days of purchase<br/>
+          1. Email us at support@willcol-ai.com within 7 days of purchase<br/>
           2. Include your order number and registered email address<br/>
           3. Provide a brief reason for your refund request<br/>
           4. Confirm that you have accessed less than 25% of the course content<br/>
@@ -155,7 +155,7 @@ const ReturnPolicy: React.FC = () => {
       <Section>
         <SectionTitle>9. Dispute Resolution</SectionTitle>
         <Paragraph>
-          If you disagree with our refund decision, you may appeal by contacting our director at support@willcol.com 
+          If you disagree with our refund decision, you may appeal by contacting our director at support@willcol-ai.com 
           with "REFUND APPEAL" in the subject line. All appeals are reviewed personally and responded to within 5 business days.
         </Paragraph>
       </Section>
@@ -168,7 +168,7 @@ const ReturnPolicy: React.FC = () => {
         <Paragraph>
           <strong>The Williams Collection Inc.</strong><br/>
           Director: Shannon Williams<br/>
-          Email: support@willcol.com<br/>
+          Email: support@willcol-ai.com<br/>
           Phone: +1 (445) 285-6014<br/>
           Address: 5830 E 2ND ST, Casper, WY 82609, United States<br/>
           Support Hours: Monday-Friday, 9 AM - 5 PM MST

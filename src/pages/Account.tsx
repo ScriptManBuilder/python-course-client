@@ -223,35 +223,237 @@ const Account: React.FC = () => {
       );
     }
 
-    // Курсы для тестового аккаунта
+    // Курсы для тестового аккаунта - новая продвинутая структура
     return (
       <div>
         <SectionTitle>MY AI COURSES</SectionTitle>
         
-        <CoursesGrid>
-          {testAccountCourses.map((course) => (
-            <CourseCard key={course.id}>
-              {/* <CourseStatus>Available</CourseStatus> */}
-              <CourseCardHeader>
-                <CourseTitle>{course.title}</CourseTitle>
-              </CourseCardHeader>
-              {course.video && (
-                <CourseVideoWrapper>
-                  <CourseVideo 
-                    controls
-                    controlsList="nodownload noremoteplayback"
-                    disablePictureInPicture
-                    onContextMenu={(e) => e.preventDefault()}
-                  >
-                    <source src={course.video} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </CourseVideo>
-                </CourseVideoWrapper>
-              )}
-              <CourseDescription>{course.description}</CourseDescription>
-            </CourseCard>
+        {/* Course Progress Overview */}
+        <div style={{ 
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          borderRadius: '15px',
+          padding: '30px',
+          marginBottom: '30px',
+          color: 'white'
+        }}>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Learning Progress</h3>
+          <p style={{ opacity: 0.9, marginBottom: '20px' }}>Continue your AI mastery journey</p>
+          <div style={{ 
+            display: 'flex', 
+            gap: '30px', 
+            flexWrap: 'wrap' 
+          }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>{testAccountCourses.length}</div>
+              <div style={{ fontSize: '0.9rem', opacity: 0.8 }}>Total Courses</div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>156</div>
+              <div style={{ fontSize: '0.9rem', opacity: 0.8 }}>Hours of Content</div>
+            </div>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>∞</div>
+              <div style={{ fontSize: '0.9rem', opacity: 0.8 }}>Lifetime Access</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Courses List - One per row with larger video */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
+          {testAccountCourses.map((course, index) => (
+            <div key={course.id} style={{
+              background: 'white',
+              borderRadius: '15px',
+              boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+              overflow: 'hidden',
+              border: '1px solid #e2e8f0'
+            }}>
+              {/* Course Header */}
+              <div style={{
+                background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+                padding: '20px 30px',
+                color: 'white'
+              }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div>
+                    <div style={{ 
+                      fontSize: '0.9rem', 
+                      opacity: 0.9, 
+                      marginBottom: '5px',
+                      textTransform: 'uppercase',
+                      letterSpacing: '1px'
+                    }}>
+                      Course {index + 1} of {testAccountCourses.length}
+                    </div>
+                    <h3 style={{ 
+                      fontSize: '1.4rem', 
+                      fontWeight: '700',
+                      margin: 0,
+                      lineHeight: '1.3'
+                    }}>
+                      {course.title}
+                    </h3>
+                  </div>
+                  <div style={{
+                    background: 'rgba(255,255,255,0.2)',
+                    padding: '8px 16px',
+                    borderRadius: '20px',
+                    fontSize: '0.9rem',
+                    fontWeight: '600'
+                  }}>
+                    Available
+                  </div>
+                </div>
+              </div>
+
+              {/* Course Content */}
+              <div style={{ padding: '30px' }}>
+                <div style={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: '1.2fr 0.8fr', 
+                  gap: '30px',
+                  alignItems: 'start'
+                }}>
+                  {/* Video Section */}
+                  <div>
+                    {course.video && (
+                      <div style={{ marginBottom: '20px' }}>
+                        <div style={{
+                          position: 'relative',
+                          borderRadius: '12px',
+                          overflow: 'hidden',
+                          boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                        }}>
+                          <CourseVideo 
+                            controls
+                            controlsList="nodownload noremoteplayback"
+                            disablePictureInPicture
+                            onContextMenu={(e) => e.preventDefault()}
+                            style={{
+                              width: '100%',
+                              height: '350px',
+                              objectFit: 'contain',
+                              background: '#000'
+                            }}
+                          >
+                            <source src={course.video} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </CourseVideo>
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* Course Description */}
+                    <div style={{
+                      padding: '20px',
+                      background: '#f8fafc',
+                      borderRadius: '12px',
+                      border: '1px solid #e2e8f0'
+                    }}>
+                      <h4 style={{ 
+                        fontSize: '1.1rem',
+                        fontWeight: '600',
+                        marginBottom: '10px',
+                        color: '#2d3748'
+                      }}>
+                        About This Course
+                      </h4>
+                      <p style={{ 
+                        fontSize: '1rem',
+                        lineHeight: '1.6',
+                        color: '#4a5568',
+                        margin: 0
+                      }}>
+                        {course.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Course Info Sidebar */}
+                  <div>
+                    <div style={{
+                      background: '#f7fafc',
+                      padding: '25px',
+                      borderRadius: '12px',
+                      border: '1px solid #e2e8f0'
+                    }}>
+                      <h4 style={{ 
+                        fontSize: '1.1rem',
+                        fontWeight: '600',
+                        marginBottom: '20px',
+                        color: '#2d3748'
+                      }}>
+                        Course Details
+                      </h4>
+                      
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <span style={{ color: '#718096', fontSize: '0.95rem' }}>Duration</span>
+                          <span style={{ fontWeight: '600', color: '#2d3748' }}>
+                            {index < 3 ? '3-4 hours' : index < 6 ? '2-3 hours' : '4-5 hours'}
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <span style={{ color: '#718096', fontSize: '0.95rem' }}>Level</span>
+                          <span style={{ fontWeight: '600', color: '#2d3748' }}>
+                            {index < 4 ? 'Beginner' : index < 8 ? 'Intermediate' : 'Advanced'}
+                          </span>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <span style={{ color: '#718096', fontSize: '0.95rem' }}>Language</span>
+                          <span style={{ fontWeight: '600', color: '#2d3748' }}>English</span>
+                        </div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <span style={{ color: '#718096', fontSize: '0.95rem' }}>Access</span>
+                          <span style={{ fontWeight: '600', color: '#2d3748' }}>Lifetime</span>
+                        </div>
+                      </div>
+
+                      <div style={{ 
+                        marginTop: '25px',
+                        padding: '15px',
+                        background: 'linear-gradient(135deg, #81C784 0%, #4CAF50 100%)',
+                        borderRadius: '8px',
+                        textAlign: 'center'
+                      }}>
+                        <div style={{ 
+                          color: 'white',
+                          fontWeight: '600',
+                          fontSize: '1rem'
+                        }}>
+                          ✓ Enrolled & Active
+                        </div>
+                      </div>
+
+                      <div style={{ 
+                        marginTop: '20px',
+                        textAlign: 'center'
+                      }}>
+                        <button style={{
+                          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                          color: 'white',
+                          border: 'none',
+                          padding: '12px 24px',
+                          borderRadius: '25px',
+                          fontSize: '0.95rem',
+                          fontWeight: '600',
+                          cursor: 'pointer',
+                          width: '100%',
+                          transition: 'transform 0.2s'
+                        }}
+                        onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
+                        onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+                        >
+                          📝 Take Notes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
-        </CoursesGrid>
+        </div>
       </div>
     );
   };

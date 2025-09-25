@@ -60,7 +60,7 @@ const TermsConditions: React.FC = () => {
         </Paragraph>
         <Paragraph>
           Director: Shannon Williams<br/>
-          Email: support@willcol.com<br/>
+          Email: support@willcol-ai.com<br/>
           Phone: +1 (445) 285-6014<br/>
           Address: 5830 E 2ND ST, Casper, WY 82609, United States
         </Paragraph>
@@ -80,7 +80,7 @@ const TermsConditions: React.FC = () => {
           We accept major credit and debit cards for AI course purchases. Your payment information is processed securely through our payment processors using 256-bit SSL encryption.
         </Paragraph>
         <Paragraph>
-          <strong>Billing Descriptor:</strong> Charges will appear on your credit card statement as "WILLIAMS AI COURSES" or "WILLCOL.COM". 
+          <strong>Billing Descriptor:</strong> Charges will appear on your credit card statement as "WILLIAMS AI COURSES" or "WILLCOL-AI.COM". 
           This is how the charge will appear on your cardholder's billing statement.
         </Paragraph>
       </Section>
@@ -177,7 +177,7 @@ const TermsConditions: React.FC = () => {
           Director: Shannon Williams<br />
           5830 E 2ND ST, Casper, WY 82609, United States<br />
           Phone: +1 (445) 285-6014<br />
-          Email: support@willcol.com<br />
+          Email: support@willcol-ai.com<br />
           Support Hours: Monday-Friday, 9 AM - 5 PM MST
         </Paragraph>
       </Section>

@@ -82,7 +82,7 @@ const RefundPolicy: React.FC = () => {
           To request a refund for your AI course purchase:
         </Paragraph>
         <Paragraph>
-          1. Contact our support team at support@willcol.com<br/>
+          1. Contact our support team at support@willcol-ai.com<br/>
           2. Include your order number and account email address<br/>
           3. Provide a brief explanation for your refund request<br/>
           4. Our team will review your request within 24-48 hours<br/>
@@ -110,7 +110,7 @@ const RefundPolicy: React.FC = () => {
         <SectionTitle>5. Refund Processing and Timeline</SectionTitle>
         <Paragraph>
           Approved refunds will be processed to your original payment method within 5-10 business days. 
-          You will see "WILLIAMS AI COURSES" or "WILLCOL.COM" as the refund descriptor on your statement.
+          You will see "WILLIAMS AI COURSES" or "WILLCOL-AI.COM" as the refund descriptor on your statement.
         </Paragraph>
         <Paragraph>
           Processing times may vary depending on your bank or credit card company. International customers 
@@ -144,7 +144,7 @@ const RefundPolicy: React.FC = () => {
         <SectionTitle>8. Dispute Resolution</SectionTitle>
         <Paragraph>
           If you disagree with our refund decision, you may escalate your request to our management team 
-          by emailing support@willcol.com with "Refund Appeal" in the subject line. All appeals 
+          by emailing support@willcol-ai.com with "Refund Appeal" in the subject line. All appeals 
           will be reviewed within 5 business days.
         </Paragraph>
       </Section>
@@ -166,7 +166,7 @@ const RefundPolicy: React.FC = () => {
         <Paragraph>
           <strong>The Williams Collection Inc.</strong><br/>
           Director: Shannon Williams<br/>
-          Email: support@willcol.com<br/>
+          Email: support@willcol-ai.com<br/>
           Phone: +1 (445) 285-6014<br/>
           Address: 5830 E 2ND ST, Casper, WY 82609, United States<br/>
           Support Hours: Monday-Friday, 9 AM - 5 PM MST

@@ -180,7 +180,7 @@ const Header: React.FC = () => {
             <ContactItem>
               <MailIcon size={14} />
               <span style={{ color: 'inherit' }}>
-                support@willcol.com
+                support@willcol-ai.com
               </span>
             </ContactItem>
             <ContactItem>

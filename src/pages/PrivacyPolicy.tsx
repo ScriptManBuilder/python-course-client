@@ -260,7 +260,7 @@ const PrivacyPolicy: React.FC = () => {
           Director: Shannon Williams<br/>
           5830 E 2ND ST<br/>
           Casper, WY 82609, United States<br/>
-          Email: support@willcol.com<br/>
+          Email: support@willcol-ai.com<br/>
           Phone: +1 (445) 285-6014
         </Paragraph>
       </Section>

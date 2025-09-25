@@ -87,7 +87,7 @@ const Support: React.FC = () => {
                   <ContactTitle>Email Support</ContactTitle>
                   <ContactInfo>Average response time: 2-4 hours</ContactInfo>
                   <ContactText>
-                    support@willcol.com
+                    support@willcol-ai.com
                   </ContactText>
                 </ContactContent>
               </ContactCard>
