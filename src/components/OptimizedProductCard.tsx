@@ -121,6 +121,23 @@ const MediaToggle = styled.button`
   }
 `;
 
+const VideoBadge = styled.div`
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  z-index: 3;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+`;
+
 const LoadingPlaceholder = styled.div`
   width: 100%;
   height: 100%;
@@ -300,6 +317,12 @@ const OptimizedProductCard: React.FC<OptimizedProductCardProps> = memo(({
   return (
     <CardContainer onClick={handleCardClick}>
       <ImageContainer>
+        {product.videos && product.videos.length > 1 && (
+          <VideoBadge>
+            {product.videos.length} Videos
+          </VideoBadge>
+        )}
+        
         {product.video && (
           <MediaToggle onClick={toggleMedia}>
             {showVideo ? '📷 Image' : '🎬 Preview'}

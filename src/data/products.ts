@@ -10,6 +10,7 @@ export interface Product {
   image: string;
   images: string[];
   video?: string; // Optional video preview
+  videos?: string[]; // Multiple course videos for premium courses
   description: string;
   detailedDescription: string;
   category: string;
@@ -132,6 +133,38 @@ export const getProductVideo = (productId: number): string | undefined => {
   if (productId === 11) {
     return "/videos/video_preview_11.mp4";
   }
+  return undefined;
+};
+
+// Helper function to get course videos (for premium courses with multiple videos)
+export const getProductVideos = (productId: number): string[] | undefined => {
+  // Courses $79.99 - 2 videos
+  if (productId === 9) {
+    return [
+      "/videos/Creating Animated GIFs with AI Tools8.mp4",
+      "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4"
+    ];
+  }
+  
+  // Courses $89.99 - 3 videos  
+  if (productId === 10) {
+    return [
+      "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4",
+      "/videos/Essential ChatGPT Basics1.mp4",
+      "/videos/YouTube Video Summaries with AI5.mp4"
+    ];
+  }
+  
+  // Courses $99.99 - 4 videos
+  if (productId === 11) {
+    return [
+      "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (14).mp4",
+      "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
+      "/videos/Essential Prompting Tips & Techniques6.mp4",
+      "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+    ];
+  }
+  
   return undefined;
 };
 
@@ -359,18 +392,21 @@ export const products: Product[] = [
     image: getProductImage(9),
     images: getProductImages(9),
     video: getProductVideo(9),
+    videos: getProductVideos(9),
     description: "Step-by-step process to design engaging animated GIFs for content and social media.",
-    detailedDescription: "Learn to create eye-catching animated GIFs using AI-powered tools and techniques. Master the complete workflow from concept to final output, including optimization for different platforms and use cases in content marketing and social media.",
+    detailedDescription: "Learn to create eye-catching animated GIFs using AI-powered tools and techniques. This premium course includes 2 comprehensive video modules covering the complete workflow from concept to final output, including optimization for different platforms and use cases in content marketing and social media.",
     category: "Content Creation",
     features: [
-      "3 hours of creative training",
+      "2 comprehensive video modules",
+      "6 hours of creative training",
       "GIF creation workflows",
       "AI tool integration",
       "Platform optimization",
       "Social media formatting"
     ],
     specifications: {
-      "Duration": "3 hours",
+      "Duration": "6 hours",
+      "Videos": "2 comprehensive modules",
       "Level": "Beginner",
       "Tools": "AI-powered GIF creators",
       "Outputs": "Multiple format options",
@@ -386,18 +422,21 @@ export const products: Product[] = [
     image: getProductImage(10),
     images: getProductImages(10),
     video: getProductVideo(10),
+    videos: getProductVideos(10),
     description: "Transform visuals with AI: upscale images and convert them into high-quality PNGs.",
-    detailedDescription: "Master AI-powered image enhancement techniques to improve visual quality and format conversion. Learn professional upscaling methods, PNG optimization, and batch processing workflows for content creators and marketers.",
+    detailedDescription: "Master AI-powered image enhancement techniques to improve visual quality and format conversion. This premium course includes 3 detailed video modules covering professional upscaling methods, PNG optimization, and batch processing workflows for content creators and marketers.",
     category: "Image Processing",
     features: [
-      "4 hours of technical training",
+      "3 detailed video modules",
+      "8 hours of technical training",
       "Image upscaling techniques",
       "PNG conversion workflows",
       "Batch processing methods",
       "Quality optimization"
     ],
     specifications: {
-      "Duration": "4 hours",
+      "Duration": "8 hours",
+      "Videos": "3 detailed modules",
       "Level": "Beginner",
       "Tools": "AI upscaling platforms",
       "Formats": "Multiple output options",
@@ -413,18 +452,21 @@ export const products: Product[] = [
     image: getProductImage(11),
     images: getProductImages(11),
     video: getProductVideo(11),
+    videos: getProductVideos(11),
     description: "Deep dive into advanced prompting techniques to unlock AI's full potential.",
-    detailedDescription: "Unlock the full power of AI with expert-level prompting strategies and advanced techniques. Master complex prompt structures, chain-of-thought reasoning, and professional-grade methods used by AI experts and consultants.",
+    detailedDescription: "Unlock the full power of AI with expert-level prompting strategies and advanced techniques. This premium course includes 4 comprehensive video modules covering complex prompt structures, chain-of-thought reasoning, and professional-grade methods used by AI experts and consultants.",
     category: "Advanced Prompting",
     features: [
-      "6 hours of expert instruction",
+      "4 comprehensive video modules",
+      "12 hours of expert instruction",
       "50 advanced prompt templates",
       "Chain-of-thought techniques",
       "Professional strategies",
       "Expert-level methods"
     ],
     specifications: {
-      "Duration": "6 hours",
+      "Duration": "12 hours",
+      "Videos": "4 comprehensive modules",
       "Level": "Advanced",
       "Techniques": "Expert-level strategies",
       "Templates": "50 advanced prompts",

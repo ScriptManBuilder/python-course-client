@@ -76,79 +76,91 @@ const Account: React.FC = () => {
     {
       id: 1,
       title: "Essential ChatGPT Basics",
-      description: "Master machine learning from basics to advanced algorithms with hands-on projects and real-world applications.",
+      description: "Learn the fundamental concepts and basic usage of ChatGPT for beginners.",
       price: "$6.99",
-      video: "/videos/Essential ChatGPT Basics1.mp4"
+      videos: ["/videos/Essential ChatGPT Basics1.mp4"]
     },
     {
       id: 2,
       title: "AI Personas & Roles – Designing Smarter Chatbots",
-      description: "Learn how to build custom AI personas and role-based chatbots that respond with more natural, human-like interactions.",
+      description: "Create custom AI personas and design role-based chatbots for better interactions.",
       price: "$9.99",
-      video: "/videos/AI Personas & Roles – Designing Smarter Chatbots2.mp4"
+      videos: ["/videos/AI Personas & Roles – Designing Smarter Chatbots2.mp4"]
     },
     {
       id: 3,
       title: "AI-Powered Document Summaries with ChatGPT",
-      description: "Master techniques for turning lengthy documents into clear, concise summaries using AI.",
+      description: "Transform long documents into clear, concise summaries using ChatGPT.",
       price: "$19.99",
-      video: "/videos/AI-Powered Document Summaries with ChatGPT3.mp4"
+      videos: ["/videos/AI-Powered Document Summaries with ChatGPT3.mp4"]
     },
     {
       id: 4,
       title: "Prompt Optimization Shortcuts for ChatGPT",
-      description: "Discover practical shortcuts and methods to refine prompts for faster and more accurate responses.",
+      description: "Learn practical shortcuts to optimize prompts for better ChatGPT responses.",
       price: "$29.99",
-      video: "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+      videos: ["/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"]
     },
     {
       id: 5,
       title: "YouTube Video Summaries with AI",
-      description: "Generate quick, structured summaries of YouTube videos to save time and extract key insights.",
+      description: "Create quick summaries of YouTube videos using AI to save time.",
       price: "$39.99",
-      video: "/videos/YouTube Video Summaries with AI5.mp4"
+      videos: ["/videos/YouTube Video Summaries with AI5.mp4"]
     },
     {
       id: 6,
       title: "Essential Prompting Tips & Techniques",
-      description: "A beginner-friendly guide to improving AI prompts and getting consistent results.",
+      description: "Master essential tips and techniques for effective AI prompting.",
       price: "$49.99",
-      video: "/videos/Essential Prompting Tips & Techniques6.mp4"
+      videos: ["/videos/Essential Prompting Tips & Techniques6.mp4"]
     },
     {
       id: 7,
       title: "Reset & Refine – Fixing Stuck AI Conversations",
-      description: "Learn how to reset and guide AI when responses go off track, ensuring smoother interactions.",
+      description: "Fix stuck AI conversations and guide responses back on track.",
       price: "$59.99",
-      video: "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4"
+      videos: ["/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4"]
     },
     {
       id: 8,
       title: "The B.R.A.I.N. Framework for AI Mastery",
-      description: "A structured method to approach AI tasks with clarity, precision, and efficiency.",
+      description: "Master the B.R.A.I.N. framework for structured AI task management.",
       price: "$69.99",
-      video: "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4"
+      videos: ["/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4"]
     },
     {
       id: 9,
       title: "Creating Animated GIFs with AI Tools",
       description: "Step-by-step process to design engaging animated GIFs for content and social media.",
       price: "$79.99",
-      video: "/videos/Creating Animated GIFs with AI Tools8.mp4"
+      videos: [
+        "/videos/Creating Animated GIFs with AI Tools8.mp4",
+        "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4"
+      ]
     },
     {
       id: 10,
       title: "Image Enhancement – Upscaling & PNG Conversion",
       description: "Transform visuals with AI: upscale images and convert them into high-quality PNGs.",
       price: "$89.99",
-      video: "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4"
+      videos: [
+        "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4",
+        "/videos/Essential ChatGPT Basics1.mp4",
+        "/videos/YouTube Video Summaries with AI5.mp4"
+      ]
     },
     {
       id: 11,
       title: "Advanced Prompt Engineering – Pro Tips & Strategies",
       description: "Deep dive into advanced prompting techniques to unlock AI's full potential.",
       price: "$99.99",
-      video: "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (14).mp4"
+      videos: [
+        "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (14).mp4",
+        "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
+        "/videos/Essential Prompting Tips & Techniques6.mp4",
+        "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+      ]
     }
   ];
 
@@ -248,7 +260,7 @@ const Account: React.FC = () => {
               <div style={{ fontSize: '0.9rem', opacity: 0.8 }}>Total Courses</div>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>156</div>
+              <div style={{ fontSize: '2rem', fontWeight: 'bold' }}>16</div>
               <div style={{ fontSize: '0.9rem', opacity: 0.8 }}>Hours of Content</div>
             </div>
             <div style={{ textAlign: 'center' }}>
@@ -316,30 +328,49 @@ const Account: React.FC = () => {
                 }}>
                   {/* Video Section */}
                   <div>
-                    {course.video && (
+                    {course.videos && course.videos.length > 0 && (
                       <div style={{ marginBottom: '20px' }}>
-                        <div style={{
-                          position: 'relative',
-                          borderRadius: '12px',
-                          overflow: 'hidden',
-                          boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
-                        }}>
-                          <CourseVideo 
-                            controls
-                            controlsList="nodownload noremoteplayback"
-                            disablePictureInPicture
-                            onContextMenu={(e) => e.preventDefault()}
-                            style={{
-                              width: '100%',
-                              height: '350px',
-                              objectFit: 'contain',
-                              background: '#000'
-                            }}
-                          >
-                            <source src={course.video} type="video/mp4" />
-                            Your browser does not support the video tag.
-                          </CourseVideo>
-                        </div>
+                        {course.videos.map((videoSrc, videoIndex) => (
+                          <div key={videoIndex} style={{
+                            position: 'relative',
+                            borderRadius: '12px',
+                            overflow: 'hidden',
+                            boxShadow: '0 8px 25px rgba(0,0,0,0.15)',
+                            marginBottom: videoIndex < course.videos.length - 1 ? '15px' : '0'
+                          }}>
+                            {course.videos.length > 1 && (
+                              <div style={{
+                                position: 'absolute',
+                                top: '10px',
+                                left: '10px',
+                                background: 'rgba(0,0,0,0.7)',
+                                color: 'white',
+                                padding: '5px 10px',
+                                borderRadius: '15px',
+                                fontSize: '0.8rem',
+                                fontWeight: '600',
+                                zIndex: 10
+                              }}>
+                                Video {videoIndex + 1} of {course.videos.length}
+                              </div>
+                            )}
+                            <CourseVideo 
+                              controls
+                              controlsList="nodownload noremoteplayback"
+                              disablePictureInPicture
+                              onContextMenu={(e) => e.preventDefault()}
+                              style={{
+                                width: '100%',
+                                height: '350px',
+                                objectFit: 'contain',
+                                background: '#000'
+                              }}
+                            >
+                              <source src={videoSrc} type="video/mp4" />
+                              Your browser does not support the video tag.
+                            </CourseVideo>
+                          </div>
+                        ))}
                       </div>
                     )}
                     
@@ -390,7 +421,7 @@ const Account: React.FC = () => {
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                           <span style={{ color: '#718096', fontSize: '0.95rem' }}>Duration</span>
                           <span style={{ fontWeight: '600', color: '#2d3748' }}>
-                            {index < 3 ? '3-4 hours' : index < 6 ? '2-3 hours' : '4-5 hours'}
+                            {index < 3 ? '1-2 hours' : index < 6 ? '2-3 hours' : '3-4 hours'}
                           </span>
                         </div>
                         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -425,28 +456,7 @@ const Account: React.FC = () => {
                         </div>
                       </div>
 
-                      <div style={{ 
-                        marginTop: '20px',
-                        textAlign: 'center'
-                      }}>
-                        <button style={{
-                          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                          color: 'white',
-                          border: 'none',
-                          padding: '12px 24px',
-                          borderRadius: '25px',
-                          fontSize: '0.95rem',
-                          fontWeight: '600',
-                          cursor: 'pointer',
-                          width: '100%',
-                          transition: 'transform 0.2s'
-                        }}
-                        onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'}
-                        onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}
-                        >
-                          📝 Take Notes
-                        </button>
-                      </div>
+
                     </div>
                   </div>
                 </div>

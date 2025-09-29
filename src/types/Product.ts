@@ -9,6 +9,7 @@ export interface Product {
   image: string;
   images: string[];
   video?: string;
+  videos?: string[]; // Multiple course videos for premium courses
   description: string;
   detailedDescription: string;
   category: string;
