@@ -87,7 +87,7 @@ const Support: React.FC = () => {
                   <ContactTitle>Email Support</ContactTitle>
                   <ContactInfo>Average response time: 2-4 hours</ContactInfo>
                   <ContactText>
-                    support@willcol-ai.com
+                    support@python-learning.com
                   </ContactText>
                 </ContactContent>
               </ContactCard>
@@ -99,8 +99,8 @@ const Support: React.FC = () => {
                 <ContactContent>
                   <ContactTitle>Phone Support</ContactTitle>
                   <ContactInfo>Monday - Friday, 9 AM - 6 PM MST</ContactInfo>
-                  <ContactLink href="tel:+14452856014">
-                    +14452856014
+                  <ContactLink href="tel:+12272306684">
+                    +12272306684
                   </ContactLink>
                 </ContactContent>
               </ContactCard>

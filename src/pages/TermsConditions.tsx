@@ -46,7 +46,7 @@ const TermsConditions: React.FC = () => {
       <Section>
         <SectionTitle>1. Acceptance of Terms</SectionTitle>
         <Paragraph>
-          By accessing and using The Williams Collection Inc. AI course platform and services, you accept and agree to be bound by 
+          By accessing and using Python Learning Academy course platform and services, you accept and agree to be bound by 
           the terms and provisions of this agreement. These terms apply to all digital AI courses, educational content, and 
           related services. If you do not agree to these terms, please do not use our services.
         </Paragraph>
@@ -55,19 +55,19 @@ const TermsConditions: React.FC = () => {
       <Section>
         <SectionTitle>2. Company Information</SectionTitle>
         <Paragraph>
-          This AI course platform is operated by The Williams Collection Inc. 
+          This Python course platform is operated by Python Learning Academy. 
           Our contact information:
         </Paragraph>
         <Paragraph>
-          Director: Shannon Williams<br/>
-          Email: support@willcol-ai.com<br/>
-          Phone: +1 (445) 285-6014<br/>
-          Address: 5830 E 2ND ST, Casper, WY 82609, United States
+          Director: Python Education Team<br/>
+          Email: support@python-learning.com<br/>
+          Phone: +1 (227) 230-6684<br/>
+          Address: Online Education Platform
         </Paragraph>
       </Section>
 
       <Section>
-        <SectionTitle>3. Digital AI Course Pricing</SectionTitle>
+        <SectionTitle>3. Digital Python Course Pricing</SectionTitle>
         <Paragraph>
           Our AI courses are available at the following price points: {formatPrice(6.99)}, {formatPrice(9.99)}, {formatPrice(19.99)}, {formatPrice(29.99)}, {formatPrice(39.99)}, {formatPrice(49.99)}, {formatPrice(59.99)}, {formatPrice(69.99)}, {formatPrice(79.99)}, {formatPrice(89.99)}, and {formatPrice(99.99)}. 
           All prices are in USD and include applicable taxes. Prices are subject to change without notice.
@@ -80,7 +80,7 @@ const TermsConditions: React.FC = () => {
           We accept major credit and debit cards for AI course purchases. Your payment information is processed securely through our payment processors using 256-bit SSL encryption.
         </Paragraph>
         <Paragraph>
-          <strong>Billing Descriptor:</strong> Charges will appear on your credit card statement as "WILLIAMS AI COURSES" or "WILLCOL-AI.COM". 
+          <strong>Billing Descriptor:</strong> Charges will appear on your credit card statement as "PYTHON LEARNING COURSES" or "PYTHON-LEARNING.COM". 
           This is how the charge will appear on your cardholder's billing statement.
         </Paragraph>
       </Section>
@@ -101,7 +101,7 @@ const TermsConditions: React.FC = () => {
         <SectionTitle>6. Course Content and Intellectual Property</SectionTitle>
         <Paragraph>
           All AI course content, including videos, text, images, and downloadable materials, are the intellectual property of 
-          The Williams Collection Inc. You are granted a personal, non-transferable license to access and use the content 
+          Python Learning Academy. You are granted a personal, non-transferable license to access and use the content 
           for your own learning purposes only.
         </Paragraph>
         <Paragraph>
@@ -130,7 +130,7 @@ const TermsConditions: React.FC = () => {
           that occur under your account. Sharing account access is prohibited and may result in account termination.
         </Paragraph>
         <Paragraph>
-          Course access is provided for your lifetime, but The Williams Collection Inc. reserves the right to terminate 
+          Course access is provided for your lifetime, but Python Learning Academy reserves the right to terminate 
           access for violation of these terms or fraudulent activity.
         </Paragraph>
       </Section>
@@ -149,7 +149,7 @@ const TermsConditions: React.FC = () => {
       <Section>
         <SectionTitle>10. Limitation of Liability</SectionTitle>
         <Paragraph>
-          The Williams Collection Inc. provides AI courses for educational purposes only. We make no guarantees about 
+          Python Learning Academy provides Python courses for educational purposes only. We make no guarantees about 
           specific outcomes, career advancement, or income generation from course completion. Results may vary based on 
           individual effort and application of course materials.
         </Paragraph>
@@ -173,12 +173,12 @@ const TermsConditions: React.FC = () => {
           For questions about these Terms & Conditions or course-related inquiries, please contact us at:
         </Paragraph>
         <Paragraph>
-          <strong>The Williams Collection Inc.</strong><br />
-          Director: Shannon Williams<br />
-          5830 E 2ND ST, Casper, WY 82609, United States<br />
-          Phone: +1 (445) 285-6014<br />
-          Email: support@willcol-ai.com<br />
-          Support Hours: Monday-Friday, 9 AM - 5 PM MST
+          <strong>Python Learning Academy</strong><br />
+          Director: Python Education Team<br />
+          Online Education Platform<br />
+          Phone: +1 (227) 230-6684<br />
+          Email: support@python-learning.com<br />
+          Support Hours: Monday-Friday, 9 AM - 6 PM MST
         </Paragraph>
       </Section>
     </Container>

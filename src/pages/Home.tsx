@@ -88,54 +88,47 @@ const Home: React.FC = () => {
   // Данные для слайдов карусели
   const carouselSlides = [
     {
-      title: "Why Choose Williams AI Academy?",
-      subtitle: "Discover the excellence that makes our AI education exceptional"
+      title: "Why Choose Python Learning Academy?",
+      subtitle: "Discover the excellence that makes our Python education exceptional"
     },
     {
-      title: "Expert-Led AI Training",
-      subtitle: "Learn from industry professionals with real-world AI experience"
+      title: "Expert-Led Python Training",
+      subtitle: "Learn from industry professionals with real-world Python experience"
     },
     {
       title: "Innovation Meets Education",
-      subtitle: "Where cutting-edge AI knowledge meets practical application"
+      subtitle: "Where cutting-edge Python knowledge meets practical application"
     }
   ];
 
   // Данные для слайдов Featured Solutions
   const featuredSlides = [
     {
-      title: "Featured AI Courses",
-      subtitle: "Discover our most popular and effective AI training programs"
+      title: "Featured Python Courses",
+      subtitle: "Discover our most popular and effective Python training programs"
     },
     {
       title: "Revolutionary Learning",
-      subtitle: "Next-generation AI education that transforms careers"
+      subtitle: "Next-generation Python education that transforms careers"
     },
     {
-      title: "Premium AI Education",
-      subtitle: "Crafted for those who demand excellence in AI mastery"
+      title: "Premium Python Education",
+      subtitle: "Crafted for those who demand excellence in Python mastery"
     }
   ];
 
   // Мемоизируем массив изображений для галереи
   const galleryImages = useMemo(() => {
-    // Точно 15 изображений из папки public/images
+    // Новые изображения ribbon_1 - ribbon_8 для галереи
     const allImages = [
-      { src: `/images/pictureAI_1.jpg`, alt: `AI Picture 1`, type: 'ai-picture' },
-      { src: `/images/pictureAI_2.jpg`, alt: `AI Picture 2`, type: 'ai-picture' },
-      { src: `/images/pictureAI_3.jpg`, alt: `AI Picture 3`, type: 'ai-picture' },
-      { src: `/images/pictureAI_4.jpg`, alt: `AI Picture 4`, type: 'ai-picture' },
-      { src: `/images/pictureAI_5.jpg`, alt: `AI Picture 5`, type: 'ai-picture' },
-      { src: `/images/pictureAI_6.jpg`, alt: `AI Picture 6`, type: 'ai-picture' },
-      { src: `/images/pictureAI_7.jpg`, alt: `AI Picture 7`, type: 'ai-picture' },
-      { src: `/images/pictureAI_8.jpg`, alt: `AI Picture 8`, type: 'ai-picture' },
-      { src: `/images/pictureAI_9.png`, alt: `AI Picture 9`, type: 'ai-picture' },
-      { src: `/images/pictureAI_10.png`, alt: `AI Picture 10`, type: 'ai-picture' },
-      { src: `/images/williams_1.jpg`, alt: `Williams Collection 1`, type: 'brand' },
-      { src: `/images/williams_2.jpg`, alt: `Williams Collection 2`, type: 'brand' },
-      { src: `/images/williams_3.jpg`, alt: `Williams Collection 3`, type: 'brand' },
-      { src: `/images/williams_4.jpg`, alt: `Williams Collection 4`, type: 'brand' },
-      { src: `/images/williams_5.jpg`, alt: `Williams Collection 5`, type: 'brand' }
+      { src: `/images/ribbon_1.jpg`, alt: `Python Learning Ribbon 1`, type: 'python-ribbon' },
+      { src: `/images/ribbon_2.jpg`, alt: `Python Learning Ribbon 2`, type: 'python-ribbon' },
+      { src: `/images/ribbon_3.jpg`, alt: `Python Learning Ribbon 3`, type: 'python-ribbon' },
+      { src: `/images/ribbon_4.jpg`, alt: `Python Learning Ribbon 4`, type: 'python-ribbon' },
+      { src: `/images/ribbon_5.jpg`, alt: `Python Learning Ribbon 5`, type: 'python-ribbon' },
+      { src: `/images/ribbon_6.jpg`, alt: `Python Learning Ribbon 6`, type: 'python-ribbon' },
+      { src: `/images/ribbon_7.jpg`, alt: `Python Learning Ribbon 7`, type: 'python-ribbon' },
+      { src: `/images/ribbon_8.jpg`, alt: `Python Learning Ribbon 8`, type: 'python-ribbon' }
     ];
     
     // Перемешиваем для разнообразия и добавляем id
@@ -151,12 +144,12 @@ const Home: React.FC = () => {
 
   // Мемоизируем текст для бегущей строки
   const scrollingTexts = useMemo(() => [
-    'MASTER AI & CHATGPT TODAY',
-    'FOLLOW US @WILLIAMS_AI_ACADEMY',
-    'PREMIUM AI EDUCATION COURSES',
-    'TRANSFORM YOUR CAREER WITH AI',
-    'BOOST PRODUCTIVITY WITH CHATGPT',
-    'JOIN THE AI REVOLUTION NOW'
+    'MASTER PYTHON PROGRAMMING TODAY',
+    'FOLLOW US @PYTHON_LEARNING_ACADEMY',
+    'PREMIUM PYTHON EDUCATION COURSES',
+    'TRANSFORM YOUR CAREER WITH PYTHON',
+    'WEB DEVELOPMENT & DATA SCIENCE',
+    'JOIN THE PYTHON REVOLUTION NOW'
   ], []);
 
   useEffect(() => {
@@ -354,14 +347,14 @@ const Home: React.FC = () => {
           playsInline
           preload="auto"
         >
-          <source src="/videos/videoAI_1.mp4" type="video/mp4" />
+          <source src="/videos/hero_python_1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </HeroVideo>
         <Container>
           <HeroContent>
-            <HeroTitle>WILLIAMS AI ACADEMY</HeroTitle>
+            <HeroTitle>PYTHONLEARN</HeroTitle>
             <HeroSubtitle>
-              Master AI & ChatGPT with Expert-Led Video Courses - Transform Your Productivity Today
+              Master Python Programming with Expert-Led Video Courses - Transform Your Career Today
             </HeroSubtitle>
             <HeroButtons>
               <Button as={Link} to="/products" variant="primary">
@@ -413,9 +406,9 @@ const Home: React.FC = () => {
             <ScrollReveal ref={setScrollRevealRef(1)} delay={100}>
               <FeatureCard>
                 <RocketIcon />
-                <FeatureTitle>Expert AI Instruction</FeatureTitle>
+                <FeatureTitle>Expert Python Instruction</FeatureTitle>
                 <FeatureDescription>
-                  Learn from industry professionals with hands-on AI experience and proven track records.
+                  Learn from industry professionals with hands-on Python experience and proven track records.
                 </FeatureDescription>
               </FeatureCard>
             </ScrollReveal>
@@ -445,7 +438,7 @@ const Home: React.FC = () => {
                 <GlobeIcon />
                 <FeatureTitle>Global Community</FeatureTitle>
                 <FeatureDescription>
-                  Join thousands of AI enthusiasts worldwide with 24/7 support and community access.
+                  Join thousands of Python enthusiasts worldwide with 24/7 support and community access.
                 </FeatureDescription>
               </FeatureCard>
             </ScrollReveal>
@@ -465,7 +458,7 @@ const Home: React.FC = () => {
                 <DiamondIcon />
                 <FeatureTitle>Premium Content</FeatureTitle>
                 <FeatureDescription>
-                  Cutting-edge curriculum updated regularly with the latest AI developments and trends.
+                  Cutting-edge curriculum updated regularly with the latest Python developments and trends.
                 </FeatureDescription>
               </FeatureCard>
             </ScrollReveal>
@@ -488,9 +481,9 @@ const Home: React.FC = () => {
           </VideoSectionVideo>
         )}
         <VideoSectionContent>
-          <VideoSectionTitle>AI Learning in Motion</VideoSectionTitle>
+          <VideoSectionTitle>Python Learning in Motion</VideoSectionTitle>
           <VideoSectionSubtitle>
-            Experience the future of AI education through interactive learning and real-world applications
+            Experience the future of Python education through interactive learning and real-world applications
           </VideoSectionSubtitle>
         </VideoSectionContent>
       </VideoSection>
@@ -564,8 +557,27 @@ const Home: React.FC = () => {
       <PhotoGallerySection ref={galleryRef}>
         {isVisible && (
           <PhotoStrip>
+            {/* Первый набор изображений */}
             {galleryImages.map((image) => (
-              <PhotoItem key={image.id} className={`photo-${image.type}`}>
+              <PhotoItem key={`first-${image.id}`} className={`photo-${image.type}`}>
+                <LazyImage
+                  src={image.src}
+                  alt={image.alt}
+                />
+              </PhotoItem>
+            ))}
+            {/* Дублированный набор для бесконечной прокрутки */}
+            {galleryImages.map((image) => (
+              <PhotoItem key={`second-${image.id}`} className={`photo-${image.type}`}>
+                <LazyImage
+                  src={image.src}
+                  alt={image.alt}
+                />
+              </PhotoItem>
+            ))}
+            {/* Третий набор для полной бесконечности */}
+            {galleryImages.map((image) => (
+              <PhotoItem key={`third-${image.id}`} className={`photo-${image.type}`}>
                 <LazyImage
                   src={image.src}
                   alt={image.alt}
@@ -588,19 +600,19 @@ const Home: React.FC = () => {
       <InfoSection>
         <InfoGrid>
           <InfoBlock>
-            <InfoTitle>Master ChatGPT & AI Tools</InfoTitle>
+            <InfoTitle>Master Python Programming</InfoTitle>
             <InfoDescription>
-              Transform your productivity with comprehensive AI training. 
-              Learn prompt engineering, automation techniques, and advanced AI applications 
-              that professionals use to save hours every day.
+              Transform your career with comprehensive Python training. 
+              Learn web development, data science, automation techniques, and advanced Python applications 
+              that professionals use to build powerful solutions.
             </InfoDescription>
             
             <InfoSubsection>
-              <InfoSubtitle>Professional Prompt Engineering</InfoSubtitle>
+              <InfoSubtitle>Professional Python Development</InfoSubtitle>
               <InfoText>
-                Master <InfoHighlight>advanced prompt techniques </InfoHighlight> 
-                 that deliver consistent, high-quality results. From basic commands to 
-                complex workflows, learn to communicate effectively with AI systems.
+                Master <InfoHighlight>advanced Python techniques </InfoHighlight> 
+                 that deliver robust, scalable solutions. From basic syntax to 
+                complex frameworks, learn to build professional applications.
               </InfoText>
             </InfoSubsection>
           </InfoBlock>
@@ -608,15 +620,15 @@ const Home: React.FC = () => {
           <InfoBlock>
             <InfoTitle>Real-World Applications</InfoTitle>
             <InfoDescription>
-              Apply AI knowledge immediately with practical projects and case studies. 
+              Apply Python knowledge immediately with practical projects and case studies. 
               Our courses focus on real business scenarios and measurable productivity gains.
             </InfoDescription>
             
             <InfoSubsection>
               <InfoSubtitle>Industry-Proven Methods</InfoSubtitle>
               <InfoText>
-                Learn <InfoHighlight>battle-tested AI strategies</InfoHighlight> used by 
-                Fortune 500 companies. From content creation to data analysis, 
+                Learn <InfoHighlight>battle-tested Python strategies</InfoHighlight> used by 
+                Fortune 500 companies. From web development to data analysis, 
                 master techniques that deliver immediate ROI.
               </InfoText>
             </InfoSubsection>
@@ -626,14 +638,14 @@ const Home: React.FC = () => {
             <InfoTitle>Lifetime Learning Access</InfoTitle>
             <InfoDescription>
               Enjoy unlimited access to all course materials, updates, and new content. 
-              Stay ahead of the rapidly evolving AI landscape with continuous learning.
+              Stay ahead of the rapidly evolving Python ecosystem with continuous learning.
             </InfoDescription>
             
             <InfoSubsection>
               <InfoSubtitle>Always Up-to-Date Content</InfoSubtitle>
               <InfoText>
                 Access <InfoHighlight>regularly updated curriculum</InfoHighlight> that 
-                evolves with AI technology. New features, tools, and techniques are 
+                evolves with Python technology. New features, tools, and techniques are 
                 added monthly to keep your skills current.
               </InfoText>
             </InfoSubsection>
@@ -642,16 +654,16 @@ const Home: React.FC = () => {
           <InfoBlock>
             <InfoTitle>Expert Community Support</InfoTitle>
             <InfoDescription>
-              Join a thriving community of AI practitioners and receive personalized guidance. 
+              Join a thriving community of Python practitioners and receive personalized guidance. 
               Get answers to your questions and accelerate your learning journey.
             </InfoDescription>
             
             <InfoSubsection>
               <InfoSubtitle>24/7 Community Access</InfoSubtitle>
               <InfoText>
-                Connect with <InfoHighlight>thousands of AI learners worldwide </InfoHighlight> 
+                Connect with <InfoHighlight>thousands of Python learners worldwide </InfoHighlight> 
                 through our exclusive community platform. Share projects, get feedback, 
-                and collaborate on AI solutions.
+                and collaborate on Python solutions.
               </InfoText>
             </InfoSubsection>
           </InfoBlock>

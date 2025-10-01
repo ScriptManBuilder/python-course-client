@@ -45,7 +45,7 @@ const ShippingPolicy: React.FC = () => {
 
       <Section>
         <Paragraph>
-          The Williams Collection Inc. delivers AI courses digitally through our secure online learning platform. 
+          Python Learning Academy delivers Python courses digitally through our secure online learning platform. 
           This policy explains how your courses are delivered and accessed after purchase.
         </Paragraph>
       </Section>
@@ -93,7 +93,7 @@ const ShippingPolicy: React.FC = () => {
         <Paragraph>
           • Provide a valid, active email address during checkout<br/>
           • Check your spam/junk folders if you don't receive confirmation within 15 minutes<br/>
-          • Add support@willcol-ai.com to your email whitelist<br/>
+          • Add support@python-learning.com to your email whitelist<br/>
           • Ensure your email provider accepts emails from our domain
         </Paragraph>
       </Section>
@@ -187,10 +187,10 @@ const ShippingPolicy: React.FC = () => {
           For course delivery issues or technical support:
         </Paragraph>
         <Paragraph>
-          <strong>The Williams Collection Inc.</strong><br/>
+          <strong>Python Learning Academy</strong><br/>
           Director: Shannon Williams<br/>
-          Email: support@willcol-ai.com<br/>
-          Phone: +1 (445) 285-6014<br/>
+          Email: support@python-learning.com<br/>
+          Phone: +1 (227) 230-6684<br/>
           Address: 5830 E 2ND ST, Casper, WY 82609, United States<br/>
           Support Hours: Monday-Friday, 9 AM - 5 PM MST
         </Paragraph>

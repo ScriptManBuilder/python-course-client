@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
             <ul>
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/blog">Blog</Link></li>
-              <li><Link to="/products">AI Courses</Link></li>
+              <li><Link to="/products">Python Courses</Link></li>
               <li><Link to="/support">Support</Link></li>
               <li><Link to="/privacy-policy">Privacy Policy</Link></li>
               <li><Link to="/terms-conditions">Terms & Conditions</Link></li>
@@ -50,13 +50,13 @@ const Footer: React.FC = () => {
           </FooterSection>
 
           <MoreAboutSection>
-            <h3>More About Williams AI Academy</h3>
+            <h3>More About PythonLearn</h3>
             <PromoCards>
               <PromoCard href="/products">
-                <img src="/images/footer_1.jpg" alt="AI Courses" />
+                <img src="/images/footer_1.jpg" alt="Python Courses" />
                 <PromoCardContent>
-                  <h4>AI Courses</h4>
-                  <p>Master AI & ChatGPT</p>
+                  <h4>Python Courses</h4>
+                  <p>Master Python Programming</p>
                 </PromoCardContent>
               </PromoCard>
 
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                 <img src="/images/footer_2.jpg" alt="About Us" />
                 <PromoCardContent>
                   <h4>About Us</h4>
-                  <p>AI Education Excellence</p>
+                  <p>Python Education Excellence</p>
                 </PromoCardContent>
               </PromoCard>
 
@@ -81,7 +81,7 @@ const Footer: React.FC = () => {
 
         <FooterBottom>
           <Copyright>
-            Copyright  2025 The Williams Collection Inc. All rights reserved. | Premium AI Education & Training Courses
+            Copyright  2025 PythonLearn. All rights reserved. | Premium Python Education & Training Courses
           </Copyright>
         </FooterBottom>
       </FooterContent>

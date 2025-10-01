@@ -21,147 +21,106 @@ export interface Product {
 
 // Helper function to get course image with fallback
 export const getProductImage = (productId: number, imageIndex: number = 1): string => {
-  // Special cases for courses with custom preview images
-  if (productId === 1) {
-    return "/images/preview_course_1.png";
-  }
-  if (productId === 2) {
-    return "/images/preview_course_2.png";
-  }
-  if (productId === 3) {
-    return "/images/preview_course_3.png";
-  }
-  if (productId === 4) {
-    return "/images/preview_course_4.png";
-  }
-  if (productId === 5) {
-    return "/images/preview_course_5.png";
-  }
-  if (productId === 6) {
-    return "/images/preview_course_6.png";
-  }
-  if (productId === 7) {
-    return "/images/preview_course_7.png";
-  }
-  if (productId === 8) {
-    return "/images/preview_course_8.png";
-  }
-  if (productId === 9) {
-    return "/images/preview_course_9.png";
-  }
-  if (productId === 10) {
-    return "/images/preview_course_10.png";
-  }
-  if (productId === 11) {
-    return "/images/preview_course_11.png";
-  }
-  
-  // For other courses, return placeholder
-  return `https://via.placeholder.com/400x300/667eea/ffffff?text=AI+Course+${productId}`;
+  // Используем простые placeholder изображения
+  return `/images/python-course-${productId}.jpg`;
 };
 
 // Helper function to get all available images for a course
 export const getProductImages = (productId: number): string[] => {
-  if (productId === 1) {
-    return ["/images/preview_course_1.png"];
-  }
-  if (productId === 2) {
-    return ["/images/preview_course_2.png"];
-  }
-  if (productId === 3) {
-    return ["/images/preview_course_3.png"];
-  }
-  if (productId === 4) {
-    return ["/images/preview_course_4.png"];
-  }
-  if (productId === 5) {
-    return ["/images/preview_course_5.png"];
-  }
-  if (productId === 6) {
-    return ["/images/preview_course_6.png"];
-  }
-  if (productId === 7) {
-    return ["/images/preview_course_7.png"];
-  }
-  if (productId === 8) {
-    return ["/images/preview_course_8.png"];
-  }
-  if (productId === 9) {
-    return ["/images/preview_course_9.png"];
-  }
-  if (productId === 10) {
-    return ["/images/preview_course_10.png"];
-  }
-  if (productId === 11) {
-    return ["/images/preview_course_11.png"];
-  }
+  // Для всех курсов используем автогенерацию из видео
   return [getProductImage(productId)];
 };
 
 // Helper function to get course video preview
 export const getProductVideo = (productId: number): string | undefined => {
   if (productId === 1) {
-    return "/videos/video_preview_1.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (1).mp4";
   }
   if (productId === 2) {
-    return "/videos/video_preview_2.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (2).mp4";
   }
   if (productId === 3) {
-    return "/videos/video_preview_3.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (3).mp4";
   }
   if (productId === 4) {
-    return "/videos/video_preview_4.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (4).mp4";
   }
   if (productId === 5) {
-    return "/videos/video_preview_5.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (5).mp4";
   }
   if (productId === 6) {
-    return "/videos/video_preview_6.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (6).mp4";
   }
   if (productId === 7) {
-    return "/videos/video_preview_7.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (7).mp4";
   }
   if (productId === 8) {
-    return "/videos/video_preview_8.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (8).mp4";
   }
   if (productId === 9) {
-    return "/videos/video_preview_9.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (9).mp4";
   }
   if (productId === 10) {
-    return "/videos/video_preview_10.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (10).mp4";
   }
   if (productId === 11) {
-    return "/videos/video_preview_11.mp4";
+    return "/videos/Python 3 Programming Your Guide to Basic Python Programming for (11).mp4";
   }
   return undefined;
 };
 
 // Helper function to get course videos (for premium courses with multiple videos)
 export const getProductVideos = (productId: number): string[] | undefined => {
-  // Courses $79.99 - 2 videos
+  // Courses 5-7: 2 videos each
+  if (productId === 5) {
+    return [
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (12).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (13).mp4"
+    ];
+  }
+  if (productId === 6) {
+    return [
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (14).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (15).mp4"
+    ];
+  }
+  if (productId === 7) {
+    return [
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (16).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (17).mp4"
+    ];
+  }
+  
+  // Courses 8-10: 3 videos each
+  if (productId === 8) {
+    return [
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (18).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (19).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (20).mp4"
+    ];
+  }
   if (productId === 9) {
     return [
-      "/videos/Creating Animated GIFs with AI Tools8.mp4",
-      "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (13).mp4"
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (21).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (22).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (23).mp4"
     ];
   }
-  
-  // Courses $89.99 - 3 videos  
   if (productId === 10) {
     return [
-      "/videos/Image Enhancement – Upscaling & PNG Conversion9.mp4",
-      "/videos/Essential ChatGPT Basics1.mp4",
-      "/videos/YouTube Video Summaries with AI5.mp4"
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (24).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (25).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (26).mp4"
     ];
   }
   
-  // Courses $99.99 - 4 videos
+  // Course 11: 4 videos
   if (productId === 11) {
     return [
-      "/videos/AI Productivity Unleashed with ChatGPT Boost Efficiency and Domi (14).mp4",
-      "/videos/The B.R.A.I.N. Framework for AI Mastery7.mp4",
-      "/videos/Essential Prompting Tips & Techniques6.mp4",
-      "/videos/Prompt Optimization Shortcuts for ChatGPT4.mp4"
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (27).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (29).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (30).mp4",
+      "/videos/Python 3 Programming Your Guide to Basic Python Programming for (31).mp4"
     ];
   }
   
@@ -171,26 +130,26 @@ export const getProductVideos = (productId: number): string[] | undefined => {
 export const products: Product[] = [
   {
     id: 1,
-    name: "Essential ChatGPT Basics",
+    name: "Introduction to Basic Python Programming",
     price: 6.99,
     image: getProductImage(1),
     images: getProductImages(1),
     video: getProductVideo(1),
-    description: "Quick start guide to AI conversations. Learn fundamental prompt techniques in under 4 hours.",
-    detailedDescription: "Get started with AI technology through this focused introductory course. Master basic conversation patterns, simple prompt creation, and everyday AI applications. Designed for absolute beginners who want to understand AI fundamentals without overwhelming complexity.",
-    category: "AI Basics",
+    description: "Learn Python basics: variables, data types, user input, and control flow. Perfect start for beginners.",
+    detailedDescription: "Master Python fundamentals with topics including data types, variables, mathematics, user input, if statements, loops, and basic text/math methods. This course covers the essential building blocks every Python programmer needs.",
+    category: "Python Basics",
     features: [
-      "4 hours of streamlined content",
-      "25 essential prompt examples",
-      "Basic conversation techniques",
-      "Simple practical exercises",
-      "Quick reference guide"
+      "1.5 hours of content",
+      "Data types and variables",
+      "User input handling",
+      "If statements and loops",
+      "Basic math and text methods"
     ],
     specifications: {
-      "Duration": "4 hours",
+      "Duration": "1.5 hours",
       "Level": "Complete Beginner",
       "Language": "English",
-      "Resources": "25 basic prompts",
+      "Topics": "Variables, loops, conditions",
       "Access": "6 months",
       "Certificate": "Basic completion badge"
     },
@@ -198,280 +157,292 @@ export const products: Product[] = [
   },
   {
     id: 2,
-    name: "AI Personas & Roles – Designing Smarter Chatbots",
+    name: "Python Lists, Strings & Data Structures",
     price: 9.99,
     image: getProductImage(2),
     images: getProductImages(2),
     video: getProductVideo(2),
-    description: "Learn how to build custom AI personas and role-based chatbots that respond with more natural, human-like interactions.",
-    detailedDescription: "Master the art of creating AI personalities that feel authentic and engaging. This comprehensive course teaches you to design custom chatbot personas, define specific roles, and create conversational flows that provide more natural, contextually appropriate responses for various use cases.",
-    category: "AI Chatbots",
+    description: "Master lists, strings, dictionaries, tuples, and sets. Learn slicing, indexing, and formatting.",
+    detailedDescription: "Deep dive into Python data structures including lists, strings, dictionaries, tuples, and sets. Learn practical skills like slicing, indexing, string formatting, and data manipulation techniques essential for real programming.",
+    category: "Python Data",
     features: [
-      "5 hours of practical training",
-      "25 persona templates",
-      "Role-based conversation design",
-      "Natural interaction techniques",
-      "Context-aware responses"
+      "2 hours of practical training",
+      "Lists and string manipulation",
+      "Slicing and indexing mastery",
+      "Dictionary and tuple handling",
+      "String formatting techniques"
     ],
     specifications: {
-      "Duration": "5 hours",
-      "Level": "Intermediate",
-      "Resources": "25 persona templates",
-      "Frameworks": "Role-based design system",
-      "Access": "12 months",
+      "Duration": "2 hours",
+      "Level": "Beginner",
+      "Topics": "Lists, strings, dictionaries, sets",
+      "Skills": "Slicing, indexing, formatting",
+      "Access": "8 months",
       "Support": "Community forum access"
     },
     inStock: true
   },
   {
     id: 3,
-    name: "AI-Powered Document Summaries with ChatGPT",
+    name: "Python Methods and Functions",
     price: 19.99,
     image: getProductImage(3),
     images: getProductImages(3),
     video: getProductVideo(3),
-    description: "Master techniques for turning lengthy documents into clear, concise summaries using AI.",
-    detailedDescription: "Transform how you process information by learning advanced document summarization techniques. This course covers effective prompting strategies, information extraction methods, and formatting approaches to create professional summaries from any type of document quickly and accurately.",
-    category: "Document Processing",
+    description: "Learn to create custom functions, understand parameters, return values, and advanced function concepts.",
+    detailedDescription: "Master Python functions from basic to advanced level. Learn function definition, parameters, return values, scope, and advanced function techniques. Includes practical exercises and real-world function examples.",
+    category: "Python Functions",
     features: [
-      "4 hours of focused training",
-      "15 summarization templates",
-      "Document analysis techniques",
-      "Information extraction methods",
-      "Professional formatting guides"
+      "1 hour of focused training",
+      "Function creation and usage",
+      "Parameters and return values",
+      "Advanced function concepts",
+      "Practical function exercises"
     ],
     specifications: {
-      "Duration": "4 hours",
+      "Duration": "1 hour",
       "Level": "Beginner",
-      "Templates": "15 summary formats",
-      "Document Types": "Reports, articles, research",
+      "Topics": "Functions, parameters, scope",
+      "Practice": "Multiple function exercises",
       "Access": "10 months",
-      "Bonus": "Quick reference cards"
+      "Bonus": "Function reference guide"
     },
     inStock: true
   },
   {
     id: 4,
-    name: "Prompt Optimization Shortcuts for ChatGPT",
+    name: "Python Object-Oriented Programming",
     price: 29.99,
     image: getProductImage(4),
     images: getProductImages(4),
     video: getProductVideo(4),
-    description: "Discover practical shortcuts and methods to refine prompts for faster and more accurate responses.",
-    detailedDescription: "Accelerate your AI interactions with proven prompt optimization techniques. Learn time-saving shortcuts, response refinement methods, and systematic approaches to get better results from ChatGPT with less trial and error.",
-    category: "Prompt Engineering",
+    description: "Learn classes, objects, inheritance, polymorphism, and dunder methods for advanced Python programming.",
+    detailedDescription: "Master object-oriented programming in Python. Learn to create classes and objects, implement inheritance and polymorphism, and use dunder methods. Includes practical projects to solidify OOP concepts.",
+    category: "Python OOP",
     features: [
-      "3 hours of intensive training",
-      "20 optimization shortcuts",
-      "Response refinement techniques",
-      "Efficiency improvement methods",
-      "Quick troubleshooting guides"
+      "1.5 hours of intensive training",
+      "Class creation and attributes",
+      "Inheritance and polymorphism",
+      "Dunder methods explained",
+      "Practical OOP projects"
     ],
     specifications: {
-      "Duration": "3 hours",
-      "Level": "Beginner",
-      "Shortcuts": "20 proven techniques",
-      "Methods": "Systematic optimization",
+      "Duration": "1.5 hours",
+      "Level": "Intermediate",
+      "Topics": "Classes, inheritance, polymorphism",
+      "Projects": "Multiple OOP projects",
       "Access": "8 months",
-      "Bonus": "Cheat sheet collection"
+      "Bonus": "OOP best practices guide"
     },
     inStock: true
   },
   {
     id: 5,
-    name: "YouTube Video Summaries with AI",
+    name: "Advanced Python Concepts & Practices",
     price: 39.99,
     image: getProductImage(5),
     images: getProductImages(5),
     video: getProductVideo(5),
-    description: "Generate quick, structured summaries of YouTube videos to save time and extract key insights.",
-    detailedDescription: "Master the art of extracting key information from video content efficiently. Learn to create structured summaries, identify main points, and organize insights from YouTube videos using AI-powered techniques for maximum learning efficiency.",
-    category: "Content Analysis",
+    videos: getProductVideos(5),
+    description: "Master advanced Python topics including decorators, generators, and professional development practices.",
+    detailedDescription: "Take your Python skills to the next level with advanced concepts and professional practices. This course includes 2 comprehensive video modules covering advanced programming techniques used by Python professionals.",
+    category: "Advanced Python",
     features: [
-      "3 hours of practical guidance",
-      "10 summary templates",
-      "Video analysis frameworks",
-      "Key insight extraction",
-      "Time-saving techniques"
+      "2 comprehensive video modules",
+      "3 hours of advanced training",
+      "Professional coding practices",
+      "Advanced Python patterns",
+      "Real-world applications",
+      "Performance optimization"
     ],
     specifications: {
       "Duration": "3 hours",
-      "Level": "Beginner",
-      "Templates": "10 video summary formats",
-      "Techniques": "Efficient extraction methods",
-      "Access": "6 months",
-      "Tools": "Browser extension guides"
+      "Videos": "2 comprehensive modules",
+      "Level": "Advanced",
+      "Topics": "Advanced concepts, best practices",
+      "Projects": "Multiple advanced projects",
+      "Access": "10 months",
+      "Bonus": "Professional development guide"
     },
     inStock: true
   },
   {
     id: 6,
-    name: "Essential Prompting Tips & Techniques",
+    name: "Python Libraries & Package Management",
     price: 49.99,
     image: getProductImage(6),
     images: getProductImages(6),
     video: getProductVideo(6),
-    description: "A beginner-friendly guide to improving AI prompts and getting consistent results.",
-    detailedDescription: "Build a solid foundation in AI prompting with essential techniques and proven methods. Perfect for beginners who want to understand the fundamentals of effective communication with AI systems and achieve more reliable, consistent results.",
-    category: "Prompt Basics",
+    videos: getProductVideos(6),
+    description: "Learn to use popular Python libraries and manage packages effectively with pip and virtual environments.",
+    detailedDescription: "Master Python's ecosystem with essential libraries and package management tools. This course includes 2 detailed video modules covering popular libraries and comprehensive package management with pip and virtual environments.",
+    category: "Python Libraries",
     features: [
-      "4 hours of foundational training",
-      "30 essential prompt templates",
-      "Consistency improvement methods",
-      "Beginner-friendly exercises",
-      "Result optimization techniques"
+      "2 detailed video modules",
+      "3.5 hours of library training",
+      "Package management mastery",
+      "Virtual environment setup",
+      "Popular library usage",
+      "Dependency management"
     ],
     specifications: {
-      "Duration": "4 hours",
-      "Level": "Beginner",
-      "Templates": "30 basic prompts",
-      "Focus": "Consistency & reliability",
-      "Access": "10 months",
-      "Support": "Beginner community"
+      "Duration": "3.5 hours",
+      "Videos": "2 detailed modules",
+      "Level": "Intermediate",
+      "Libraries": "requests, numpy, pandas basics",
+      "Tools": "pip, venv, virtualenv",
+      "Access": "12 months",
+      "Support": "Library reference guide"
     },
     inStock: true
   },
   {
     id: 7,
-    name: "Reset & Refine – Fixing Stuck AI Conversations",
+    name: "Python Web Development with Flask",
     price: 59.99,
     image: getProductImage(7),
     images: getProductImages(7),
     video: getProductVideo(7),
-    description: "Learn how to reset and guide AI when responses go off track, ensuring smoother interactions.",
-    detailedDescription: "Master the art of troubleshooting AI conversations when they go awry. Learn effective reset techniques, conversation redirection methods, and strategies to get back on track quickly when AI responses become unhelpful or confusing.",
-    category: "AI Troubleshooting",
+    videos: getProductVideos(7),
+    description: "Build web applications with Flask framework, including routing, templates, and database integration.",
+    detailedDescription: "Enter the world of web development with Python's Flask framework. This course includes 2 comprehensive video modules covering web application creation, routing, templating, and basic database integration for dynamic websites.",
+    category: "Python Web",
     features: [
-      "2 hours of practical guidance",
-      "15 reset techniques",
-      "Conversation redirection methods",
-      "Quick troubleshooting guides",
-      "Prevention strategies"
+      "2 comprehensive video modules",
+      "4 hours of web development",
+      "Flask framework mastery",
+      "Template creation",
+      "Database integration",
+      "RESTful API basics"
     ],
     specifications: {
-      "Duration": "2 hours",
-      "Level": "Beginner",
-      "Techniques": "15 proven reset methods",
-      "Focus": "Problem resolution",
-      "Access": "6 months",
-      "Format": "Step-by-step guides"
+      "Duration": "4 hours",
+      "Videos": "2 comprehensive modules",
+      "Level": "Intermediate",
+      "Framework": "Flask web framework",
+      "Projects": "Complete web application",
+      "Access": "12 months",
+      "Bonus": "Deployment guide"
     },
     inStock: true
   },
   {
     id: 8,
-    name: "The B.R.A.I.N. Framework for AI Mastery",
+    name: "Python Algorithms & Data Structures",
     price: 69.99,
     image: getProductImage(8),
     images: getProductImages(8),
     video: getProductVideo(8),
-    description: "A structured method to approach AI tasks with clarity, precision, and efficiency.",
-    detailedDescription: "Master the B.R.A.I.N. Framework - a systematic approach to AI interactions that ensures consistent, high-quality results. Learn to Break down problems, Research context, Analyze requirements, Implement solutions, and Navigate outcomes effectively.",
-    category: "AI Frameworks",
+    videos: getProductVideos(8),
+    description: "Master essential algorithms and data structures for efficient Python programming.",
+    detailedDescription: "Advance your Python skills with fundamental algorithms and data structures. This course includes 3 detailed video modules covering sorting algorithms, search techniques, and data structure implementation for optimized programming.",
+    category: "Python Algorithms",
     features: [
-      "5 hours of framework training",
-      "B.R.A.I.N. methodology guide",
-      "25 practical applications",
-      "Structured problem-solving",
-      "Implementation templates"
+      "3 detailed video modules",
+      "5 hours of algorithm training",
+      "Data structure implementation",
+      "Sorting and searching",
+      "Time complexity analysis",
+      "Optimization techniques"
     ],
     specifications: {
       "Duration": "5 hours",
-      "Level": "Intermediate",
-      "Framework": "Complete B.R.A.I.N. system",
-      "Applications": "25 use cases",
+      "Videos": "3 detailed modules",
+      "Level": "Advanced",
+      "Topics": "Algorithms, data structures, optimization",
+      "Algorithms": "15+ implementations",
       "Access": "12 months",
-      "Bonus": "Quick reference cards"
+      "Bonus": "Algorithm complexity guide"
     },
     inStock: true
   },
   {
     id: 9,
-    name: "Creating Animated GIFs with AI Tools",
+    name: "Python Data Analysis with Pandas",
     price: 79.99,
     image: getProductImage(9),
     images: getProductImages(9),
     video: getProductVideo(9),
     videos: getProductVideos(9),
-    description: "Step-by-step process to design engaging animated GIFs for content and social media.",
-    detailedDescription: "Learn to create eye-catching animated GIFs using AI-powered tools and techniques. This premium course includes 2 comprehensive video modules covering the complete workflow from concept to final output, including optimization for different platforms and use cases in content marketing and social media.",
-    category: "Content Creation",
+    description: "Learn data manipulation, analysis, and visualization using pandas and matplotlib libraries.",
+    detailedDescription: "Master data analysis with Python's powerful pandas library. This premium course includes 3 comprehensive video modules covering data manipulation, statistical analysis, and creating compelling visualizations.",
+    category: "Data Analysis",
     features: [
-      "2 comprehensive video modules",
-      "6 hours of creative training",
-      "GIF creation workflows",
-      "AI tool integration",
-      "Platform optimization",
-      "Social media formatting"
+      "3 comprehensive video modules",
+      "6 hours of data training",
+      "Pandas data manipulation",
+      "Statistical analysis",
+      "Data visualization",
+      "Real-world datasets"
     ],
     specifications: {
       "Duration": "6 hours",
-      "Videos": "2 comprehensive modules",
-      "Level": "Beginner",
-      "Tools": "AI-powered GIF creators",
-      "Outputs": "Multiple format options",
-      "Access": "8 months",
-      "Bonus": "Template library"
+      "Videos": "3 comprehensive modules",
+      "Level": "Advanced",
+      "Libraries": "pandas, matplotlib, seaborn",
+      "Projects": "3 data analysis projects",
+      "Access": "15 months",
+      "Bonus": "Dataset collection"
     },
     inStock: true
   },
   {
     id: 10,
-    name: "Image Enhancement – Upscaling & PNG Conversion",
+    name: "Python REST API Development",
     price: 89.99,
     image: getProductImage(10),
     images: getProductImages(10),
     video: getProductVideo(10),
     videos: getProductVideos(10),
-    description: "Transform visuals with AI: upscale images and convert them into high-quality PNGs.",
-    detailedDescription: "Master AI-powered image enhancement techniques to improve visual quality and format conversion. This premium course includes 3 detailed video modules covering professional upscaling methods, PNG optimization, and batch processing workflows for content creators and marketers.",
-    category: "Image Processing",
+    description: "Build robust REST APIs with Python using FastAPI framework and database integration.",
+    detailedDescription: "Master modern API development with Python's FastAPI framework. This premium course includes 3 detailed video modules covering RESTful API design, database integration, and authentication for production-ready applications.",
+    category: "API Development",
     features: [
       "3 detailed video modules",
-      "8 hours of technical training",
-      "Image upscaling techniques",
-      "PNG conversion workflows",
-      "Batch processing methods",
-      "Quality optimization"
+      "7 hours of API development",
+      "FastAPI framework mastery",
+      "Database integration",
+      "Authentication systems",
+      "API testing & deployment"
     ],
     specifications: {
-      "Duration": "8 hours",
+      "Duration": "7 hours",
       "Videos": "3 detailed modules",
-      "Level": "Beginner",
-      "Tools": "AI upscaling platforms",
-      "Formats": "Multiple output options",
-      "Access": "10 months",
-      "Bonus": "Quality comparison guides"
+      "Level": "Advanced",
+      "Framework": "FastAPI with SQLAlchemy",
+      "Features": "Authentication, testing, docs",
+      "Access": "15 months",
+      "Bonus": "Production deployment guide"
     },
     inStock: true
   },
   {
     id: 11,
-    name: "Advanced Prompt Engineering – Pro Tips & Strategies",
+    name: "Advanced Python Programming & Best Practices",
     price: 99.99,
     image: getProductImage(11),
     images: getProductImages(11),
     video: getProductVideo(11),
     videos: getProductVideos(11),
-    description: "Deep dive into advanced prompting techniques to unlock AI's full potential.",
-    detailedDescription: "Unlock the full power of AI with expert-level prompting strategies and advanced techniques. This premium course includes 4 comprehensive video modules covering complex prompt structures, chain-of-thought reasoning, and professional-grade methods used by AI experts and consultants.",
-    category: "Advanced Prompting",
+    description: "Master advanced Python concepts including decorators, generators, context managers, and professional development practices.",
+    detailedDescription: "Reach Python expertise with advanced programming concepts and industry best practices. This premium course includes 4 comprehensive video modules covering decorators, generators, context managers, and professional development workflows used by Python experts.",
+    category: "Advanced Python",
     features: [
       "4 comprehensive video modules",
-      "12 hours of expert instruction",
-      "50 advanced prompt templates",
-      "Chain-of-thought techniques",
-      "Professional strategies",
-      "Expert-level methods"
+      "8 hours of expert instruction",
+      "Advanced Python concepts",
+      "Professional best practices",
+      "Testing & debugging techniques",
+      "Performance optimization"
     ],
     specifications: {
-      "Duration": "12 hours",
+      "Duration": "8 hours",
       "Videos": "4 comprehensive modules",
-      "Level": "Advanced",
-      "Techniques": "Expert-level strategies",
-      "Templates": "50 advanced prompts",
+      "Level": "Expert",
+      "Concepts": "Decorators, generators, metaclasses",
+      "Practices": "Testing, debugging, optimization",
       "Access": "18 months",
-      "Bonus": "Professional toolkit"
+      "Bonus": "Professional development toolkit"
     },
     inStock: true
   }

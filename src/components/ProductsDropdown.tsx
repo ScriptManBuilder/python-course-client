@@ -37,19 +37,19 @@ const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
 }) => {
   const { formatPrice } = usePrice();
   
-  // AI курсы категории для навигации (синхронизировано с Products.tsx)
+  // Python курсы категории для навигации (синхронизировано с Products.tsx)
   const categories = [
-    { id: 'AI Basics', name: 'Beginner Courses', icon: '🎯', description: 'Start your AI journey' },
-    { id: 'Content Creation', name: 'Content Creation', icon: '✨', description: 'Creative AI tools' },
-    { id: 'Business Automation', name: 'Business Automation', icon: '⚡', description: 'Streamline workflows' },
-    { id: 'Advanced AI', name: 'Advanced', icon: '🚀', description: 'Master complex topics' },
-    { id: 'AI Marketing', name: 'AI Marketing', icon: '📈', description: 'Marketing intelligence' },
-    { id: 'Data & Analytics', name: 'Data & Analytics', icon: '📊', description: 'Data insights' },
-    { id: 'Productivity Mastery', name: 'Productivity', icon: '⏰', description: 'Efficiency tools' },
-    { id: 'Creative AI', name: 'Creative AI', icon: '🎨', description: 'Creative innovation' },
-    { id: 'AI Consulting', name: 'Consulting', icon: '�', description: 'Professional services' },
-    { id: 'Enterprise AI', name: 'Enterprise', icon: '🏢', description: 'Large-scale solutions' },
-    { id: 'AI Mastery', name: 'AI Mastery', icon: '🎓', description: 'Complete mastery' }
+    { id: 'Python Basics', name: 'Python Basics', icon: '🐍', description: 'Start your Python journey' },
+    { id: 'Python Data', name: 'Data Types', icon: '📋', description: 'Variables & structures' },
+    { id: 'Python Functions', name: 'Functions', icon: '⚙️', description: 'Code organization' },
+    { id: 'Python I/O', name: 'File Handling', icon: '�', description: 'Input/Output operations' },
+    { id: 'Python OOP', name: 'OOP', icon: '🏢', description: 'Object-oriented programming' },
+    { id: 'Python Libraries', name: 'Libraries', icon: '�', description: 'Package management' },
+    { id: 'Python Web', name: 'Web Development', icon: '🌐', description: 'Flask web apps' },
+    { id: 'Python Algorithms', name: 'Algorithms', icon: '🧠', description: 'Data structures' },
+    { id: 'Data Analysis', name: 'Data Analysis', icon: '📈', description: 'Pandas & visualization' },
+    { id: 'API Development', name: 'API Development', icon: '🔗', description: 'REST APIs' },
+    { id: 'Advanced Python', name: 'Advanced', icon: '�', description: 'Expert-level concepts' }
   ];
   
   // Показываем только 3 товара для компактности
@@ -118,7 +118,7 @@ const ProductsDropdown: React.FC<ProductsDropdownProps> = ({
         </CategoriesSection>
 
         <FeaturedSection>
-          <FeaturedTitle>Featured AI Courses</FeaturedTitle>
+          <FeaturedTitle>Featured Python Courses</FeaturedTitle>
           <ProductGrid>
             {featuredProducts.map((product) => (
               <ProductCard 

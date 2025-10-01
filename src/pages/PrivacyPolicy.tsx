@@ -46,7 +46,7 @@ const PrivacyPolicy: React.FC = () => {
       <Section>
         <SectionTitle>How We Collect, Use, and Protect Your Personal Information</SectionTitle>
         <Paragraph>
-          This Privacy Policy explains how The Williams Collection Inc. (the "Site", "we", "us", or "our") 
+          This Privacy Policy explains how Python Learning Academy (the "Site", "we", "us", or "our") 
           collects, uses, and shares your personal information when you visit, interact with, or make a purchase 
           through our AI course platform or communicate with us (collectively referred to as the "Services"). 
           "You" and "your" refer to you as a user of the Services, whether you are a customer, a website visitor, 
@@ -58,7 +58,7 @@ const PrivacyPolicy: React.FC = () => {
           Privacy Policy, please refrain from using the Services.
         </Paragraph>
         <Paragraph>
-          At The Williams Collection Inc., we prioritize your privacy and are committed to safeguarding your 
+          At Python Learning Academy, we prioritize your privacy and are committed to safeguarding your 
           personal information. We will never sell or share your personal details or credit card information 
           with third parties without your explicit consent.
         </Paragraph>
@@ -256,12 +256,12 @@ const PrivacyPolicy: React.FC = () => {
           If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us at:
         </Paragraph>
         <Paragraph>
-          <strong>The Williams Collection Inc.</strong><br/>
+          <strong>Python Learning Academy</strong><br/>
           Director: Shannon Williams<br/>
           5830 E 2ND ST<br/>
           Casper, WY 82609, United States<br/>
-          Email: support@willcol-ai.com<br/>
-          Phone: +1 (445) 285-6014
+          Email: support@python-learning.com<br/>
+          Phone: +1 (227) 230-6684
         </Paragraph>
       </Section>
     </Container>

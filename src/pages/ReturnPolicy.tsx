@@ -45,15 +45,15 @@ const ReturnPolicy: React.FC = () => {
 
       <Section>
         <Paragraph>
-          The Williams Collection Inc. understands that digital products require different return considerations than physical items. 
-          This policy explains our approach to AI course returns and refunds for digital educational content.
+          PythonLearn understands that digital products require different return considerations than physical items. 
+          This policy explains our approach to Python course returns and refunds for digital educational content.
         </Paragraph>
       </Section>
 
       <Section>
         <SectionTitle>Important Notice: Digital Products Policy</SectionTitle>
         <Paragraph>
-          <strong>Our AI courses are digital products delivered instantly upon purchase.</strong> Due to the nature of digital 
+          <strong>Our Python courses are digital products delivered instantly upon purchase.</strong> Due to the nature of digital 
           educational content, traditional "returns" do not apply. Instead, we offer a satisfaction guarantee and refund policy 
           as outlined below.
         </Paragraph>
@@ -85,7 +85,7 @@ const ReturnPolicy: React.FC = () => {
           To request a refund for your AI course:
         </Paragraph>
         <Paragraph>
-          1. Email us at support@willcol-ai.com within 7 days of purchase<br/>
+          1. Email us at support@python-learning.com within 7 days of purchase<br/>
           2. Include your order number and registered email address<br/>
           3. Provide a brief reason for your refund request<br/>
           4. Confirm that you have accessed less than 25% of the course content<br/>
@@ -155,7 +155,7 @@ const ReturnPolicy: React.FC = () => {
       <Section>
         <SectionTitle>9. Dispute Resolution</SectionTitle>
         <Paragraph>
-          If you disagree with our refund decision, you may appeal by contacting our director at support@willcol-ai.com 
+          If you disagree with our refund decision, you may appeal by contacting our director at support@python-learning.com 
           with "REFUND APPEAL" in the subject line. All appeals are reviewed personally and responded to within 5 business days.
         </Paragraph>
       </Section>
@@ -166,10 +166,10 @@ const ReturnPolicy: React.FC = () => {
           For refund requests or questions about this policy:
         </Paragraph>
         <Paragraph>
-          <strong>The Williams Collection Inc.</strong><br/>
+          <strong>PythonLearn</strong><br/>
           Director: Shannon Williams<br/>
-          Email: support@willcol-ai.com<br/>
-          Phone: +1 (445) 285-6014<br/>
+          Email: support@python-learning.com<br/>
+          Phone: +1 (227) 230-6684<br/>
           Address: 5830 E 2ND ST, Casper, WY 82609, United States<br/>
           Support Hours: Monday-Friday, 9 AM - 5 PM MST
         </Paragraph>

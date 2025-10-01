@@ -145,7 +145,7 @@ const MainLogo = styled.h1`
   position: relative;
   
   &::after {
-    content: 'WILLIAMS COLLECTION';
+    content: 'PYTHONLEARN';
     position: absolute;
     top: 0;
     left: 0;
@@ -2230,7 +2230,7 @@ const About: React.FC = () => {
         </ParticlesContainer>
         
         <LogoContainer>
-          <MainLogo>WILLIAMS AI ACADEMY</MainLogo>
+          <MainLogo>PYTHONLEARN</MainLogo>
         </LogoContainer>
         
         <ScrollIndicator onClick={handleScrollToContent}>
@@ -2256,7 +2256,7 @@ const About: React.FC = () => {
         <Container>
           <ContentContainer>
             <CompanyName ref={setElementRef(0)}>
-              {splitTextToLetters('WILLIAMS AI ACADEMY')}
+              {splitTextToLetters('PYTHONLEARN')}
             </CompanyName>
             
             <MissionText ref={setElementRef(1)}>
@@ -2291,14 +2291,14 @@ const About: React.FC = () => {
         <Container>
           <StatsContainer>
             <StatsTitle ref={setElementRef(20)}>
-              {splitTextToWords('Transforming Lives Through AI Education')}
+              {splitTextToWords('Transforming Careers Through Python Education')}
             </StatsTitle>
             
             <StatsGrid>
               <StatCard ref={setElementRef(21)}>
                 <StatNumber className="stat-number" data-value="7000+">7,000+</StatNumber>
                 <StatLabel>Students Educated</StatLabel>
-                <StatDescription>From beginners to AI experts across 150+ countries</StatDescription>
+                <StatDescription>From Python beginners to full-stack developers across 100+ countries</StatDescription>
               </StatCard>
 
               <StatCard ref={setElementRef(22)}>
@@ -2308,9 +2308,9 @@ const About: React.FC = () => {
               </StatCard>
 
               <StatCard ref={setElementRef(23)}>
-                <StatNumber className="stat-number" data-value="250+">250+</StatNumber>
-                <StatLabel>Industry Partners</StatLabel>
-                <StatDescription>Leading tech companies hiring our graduates</StatDescription>
+                <StatNumber className="stat-number" data-value="150+">150+</StatNumber>
+                <StatLabel>Tech Companies</StatLabel>
+                <StatDescription>Leading companies hiring our Python developers</StatDescription>
               </StatCard>
 
               <StatCard ref={setElementRef(24)}>
@@ -2320,22 +2320,22 @@ const About: React.FC = () => {
               </StatCard>
 
               <StatCard ref={setElementRef(25)}>
-                <StatNumber className="stat-number" data-value="15+">15+</StatNumber>
-                <StatLabel>AI Specializations</StatLabel>
-                <StatDescription>From machine learning to generative AI and robotics</StatDescription>
+                <StatNumber className="stat-number" data-value="12+">12+</StatNumber>
+                <StatLabel>Python Specializations</StatLabel>
+                <StatDescription>From web development to data science and automation</StatDescription>
               </StatCard>
 
               <StatCard ref={setElementRef(26)}>
                 <StatNumber className="stat-number" data-value="4.9/5">4.9/5</StatNumber>
                 <StatLabel>Student Rating</StatLabel>
-                <StatDescription>Consistently rated as the top AI learning platform</StatDescription>
+                <StatDescription>Consistently rated as the top Python learning platform</StatDescription>
               </StatCard>
             </StatsGrid>
           </StatsContainer>
         </Container>
       </StatsSection> */}
 
-      {/* AI Innovation Timeline Section */}
+      {/* Python Innovation Timeline Section */}
       {/* <TimelineSection>
         <Container>
           <TimelineContainer>
@@ -2349,8 +2349,8 @@ const About: React.FC = () => {
                 <TimelineContent>
                   <TimelineTitle>🚀 Foundation</TimelineTitle>
                   <TimelineDescription>
-                    Williams AI Academy was founded with a vision to democratize AI education 
-                    and make cutting-edge technology accessible to everyone.
+                    PythonLearn was founded with a vision to democratize Python education 
+                    and make programming accessible to everyone, from complete beginners to advanced developers.
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineItem>
@@ -2358,10 +2358,10 @@ const About: React.FC = () => {
               <TimelineItem ref={setElementRef(14)}>
                 <TimelineYear>June 2023</TimelineYear>
                 <TimelineContent>
-                  <TimelineTitle>🧠 First AI Courses</TimelineTitle>
+                  <TimelineTitle>🐍 First Python Courses</TimelineTitle>
                   <TimelineDescription>
-                    Launched our first machine learning courses, featuring hands-on projects 
-                    and real-world applications. Over 500 students enrolled in the first month.
+                    Launched our first comprehensive Python courses, featuring hands-on projects 
+                    and real-world applications. Over 1,000 students enrolled in the first month.
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineItem>
@@ -2369,10 +2369,10 @@ const About: React.FC = () => {
               <TimelineItem ref={setElementRef(15)}>
                 <TimelineYear>September 2023</TimelineYear>
                 <TimelineContent>
-                  <TimelineTitle>🔬 Research Partnership</TimelineTitle>
+                  <TimelineTitle>� Industry Partnership</TimelineTitle>
                   <TimelineDescription>
-                    Established partnerships with leading AI research institutions and tech companies 
-                    to bring the latest innovations directly to our curriculum.
+                    Established partnerships with leading tech companies and Python developers 
+                    to bring the latest best practices directly to our curriculum.
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineItem>
@@ -2380,10 +2380,10 @@ const About: React.FC = () => {
               <TimelineItem ref={setElementRef(16)}>
                 <TimelineYear>January 2024</TimelineYear>
                 <TimelineContent>
-                  <TimelineTitle>💡 Deep Learning Expansion</TimelineTitle>
+                  <TimelineTitle>� Advanced Python Expansion</TimelineTitle>
                   <TimelineDescription>
-                    Expanded our course offerings to include advanced deep learning, 
-                    computer vision, and natural language processing specializations.
+                    Expanded our course offerings to include advanced Python topics: 
+                    web development with Django/Flask, data science, and automation scripting.
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineItem>
@@ -2391,10 +2391,10 @@ const About: React.FC = () => {
               <TimelineItem ref={setElementRef(17)}>
                 <TimelineYear>June 2024</TimelineYear>
                 <TimelineContent>
-                  <TimelineTitle>🤖 LLM & GenAI Era</TimelineTitle>
+                  <TimelineTitle>🌐 Full-Stack Python Era</TimelineTitle>
                   <TimelineDescription>
-                    Pioneered comprehensive courses on Large Language Models and Generative AI, 
-                    helping professionals adapt to the AI revolution.
+                    Pioneered comprehensive full-stack Python development courses, 
+                    helping students master both frontend and backend Python technologies.
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineItem>
@@ -2405,7 +2405,7 @@ const About: React.FC = () => {
                   <TimelineTitle>🌟 Global Recognition</TimelineTitle>
                   <TimelineDescription>
                     Reached 7,000+ students worldwide and received recognition as a leading 
-                    AI education platform by major tech industry publications.
+                    Python education platform by major tech industry publications.
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineItem>
@@ -2415,8 +2415,8 @@ const About: React.FC = () => {
                 <TimelineContent>
                   <TimelineTitle>🎯 Future Focus</TimelineTitle>
                   <TimelineDescription>
-                    Continuing to lead AI education with emerging technologies, ethical AI practices, 
-                    and innovative learning methodologies for the next generation.
+                    Continuing to lead Python education with emerging frameworks, modern development practices, 
+                    and innovative learning methodologies for the next generation of developers.
                   </TimelineDescription>
                 </TimelineContent>
               </TimelineItem>
@@ -2425,7 +2425,7 @@ const About: React.FC = () => {
         </Container>
       </TimelineSection> */}
 
-      {/* AI Leadership Team Section */}
+      {/* Python Leadership Team Section */}
       <LeadershipSection>
         <Container>
           <LeadershipContainer>
@@ -2436,7 +2436,7 @@ const About: React.FC = () => {
             <LeadershipGrid>
               <ClickableLeaderCard ref={setElementRef(6)} onClick={openModal}>
                 <LeaderImage>
-                  <img src="/images/pictureAI_1.jpg" alt="James K." />
+                  <img src="/images/python-course-1.jpg" alt="James K." />
                   <LeaderOverlay>
                     <LeaderRole>Founder & Course Creator</LeaderRole>
                   </LeaderOverlay>
@@ -2466,55 +2466,55 @@ const About: React.FC = () => {
             <ValuesGrid>
               <ValueCard ref={setElementRef(28)}>
                 <ValueIcon>🎯</ValueIcon>
-                <ValueTitle>Excellence in Education</ValueTitle>
+                <ValueTitle>Excellence in Programming Education</ValueTitle>
                 <ValueDescription>
-                  We maintain the highest standards in AI education, constantly updating 
-                  our curriculum with the latest research and industry practices.
+                  We maintain the highest standards in Python education, constantly updating 
+                  our curriculum with the latest frameworks and industry best practices.
                 </ValueDescription>
               </ValueCard>
 
               <ValueCard ref={setElementRef(29)}>
                 <ValueIcon>🤝</ValueIcon>
-                <ValueTitle>Inclusive Learning</ValueTitle>
+                <ValueTitle>Beginner-Friendly Learning</ValueTitle>
                 <ValueDescription>
-                  AI should be accessible to everyone. We create an inclusive environment 
-                  where learners from all backgrounds can thrive and succeed.
+                  Python should be accessible to everyone. We create a supportive environment 
+                  where learners from all backgrounds can master programming fundamentals.
                 </ValueDescription>
               </ValueCard>
 
               <ValueCard ref={setElementRef(30)}>
                 <ValueIcon>⚡</ValueIcon>
-                <ValueTitle>Innovation First</ValueTitle>
+                <ValueTitle>Modern Python Practices</ValueTitle>
                 <ValueDescription>
-                  We stay at the forefront of AI innovation, bringing cutting-edge 
-                  technologies and methodologies directly to our students.
+                  We stay current with the latest Python frameworks and tools, 
+                  bringing modern development practices directly to our students.
                 </ValueDescription>
               </ValueCard>
 
               <ValueCard ref={setElementRef(31)}>
                 <ValueIcon>🛡️</ValueIcon>
-                <ValueTitle>Ethical AI</ValueTitle>
+                <ValueTitle>Clean Code Principles</ValueTitle>
                 <ValueDescription>
-                  We prioritize responsible AI development, teaching not just how to build 
-                  AI systems, but how to build them ethically and safely.
+                  We prioritize writing clean, maintainable code, teaching not just how to 
+                  build applications, but how to build them efficiently and professionally.
                 </ValueDescription>
               </ValueCard>
 
               <ValueCard ref={setElementRef(32)}>
                 <ValueIcon>🌱</ValueIcon>
-                <ValueTitle>Continuous Growth</ValueTitle>
+                <ValueTitle>Continuous Skill Development</ValueTitle>
                 <ValueDescription>
-                  Learning never stops in AI. We foster a culture of continuous improvement 
-                  and lifelong learning for both students and instructors.
+                  Programming is an evolving field. We foster continuous learning 
+                  and skill development for both students and instructors.
                 </ValueDescription>
               </ValueCard>
 
               <ValueCard ref={setElementRef(33)}>
                 <ValueIcon>🌍</ValueIcon>
-                <ValueTitle>Global Impact</ValueTitle>
+                <ValueTitle>Real-World Applications</ValueTitle>
                 <ValueDescription>
-                  We aim to democratize AI education worldwide, creating positive impact 
-                  in communities and industries across the globe.
+                  We focus on practical Python skills that you can apply immediately 
+                  in real projects, from web development to data science and automation.
                 </ValueDescription>
               </ValueCard>
             </ValuesGrid>
@@ -2522,11 +2522,11 @@ const About: React.FC = () => {
             <MissionStatement ref={setElementRef(34)}>
               <MissionTitle>Our Mission</MissionTitle>
               <MissionStatementText>
-                To empower the next generation of AI innovators with world-class education, 
-                ethical foundations, and practical skills that drive positive change in society. 
-                We believe that by making AI education accessible and excellent, we can help 
-                solve humanity's greatest challenges while creating opportunities for everyone 
-                to participate in the AI-driven future.
+                To empower the next generation of Python developers with world-class education, 
+                practical skills, and real-world projects that drive career success. 
+                We believe that by making Python education accessible and excellent, we can help 
+                students build amazing applications while creating opportunities for everyone 
+                to participate in the programming revolution.
               </MissionStatementText>
             </MissionStatement>
           </ValuesContainer>
@@ -2542,23 +2542,23 @@ const About: React.FC = () => {
             <ModalImage>
               <img src="/images/pictureAI_1.jpg" alt="James K." />
             </ModalImage>
-            <ModalTitle>James K.</ModalTitle>
-            <ModalSubtitle>AI Enthusiast & Educator</ModalSubtitle>
+            <ModalTitle>Alex P.</ModalTitle>
+            <ModalSubtitle>Python Expert & Educator</ModalSubtitle>
           </ModalHeader>
 
           <ModalDescription>
-            Hi! I'm James, the founder and creator of Williams AI Academy. My journey with artificial intelligence started 
-            as a personal curiosity that quickly grew into a passion for understanding and teaching this transformative technology.
+            Hi! I'm Alex, the founder and creator of PythonLearn. My journey with Python programming started 
+            as a computer science student and quickly grew into a passion for understanding and teaching this powerful language.
             <br /><br />
-            I believe AI should be accessible to everyone, not just those with advanced technical backgrounds. That's why I 
-            created comprehensive video courses that break down complex AI concepts into understandable, practical lessons.
+            I believe Python should be accessible to everyone, not just those with advanced technical backgrounds. That's why I 
+            created comprehensive video courses that break down complex programming concepts into understandable, practical lessons.
             <br /><br />
-            My mission is simple: to help others discover the fascinating world of artificial intelligence and empower them 
-            with the knowledge and skills needed to thrive in our AI-driven future. Every course I create is designed with 
+            My mission is simple: to help others discover the amazing world of Python programming and empower them 
+            with the knowledge and skills needed to build incredible applications and advance their careers. Every course I create is designed with 
             real-world applications in mind, ensuring you can apply what you learn immediately.
             <br /><br />
-            Whether you're just starting your AI journey or looking to deepen your expertise, I'm here to guide you every step 
-            of the way. Let's explore the incredible possibilities of artificial intelligence together!
+            Whether you're just starting your programming journey or looking to master advanced Python concepts, I'm here to guide you every step 
+            of the way. Let's explore the incredible possibilities of Python together!
           </ModalDescription>
         </ModalContent>
       </ModalOverlay>

@@ -265,14 +265,20 @@ const OptimizedProductCard: React.FC<OptimizedProductCardProps> = memo(({
   onViewDetails
 }) => {
   const { formatPrice } = usePrice();
+  
+  // Состояние для медиа
+  const [showVideo, setShowVideo] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  
+  const videoRef = useRef<HTMLVideoElement>(null);
+  
+  // Ленивая загрузка оригинального изображения
   const { ref: imgRef, src: imageSrc, isLoaded, isError } = useLazyImage(
     product.image,
     '/placeholder-image.jpg'
   );
   
-  const [showVideo, setShowVideo] = useState(false);
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+
 
   const handleAddToCart = React.useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
@@ -334,7 +340,7 @@ const OptimizedProductCard: React.FC<OptimizedProductCardProps> = memo(({
             <ProductVideo
               ref={videoRef}
               onLoadedData={handleVideoLoaded}
-              muted
+              controls
               playsInline
               preload="metadata"
               style={{ display: isVideoLoaded ? 'block' : 'none' }}

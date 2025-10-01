@@ -51,7 +51,7 @@ const Login: React.FC = () => {
           <LoginHeader>
             <BrandLogo>EL</BrandLogo>
             <LoginTitle>Welcome Back</LoginTitle>
-            <LoginSubtitle>Sign in to your Williams Collection account</LoginSubtitle>
+            <LoginSubtitle>Sign in to your PythonLearn account</LoginSubtitle>
           </LoginHeader>
 
           {error && <ErrorMessage>{error}</ErrorMessage>}

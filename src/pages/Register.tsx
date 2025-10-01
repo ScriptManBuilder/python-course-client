@@ -188,7 +188,7 @@ const Register: React.FC = () => {
           <RegisterHeader>
             <BrandLogo>
               <div className="icon">E</div>
-              <span>WILLIAMS COLLECTION</span>
+              <span>PYTHONLEARN</span>
             </BrandLogo>
             <RegisterTitle>Create Your Account</RegisterTitle>
             <RegisterSubtitle>Join thousands of satisfied customers</RegisterSubtitle>

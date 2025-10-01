@@ -122,7 +122,7 @@ const ProductDetail: React.FC = () => {
             position: 'relative',
             zIndex: 1
           }}>
-            Professional AI Education Platform
+            Professional Python Education Platform
           </p>
         </PageHeader>
         

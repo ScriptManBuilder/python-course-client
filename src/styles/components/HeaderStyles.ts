@@ -72,6 +72,8 @@ export const HeaderWrapper = styled.header`
   border-bottom: 1px solid rgba(44, 62, 80, 0.1);
   box-shadow: 0 8px 32px rgba(44, 62, 80, 0.08);
   transition: all 0.3s ease;
+  min-width: 320px; /* Минимальная ширина для очень маленьких экранов */
+  overflow: visible; /* Позволяет dropdown выходить за границы хедера */
   
   @media (max-width: 768px) {
     backdrop-filter: blur(15px);
@@ -136,19 +138,29 @@ export const TopBarContent = styled.div`
   align-items: center;
   position: relative;
   z-index: 1;
+  min-width: 0; /* Позволяет flex элементам сжиматься */
   
   @media (max-width: 768px) {
-    padding: 0 15px;
+    padding: 0 10px;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
   }
   
   @media (max-width: 480px) {
-    padding: 0 10px;
-    gap: 6px;
-    /* Увеличиваем высоту контента */
+    padding: 0 6px;
+    gap: 3px;
     min-height: inherit;
     justify-content: center;
+  }
+  
+  @media (max-width: 375px) {
+    padding: 0 4px;
+    gap: 2px;
+  }
+  
+  @media (max-width: 320px) {
+    padding: 0 2px;
+    gap: 1px;
   }
 `;
 
@@ -156,18 +168,28 @@ export const WarningText = styled.div`
   color: rgba(255, 255, 255, 0.95);
   font-weight: 600;
   text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   
   @media (max-width: 768px) {
-    font-size: 0.95em;
+    font-size: 0.8rem;
     text-align: center;
   }
   
   @media (max-width: 480px) {
-    font-size: 0.9em;
+    font-size: 0.7rem;
     text-align: center;
-    /* Показываем сокращенную версию */
-    font-size: 11px;
     font-weight: 700;
+  }
+  
+  @media (max-width: 375px) {
+    font-size: 0.65rem;
+  }
+  
+  @media (max-width: 320px) {
+    font-size: 0.6rem;
   }
   
   @media (max-width: 360px) {
@@ -180,17 +202,19 @@ export const ContactInfo = styled.div`
   display: flex;
   gap: 20px;
   align-items: center;
+  flex-shrink: 1; /* Позволяет сжиматься */
+  min-width: 0;
   
   @media (max-width: 768px) {
-    gap: 15px;
+    gap: 10px;
     flex-wrap: wrap;
     justify-content: center;
-    font-size: 0.9em;
+    font-size: 0.8rem;
   }
   
   @media (max-width: 480px) {
-    gap: 10px;
-    font-size: 10px;
+    gap: 6px;
+    font-size: 0.7rem;
     /* Показываем только телефон на маленьких экранах */
     > div:first-child {
       display: none;
@@ -213,6 +237,8 @@ export const ContactItem = styled.div`
   gap: 5px;
   transition: all 0.3s ease;
   color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+  overflow: hidden;
   
   &:hover {
     transform: translateY(-1px);
@@ -220,8 +246,22 @@ export const ContactItem = styled.div`
     text-shadow: 0 2px 8px rgba(0,0,0,0.3);
   }
   
+  /* Стили для ссылок внутри ContactItem */
+  a {
+    color: inherit;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  @media (max-width: 768px) {
+    gap: 4px;
+    font-size: 0.8rem;
+  }
+  
   @media (max-width: 480px) {
     gap: 3px;
+    font-size: 0.7rem;
     
     /* Увеличиваем размер иконок для лучшей видимости */
     svg {
@@ -249,39 +289,42 @@ export const Nav = styled.nav`
   align-items: center;
   height: 80px;
   position: relative;
+  min-width: 0; /* Позволяет flex элементам сжиматься */
+  overflow: visible; /* Позволяет dropdown выходить за границы */
   
   @media (max-width: 768px) {
-    padding: 0 15px;
+    padding: 0 10px;
     height: 55px;
+    gap: 8px;
   }
   
   @media (max-width: 480px) {
-    padding: 0 8px;
+    padding: 0 6px;
     height: 45px;
     gap: 4px;
   }
   
   @media (max-width: 375px) {
-    padding: 0 6px;
+    padding: 0 4px;
     height: 42px;
-    gap: 3px;
-  }
-  
-  @media (max-width: 360px) {
-    padding: 0 5px;
-    height: 40px;
     gap: 2px;
   }
   
-  @media (max-width: 320px) {
-    padding: 0 4px;
-    height: 35px;
+  @media (max-width: 360px) {
+    padding: 0 3px;
+    height: 40px;
     gap: 1px;
+  }
+  
+  @media (max-width: 320px) {
+    padding: 0 2px;
+    height: 35px;
+    gap: 0;
   }
 `;
 
 export const Logo = styled(Link)`
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 700;
   background: var(--wc-gradient-primary);
   background-clip: text;
@@ -292,6 +335,11 @@ export const Logo = styled(Link)`
   transition: all 0.3s ease;
   letter-spacing: -0.02em;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  flex-shrink: 0; /* Предотвращает сжатие логотипа */
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   
   &::after {
     content: '';
@@ -311,32 +359,24 @@ export const Logo = styled(Link)`
   }
   
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     line-height: 1.2;
   }
   
   @media (max-width: 480px) {
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.1;
-    font-weight: 800;
-    /* Сокращаем логотип на мобильных */
-    &::before {
-      content: "WC";
-      display: block;
-    }
-    
-    /* Скрываем оригинальный текст */
-    font-size: 0;
-    
-    &::before {
-      font-size: 1rem;
-    }
+    max-width: 120px; /* Ограничиваем ширину */
   }
   
   @media (max-width: 375px) {
-    &::before {
-      font-size: 0.9rem;
-    }
+    font-size: 0.85rem;
+    max-width: 100px;
+  }
+  
+  @media (max-width: 320px) {
+    font-size: 0.75rem;
+    max-width: 80px;
   }
   
   @media (max-width: 360px) {
@@ -356,6 +396,7 @@ export const NavLinks = styled.div<{ isOpen: boolean }>`
   display: flex;
   gap: 30px;
   align-items: center;
+  overflow: visible; /* Позволяет dropdown выходить за границы */
   
   .close-button {
     display: none;
@@ -543,6 +584,7 @@ export const NavLink = styled(Link)`
 export const ProductsNavItem = styled.div`
   position: relative;
   display: inline-block;
+  z-index: 10000; /* Высокий z-index для корректного отображения dropdown */
   
   /* Увеличиваем невидимую область для стабильного наведения */
   &::before {
@@ -564,7 +606,7 @@ export const ProductsNavItem = styled.div`
     left: -250px;
     right: -250px;
     height: 15px;
-    z-index: 998;
+    z-index: 9998;
     pointer-events: auto;
     background: transparent;
   }

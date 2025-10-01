@@ -1080,15 +1080,15 @@ const Checkout: React.FC = () => {
                 🏦 Billing Descriptor
               </BillingDescriptorTitle>
               <BillingDescriptorText>
-                Your credit card will be billed with the following descriptor: <strong>WILLCOL-AI.COM</strong>. This is how the charge will appear on the cardholder's billing statement.
+                Your credit card will be billed with the following descriptor: <strong>PYTHON-LEARNING.COM</strong>. This is how the charge will appear on the cardholder's billing statement.
               </BillingDescriptorText>
             </BillingDescriptorSection>
 
             <ContactInfo>
               <ContactTitle>Customer Support</ContactTitle>
               <ContactDetails>
-                <p>📧 Email: support@willcol-ai.com</p>
-                <p>📞 Phone: <a href="tel:+18443293900">+1 (445) 285-6014</a></p>
+                <p>📧 Email: support@python-learning.com</p>
+                <p>📞 Phone: <a href="tel:+12272306684">+1 (227) 230-6684</a></p>
                 <p>🕒 Hours: Monday - Friday, 9 AM - 6 PM MST</p>
                 
               </ContactDetails>
@@ -1146,9 +1146,9 @@ const Checkout: React.FC = () => {
                 <TermsText>
                   I am 18 years or older and agree to the<a href="/terms-conditions"> Terms & Conditions</a>, <a href="/refund-policy">Refund Policy</a>. 
                   I agree to pay the total amount provided on the checkout page. Upon successful payment, I will receive instant access to all course materials. 
-                  To request a refund, please contact our customer service team CST Mon-Fri (9am-5pm) at +1 (445) 285-6014 or email support@willcol-ai.com within 30 days of purchase. 
+                  To request a refund, please contact our customer service team CST Mon-Fri (9am-6pm) at +1 (227) 230-6684 or email support@python-learning.com within 30 days of purchase. 
                   For guidelines on refunds please visit our <a href="/refund-policy">Refund Policy</a> page. 
-                  Your credit card will be billed with the following descriptor: WILLCOL-AI.COM. This is how the 
+                  Your credit card will be billed with the following descriptor: PYTHON-LEARNING.COM. This is how the 
                   charge will appear on the cardholder's billing statement. Course access will be provided immediately after successful payment.
                 </TermsText>
               </CheckboxContainer>
@@ -1219,7 +1219,7 @@ const Checkout: React.FC = () => {
                 <span style={{ marginRight: '8px', marginTop: '2px' }}>💳</span>
                 <div>
                   <strong style={{ color: 'var(--minimal-text-primary)' }}>Billing Descriptor:</strong><br />
-                  Your credit card will be billed with the following descriptor: <strong>WILLCOL-AI.COM</strong>. This is how the charge will appear on your billing statement.
+                  Your credit card will be billed with the following descriptor: <strong>PYTHON-LEARNING.COM</strong>. This is how the charge will appear on your billing statement.
                 </div>
               </p>
             </div>

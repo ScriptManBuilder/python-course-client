@@ -43,17 +43,17 @@ const Products: React.FC = () => {
   // Мемоизируем категории
   const categories = useMemo(() => [
     { id: 'all', name: 'All Courses' },
-    { id: 'AI Basics', name: 'AI Basics' },
-    { id: 'Content Creation', name: 'Content' },
-    { id: 'Business Automation', name: 'Business' },
-    { id: 'Advanced AI', name: 'Advanced' },
-    { id: 'AI Marketing', name: 'Marketing' },
-    { id: 'Data & Analytics', name: 'Analytics' },
-    { id: 'Productivity Mastery', name: 'Productivity' },
-    { id: 'Creative AI', name: 'Creative' },
-    { id: 'AI Consulting', name: 'Consulting' },
-    { id: 'Enterprise AI', name: 'Enterprise' },
-    { id: 'AI Mastery', name: 'Mastery' }
+    { id: 'Python Basics', name: 'Python Basics' },
+    { id: 'Python Data', name: 'Data Types' },
+    { id: 'Python Functions', name: 'Functions' },
+    { id: 'Python I/O', name: 'File Handling' },
+    { id: 'Python OOP', name: 'OOP' },
+    { id: 'Python Libraries', name: 'Libraries' },
+    { id: 'Python Web', name: 'Web Development' },
+    { id: 'Python Algorithms', name: 'Algorithms' },
+    { id: 'Data Analysis', name: 'Data Analysis' },
+    { id: 'API Development', name: 'API Development' },
+    { id: 'Advanced Python', name: 'Advanced' }
   ], []);
 
   // Мемоизируем фильтрацию продуктов
@@ -119,8 +119,8 @@ const Products: React.FC = () => {
     <ProductsWrapper>
       <Container>
         <PageHeader>
-          <PageTitle>Williams AI Course Collection</PageTitle>
-          <PageSubtitle>Master AI & ChatGPT with our comprehensive video course library</PageSubtitle>
+          <PageTitle>PythonLearn Course Collection</PageTitle>
+          <PageSubtitle>Master Python Programming with our comprehensive video course library</PageSubtitle>
         </PageHeader>
         
         <FilterSection>

@@ -1968,8 +1968,8 @@ export const ScrollingText = styled.div`
 
 export const PhotoStrip = styled.div`
   display: flex;
-  width: calc(200% + 200px);
-  animation: scrollPhotos 35s linear infinite;
+  width: calc(300% + 300px); /* Увеличиваем ширину для трех наборов */
+  animation: scrollPhotos 45s linear infinite; /* Увеличиваем время для плавности */
   transform: translateZ(0); /* GPU acceleration */
   will-change: transform; /* Оптимизация для анимации */
   
@@ -1981,7 +1981,7 @@ export const PhotoStrip = styled.div`
   
   /* Анимация тени */
   animation: 
-    scrollPhotos 35s linear infinite,
+    scrollPhotos 45s linear infinite,
     chameleonShadow 6s ease infinite;
   
   @keyframes scrollPhotos {
@@ -1989,7 +1989,7 @@ export const PhotoStrip = styled.div`
       transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-33.33%, 0, 0); /* Сдвигаем на треть для бесконечности */
     }
   }
   

@@ -1,5 +1,5 @@
 // API base URL
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3001/api';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3003';
 
 // Utility функция для запросов с токеном
 const apiRequest = async (endpoint: string, options: RequestInit = {}) => {

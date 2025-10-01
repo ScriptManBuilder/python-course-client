@@ -47,7 +47,7 @@ const Header: React.FC = () => {
 
   const handlePhoneClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const phone = '+14452856014';
+    const phone = '+12272306684';
     
     // Просто пытаемся позвонить/открыть приложение для звонков
     window.location.href = `tel:${phone}`;
@@ -58,6 +58,7 @@ const Header: React.FC = () => {
   };
 
   const handleProductsMouseEnter = () => {
+    console.log('Mouse entered CATALOG'); // Временная отладка
     isMouseOverProducts.current = true;
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
@@ -174,23 +175,23 @@ const Header: React.FC = () => {
       <TopBar>
         <TopBarContent>
           <WarningText>
-            Williams AI Academy - Professional AI Education Platform
+            PythonLearn - Professional Python Education
           </WarningText>
           <ContactInfo>
             <ContactItem>
               <MailIcon size={14} />
               <span style={{ color: 'inherit' }}>
-                support@willcol-ai.com
+                support@python-learning.com
               </span>
             </ContactItem>
             <ContactItem>
               <PhoneIcon size={14} />
               <a 
-                href="tel:+14452856014" 
+                href="tel:+12272306684" 
                 onClick={handlePhoneClick}
                 style={{ cursor: 'pointer', color: 'inherit', textDecoration: 'none' }}
               >
-                +1 (445) 285-6014
+                +1 (227) 230-6684
               </a>
             </ContactItem>
           </ContactInfo>
@@ -198,7 +199,7 @@ const Header: React.FC = () => {
       </TopBar>
       
       <Nav>
-        <Logo to="/">Williams AI Academy </Logo>
+        <Logo to="/">PythonLearn</Logo>
         
         <NavLinks isOpen={isMenuOpen}>
           <NavLink to="/" onClick={() => setIsMenuOpen(false)}>HOME</NavLink>

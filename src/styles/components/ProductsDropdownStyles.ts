@@ -33,7 +33,7 @@ export const DropdownWrapper = styled.div`
   border-top: none;
   box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
   animation: ${fadeInDown} 0.2s ease-out;
-  z-index: 999;
+  z-index: 9999; /* Увеличили z-index */
   min-height: 420px;
   width: 900px;
   border-radius: 0 0 16px 16px;
