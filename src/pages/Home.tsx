@@ -661,7 +661,7 @@ const Home: React.FC = () => {
             <InfoSubsection>
               <InfoSubtitle>24/7 Community Access</InfoSubtitle>
               <InfoText>
-                Connect with <InfoHighlight>thousands of Python learners worldwide </InfoHighlight> 
+                Connect with <InfoHighlight>hundreds of Python learners worldwide </InfoHighlight> 
                 through our exclusive community platform. Share projects, get feedback, 
                 and collaborate on Python solutions.
               </InfoText>

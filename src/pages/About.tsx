@@ -2260,7 +2260,7 @@ const About: React.FC = () => {
             </CompanyName>
             
             <MissionText ref={setElementRef(1)}>
-              {splitTextToWords('To empower learners worldwide with cutting-edge AI education,')}
+              {splitTextToWords('To empower learners worldwide with comprehensive Python education,')}
             </MissionText>
             
             <MissionText ref={setElementRef(2)}>
@@ -2268,14 +2268,14 @@ const About: React.FC = () => {
             </MissionText>
             
             <DescriptionText ref={setElementRef(3)} className="description-text">
-              {splitTextToChars('Our expertly crafted AI courses cover machine learning, deep learning, natural language processing, computer vision, and more. Each course is designed with hands-on projects, real-world applications, and industry best practices to help you master artificial intelligence and advance your career in this rapidly evolving field.')}
+              {splitTextToChars('Our expertly crafted Python courses cover web development, data science, automation, machine learning, and more. Each course is designed with hands-on projects, real-world applications, and industry best practices to help you master Python programming and advance your career in this versatile and in-demand field.')}
             </DescriptionText>
             
             <ProductsCallToAction ref={setElementRef(4)}>
               <ProductsCard to="/products">
-                <ProductsCardTitle>Explore Our AI Courses</ProductsCardTitle>
+                <ProductsCardTitle>Explore Our Python Courses</ProductsCardTitle>
                 <ProductsCardDescription>
-                  Discover comprehensive AI learning programs designed for all skill levels
+                  Discover comprehensive Python learning programs designed for all skill levels
                 </ProductsCardDescription>
                 <ProductsCardButton>
                   View Courses
@@ -2442,7 +2442,7 @@ const About: React.FC = () => {
                   </LeaderOverlay>
                 </LeaderImage>
                 <LeaderInfo>
-                  <LeaderName>James K.</LeaderName>
+                  <LeaderName>Shannon W.</LeaderName>
                   <LeaderTitle>AI Enthusiast & Educator</LeaderTitle>
                   <LeaderDescription>
                     Passionate about artificial intelligence and dedicated to making AI education accessible to everyone. 
@@ -2539,15 +2539,13 @@ const About: React.FC = () => {
           <CloseButton onClick={closeModal}>×</CloseButton>
           
           <ModalHeader>
-            <ModalImage>
-              <img src="/images/pictureAI_1.jpg" alt="James K." />
-            </ModalImage>
-            <ModalTitle>Alex P.</ModalTitle>
+         
+            <ModalTitle>Shannon W.</ModalTitle>
             <ModalSubtitle>Python Expert & Educator</ModalSubtitle>
           </ModalHeader>
 
           <ModalDescription>
-            Hi! I'm Alex, the founder and creator of PythonLearn. My journey with Python programming started 
+            Hi! I'm Shannon, the founder and creator of PythonLearn. My journey with Python programming started 
             as a computer science student and quickly grew into a passion for understanding and teaching this powerful language.
             <br /><br />
             I believe Python should be accessible to everyone, not just those with advanced technical backgrounds. That's why I 
